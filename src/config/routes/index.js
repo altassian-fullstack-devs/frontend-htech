@@ -1,5 +1,5 @@
 import App from 'App'
-import { Public, Developer, Client, Admin } from 'containers/layout'
+import { Common, Developer, Client, Admin } from 'containers/layout'
 import { ADMIN_ROOT, AUTH_ROOT, CLIENT_ROOT, DEVELOPER_ROOT, ROOT_PATH } from 'constants/paths'
 import { USER_TYPES } from 'constants/types'
 import publicRoutes from './public'
@@ -43,19 +43,19 @@ const routes = viewer => {
         ...viewerRouters,
         {
             path: AUTH_ROOT,
-            component: Public,
+            component: Common,
             routes: authRoutes(viewer)
         },
         {
             path: ROOT_PATH,
-            component: Public,
+            component: Common,
             routes: publicRoutes()
         }
     ]
 
     return [
         {
-            component: Public,
+            component: Common,
             routes: allRoutes
         }
     ]

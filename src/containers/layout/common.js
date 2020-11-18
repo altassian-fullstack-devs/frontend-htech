@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { renderRoutes } from 'react-router-config'
 
-const Public = ({ route }) => (
+const Common = ({ route }) => (
   <div>{renderRoutes(route.routes)}</div>
 )
 
-Public.propTypes = {
+Common.propTypes = {
   route: PropTypes.object.isRequired,
 }
 
-export default Public
+export default Common

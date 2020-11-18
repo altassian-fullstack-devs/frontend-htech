@@ -4,7 +4,7 @@ import { SignIn, SignUp } from 'containers/pages/auth'
 import { NotFound } from 'containers/layout'
 
 const AuthorizedRedirector = () => <Redirect to={ROOT_PATH} />
-export const redirectAuthorized = viewer => component =>
+const redirectAuthorized = viewer => component =>
   viewer.isAuthenticated ? AuthorizedRedirector : component
 
 const routes = viewer => [
