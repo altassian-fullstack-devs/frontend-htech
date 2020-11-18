@@ -4,5 +4,6 @@ import Portfolio from "./portfolio"
 import Post from "./post"
 import Profile from "./profile"
 import Team from "./team"
+import Services from './services'
 
-export { Blog, Contact, Portfolio, Post, Profile, Team }
+export { Blog, Contact, Portfolio, Post, Profile, Team, Services }
