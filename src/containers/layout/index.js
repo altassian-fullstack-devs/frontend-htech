@@ -2,7 +2,8 @@ import NotFound from './not-found'
 import Admin from './admin'
 import Client from './client'
 import Developer from './developer'
-import Basic from './basic'
+import Root from './root'
 import Common from './common'
+import Auth from './auth'
 
-export { NotFound, Admin, Client, Developer, Common, Basic }
+export { NotFound, Admin, Client, Developer, Common, Root, Auth }
