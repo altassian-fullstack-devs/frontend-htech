@@ -9,6 +9,7 @@ import developerRoutes from './developer'
 import clientRoutes from './client'
 import GalleryItemDetail from 'components/portfolio/gallery-item-detail'
 
+
 const routesForType = viewer => ({
     [USER_TYPES.admin]: [
         {
@@ -51,7 +52,7 @@ const routes = viewer => {
             path: ROOT_PATH + 'portfolio-detail',
             component: GalleryItemDetail,
             exact: true,
-        }, 
+        },
         {
             path: ROOT_PATH,
             component: Common,

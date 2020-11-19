@@ -2,6 +2,7 @@ import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
 import { Portfolio, Blog, Post, Contact, Team, Profile } from 'containers/pages/public'
 import { NotFound } from 'containers/layout'
 import Home from 'containers/pages/public/home'
+import BlogSingle from 'components/blog/blog-single'
 
 const routes = () => [
     {
@@ -33,6 +34,11 @@ const routes = () => [
         path: PUBLIC_PATHS.TEAM,
         exact: true,
         component: Team
+    },
+    {
+        path: PUBLIC_PATHS.BLOGDETAIL,
+        component: BlogSingle,
+        exact: true,
     },
     {
         path: PUBLIC_PATHS.PROFILE,

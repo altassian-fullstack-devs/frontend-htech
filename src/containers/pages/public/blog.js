@@ -1,11 +1,14 @@
-import React from "react"
+import Blogs from "../../../components/blog"
+import BlogSingle from "../../../components/blog/blog-single"
 
-const Blog = ({}) => {
+const Blog = () => {
   return (
-    <div>
-      Blog
-    </div>
+    <>
+    <Blogs/>
+    {/* <BlogSingle/> */}
+    </>
   )
+
 }
 
 export default Blog

@@ -7,6 +7,7 @@ export const AUTH_ROOT = `${ROOT_PATH}auth/`
 export const PUBLIC_PATHS = {
     PORTFOLIO: `${ROOT_PATH}portfolio`,
     BLOG: `${ROOT_PATH}blog`,
+    BLOGDETAIL : `${ROOT_PATH}blog-detail`,
     POST: `${ROOT_PATH}post`,
     CONTACT: `${ROOT_PATH}contact`,
     TEAM: `${ROOT_PATH}team`,
