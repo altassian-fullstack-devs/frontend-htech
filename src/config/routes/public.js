@@ -1,5 +1,5 @@
 import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
-import { Portfolio, Blog, Post, Contact, Team, Profile, Services, Home } from 'containers/pages/public'
+import { Portfolio, Blog, Post, Contact, Team, Profile, Services, Home, AboutUs, TeamPage, TestimonialPage } from 'containers/pages/public'
 import BlogSingle from 'components/blog/blog-single'
 import { Common, NotFound } from 'containers/layout'
 import GalleryItemDetail from 'components/portfolio/gallery-item-detail'
@@ -59,6 +59,21 @@ const routes = () => [
                 path: PUBLIC_PATHS.SERVICES,
                 exact: true,
                 component: Services
+            },
+            {
+                path: PUBLIC_PATHS.ABOUTUS,
+                component: AboutUs,
+                exact: true,
+            },
+            {
+                path: PUBLIC_PATHS.TEAMPAGE,
+                component: TeamPage,
+                exact: true,
+            },
+            {
+                path:PUBLIC_PATHS.TESTIMONIALPAGE,
+                component: TestimonialPage,
+                exact: true,
             },
         ]
     },
