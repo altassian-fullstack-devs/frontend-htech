@@ -1,5 +1,5 @@
-import App from 'App'
-import { Common, Developer, Client, Admin } from 'containers/layout'
+import App from 'app'
+import { Common, Developer, Client, Admin, Basic } from 'containers/layout'
 import { ADMIN_ROOT, AUTH_ROOT, CLIENT_ROOT, DEVELOPER_ROOT, ROOT_PATH } from 'constants/paths'
 import { USER_TYPES } from 'constants/types'
 import publicRoutes from './public'
@@ -7,6 +7,7 @@ import authRoutes from './auth'
 import adminRoutes from './admin'
 import developerRoutes from './developer'
 import clientRoutes from './client'
+import GalleryItemDetail from 'components/portfolio/gallery-item-detail'
 
 const routesForType = viewer => ({
     [USER_TYPES.admin]: [
@@ -43,9 +44,14 @@ const routes = viewer => {
         ...viewerRouters,
         {
             path: AUTH_ROOT,
-            component: Common,
+            component: Basic,
             routes: authRoutes(viewer)
         },
+        {
+            path: ROOT_PATH + 'portfolio-detail',
+            component: GalleryItemDetail,
+            exact: true,
+        }, 
         {
             path: ROOT_PATH,
             component: Common,
@@ -55,7 +61,7 @@ const routes = viewer => {
 
     return [
         {
-            component: Common,
+            component: Basic,
             routes: allRoutes
         }
     ]
