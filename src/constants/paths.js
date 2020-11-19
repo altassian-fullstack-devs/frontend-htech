@@ -11,6 +11,7 @@ export const PUBLIC_PATHS = {
     CONTACT: `${ROOT_PATH}contact`,
     TEAM: `${ROOT_PATH}team`,
     PROFILE: `${ROOT_PATH}o/d/:id`,
+    PORTFOLIO_DETAIL: `${ROOT_PATH}portfolio-detail`,
 }
 
 export const AUTH_PATHS = {
