@@ -13,7 +13,10 @@ export const PUBLIC_PATHS = {
     TEAM: `${ROOT_PATH}team`,
     PROFILE: `${ROOT_PATH}o/d/:id`,
     SERVICES: `${ROOT_PATH}services`,
-    PORTFOLIO_DETAIL: `${ROOT_PATH}portfolio-detail`,
+    PORTFOLIO_DETAIL:`${ROOT_PATH}portfolio-detail`,
+    ABOUTUS: `${ROOT_PATH}about`,
+    TEAMPAGE: `${ROOT_PATH}teampage`,
+    TESTIMONIALPAGE: `${ROOT_PATH}testimonials`,
 }
 
 export const AUTH_PATHS = {

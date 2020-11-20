@@ -6,5 +6,7 @@ import Profile from "./profile"
 import Team from "./team"
 import Home from './home'
 import Services from './services'
-
-export { Blog, Contact, Portfolio, Post, Profile, Team, Services, Home }
+import { AboutUs } from './about'
+import { TestimonialPage } from './about'
+import { TeamPage } from './about'
+export { Home, Blog, Contact, Portfolio, Post, Profile, Team, Services, AboutUs, TestimonialPage, TeamPage }
