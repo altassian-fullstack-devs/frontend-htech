@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { NavLink } from 'components/common'
+
 const Header = () => {
   return (
     <header id="header" className="fixed-top header-inner-pages">
@@ -10,22 +12,21 @@ const Header = () => {
 
       <nav className="nav-menu d-none d-lg-block">
         <ul>
-        <li className="active"><a href="/">Home</a></li>
+          <NavLink to="/">Home</NavLink>
 
-        <li className="drop-down"><a href="/#">About</a>
-          <ul>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/teampage">Team</a></li>
-            <li><a href="/testimonials">Testimonials</a></li>
-          </ul>
-        </li>
+          <li className="drop-down"><a href="/#">About</a>
+            <ul>
+              <NavLink to="/about" exact>About Us</NavLink>
+              <NavLink to="/teampage" exact>Team</NavLink>
+              <NavLink to="/testimonials" exact>Testimonials</NavLink>
+            </ul>
+          </li>
 
-        <li><a href="/services">Services</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contact">Contact</a></li>
-
+          <NavLink to="/services" exact>Services</NavLink>
+          <NavLink to="/portfolio" exact>Portfolio</NavLink>
+          <NavLink to="/pricing" exact>Pricing</NavLink>
+          <NavLink to="/blog" exact>Blog</NavLink>
+          <NavLink to="/contact" exact>Contact</NavLink>
         </ul>
       </nav>
 
