@@ -1,5 +1,6 @@
 import { createAsyncAction } from 'store/utils'
 import apiCall from 'services/api'
+import { ENDPOINT } from 'constants/app'
 
 export const AUTHENTICATE = createAsyncAction('auth/AUTHENTICATE')
 export const CONFIRM_EMAIL = createAsyncAction('auth/CONFIRM_EMAIL')
@@ -9,7 +10,7 @@ export const CHANGE_PASSWORD = createAsyncAction('auth/CHANGE_PASSWORD')
 export const signIn = (email, password) =>
   apiCall({
     method: 'POST',
-    endpoint: '/auth/login',
+    endpoint: ENDPOINT.SIGN_IN,
     query: {
       email,
       password,
@@ -21,7 +22,7 @@ export const signIn = (email, password) =>
 export const authCheck = () => (dispatch, getState) =>
   apiCall({
     method: 'GET',
-    endpoint: '/auth/check',
+    endpoint: ENDPOINT.AUTH_CHECK,
     query: {},
     types: AUTHENTICATE,
     needsNormalization: false
