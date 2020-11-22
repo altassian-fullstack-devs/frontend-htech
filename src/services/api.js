@@ -56,7 +56,7 @@ export default options => async (dispatch, getState) => {
 
   const fullUrl = absoluteUrl.test(endpoint) ? endpoint : `${url}${endpoint}`
 
-  const request = Request[HTTPMethod](fullUrl)
+  const request = Request[HTTPMethod](fullUrl).withCredentials()
 
   if (file) {
     request.attach(fileFieldName, file)
@@ -92,7 +92,6 @@ export default options => async (dispatch, getState) => {
         }
       })
       .end((error, data) => {
-
         if (isEmpty(data) || data.body === null) {
           merge(data, { body: { data: [] } })
         }
