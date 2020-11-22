@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
-import Header from './header'
-import Footer from './footer'
 import { renderRoutes } from 'react-router-config'
+import React from 'react'
+import { Layout } from 'antd'
+import Navbar from './header'
+
+const { Header, Content, Footer } = Layout
 
 const Common = ({ route }) => {
   return (
-    <div>
-      <Header />
+    <Layout className="layout">
+      <Header className="my-header">
+        <Navbar />
+      </Header>
+      <Content>
         { renderRoutes(route.routes) }
-      <Footer />
-    </div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>HOPE ©2020 Created by HOPE LtD</Footer>
+    </Layout>
   )
 }
 

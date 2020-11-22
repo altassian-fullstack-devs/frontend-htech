@@ -5,18 +5,7 @@ export const CLIENT_ROOT = `${ROOT_PATH}c/`
 export const AUTH_ROOT = `${ROOT_PATH}auth/`
 
 export const PUBLIC_PATHS = {
-    PORTFOLIO: `${ROOT_PATH}portfolio`,
     BLOG: `${ROOT_PATH}blog`,
-    BLOGDETAIL : `${ROOT_PATH}blog-detail`,
-    POST: `${ROOT_PATH}post`,
-    CONTACT: `${ROOT_PATH}contact`,
-    TEAM: `${ROOT_PATH}team`,
-    PROFILE: `${ROOT_PATH}o/d/:id`,
-    SERVICES: `${ROOT_PATH}services`,
-    PORTFOLIO_DETAIL:`${ROOT_PATH}portfolio-detail`,
-    ABOUTUS: `${ROOT_PATH}about`,
-    TEAMPAGE: `${ROOT_PATH}teampage`,
-    TESTIMONIALPAGE: `${ROOT_PATH}testimonials`,
 }
 
 export const AUTH_PATHS = {
