@@ -24,23 +24,26 @@ const initialState = {
   isLoaded: false,
 }
 
-const loadVisitor = (state, { payload }) => state.merge({
-  id: get(payload, 'data.meta[/user].data[0].id', null),
-  email: get(payload, 'data.meta[/user].data[0].email', null),
-  username: get(payload, 'data.meta[/user].data[0].username', null),
-  name: get(payload, 'data.meta[/user].data[0].name', null),
-  photo: get(payload, 'data.meta[/user].data[0].photo', null),
-  birthday: get(payload, 'data.meta[/user].data[0].birthday', null),
-  register_date: get(payload, 'data.meta[/user].data[0].register_date', null),
-  duty_id: get(payload, 'data.meta[/user].data[0].duty_id', null),
-  bio: get(payload, 'data.meta[/user].data[0].bio', null),
-  category_id: get(payload, 'data.meta[/user].data[0].category_id', null),
-  facebook_link: get(payload, 'data.meta[/user].data[0].facebook_link', null),
-  linkedin_link: get(payload, 'data.meta[/user].data[0].linkedin_link', null),
-  twitter_link: get(payload, 'data.meta[/user].data[0].twitter_link', null),
-  is_active: get(payload, 'data.meta[/user].data[0].is_active', null),
-  isLoaded: true,
-})
+const loadVisitor = (state, { payload }) => {
+  console.log(payload)
+  return state.merge({
+    id: get(payload, 'data.id', null),
+    email: get(payload, 'data.email', null),
+    username: get(payload, 'data.username', null),
+    name: get(payload, 'data.name', null),
+    photo: get(payload, 'data.hoto', null),
+    birthday: get(payload, 'data.birthday', null),
+    register_date: get(payload, 'data.register_date', null),
+    duty_id: get(payload, 'data.duty_id', null),
+    bio: get(payload, 'data.bio', null),
+    category_id: get(payload, 'data.category_id', null),
+    facebook_link: get(payload, 'data.facebook_link', null),
+    linkedin_link: get(payload, 'data.linkedin_link', null),
+    twitter_link: get(payload, 'data.twitter_link', null),
+    is_active: get(payload, 'data.is_active', null),
+    isLoaded: true,
+  })
+}
 
 const handlers = {
   [LOAD_VISITOR.SUCCESS]: loadVisitor,

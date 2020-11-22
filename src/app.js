@@ -18,18 +18,22 @@ import './assets/css/style.css'
 
 const { store, history } = createStore({})
 
-function App() {
+const App = () => {
   return (
+    <div className="App">
+      <BrowserRouter>
+        { renderRoutes(routes({isAuthenticated: false, type: "client"})) }
+      </BrowserRouter>
+    </div>
+  )
+}
+
+const Container = () => (
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <div className="App">
-          <BrowserRouter>
-            { renderRoutes(routes({isAuthenticated: false, type: "client"})) }
-          </BrowserRouter>
-        </div>
+        <App/>
       </ConnectedRouter>
     </Provider>
   );
-}
 
-export default App
+export default Container
