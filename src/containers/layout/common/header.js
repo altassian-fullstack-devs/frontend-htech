@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { NavLink } from 'components/common'
 
@@ -30,7 +31,7 @@ const Header = () => {
         </ul>
       </nav>
 
-      <a href="/" className="get-started-btn ml-auto">Get Started</a>
+      <Link className="get-started-btn ml-auto" to="/sign-up">Get Started</Link>
 
       </div>
     </header>
