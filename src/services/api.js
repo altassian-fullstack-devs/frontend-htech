@@ -1,10 +1,5 @@
 import qs from 'qs'
 import Request from 'superagent'
-import normalize from 'json-api-normalizer'
-
-import camelCase from 'lodash/camelCase'
-import mapKeys from 'lodash/mapKeys'
-import map from 'lodash/map'
 import get from 'lodash/get'
 import has from 'lodash/has'
 import merge from 'lodash/merge'
@@ -37,8 +32,6 @@ const defaultOptions = {
   file: null,
   fileFieldName: 'content',
   fileParams: null,
-  needsNormalization: true,
-  withoutAuthorization: false,
   types: null,
   paged: false,
 }
@@ -56,9 +49,7 @@ export default options => async (dispatch, getState) => {
     fileFieldName,
     fileParams,
     payload,
-    needsNormalization,
     types,
-    paged,
   } = merge({}, defaultOptions, options)
 
   const HTTPMethod = method.toLowerCase()
@@ -129,31 +120,9 @@ export default options => async (dispatch, getState) => {
         } else {
           const body = get(data, 'body')
 
-          const normalized = needsNormalization
-            ? normalize(body, {
-                endpoint,
-                camelizeKeys: true,
-              })
-            : body
-
           const successData = {
             ok: true,
-            meta,
-            isRaw: !needsNormalization,
-            payload: { ...payload, data: normalized },
-          }
-
-          if (paged) {
-            let params = get(normalized, `meta.${endpoint}.meta`)
-
-            params = mapKeys(params, (value, key) => camelCase(key))
-
-            const records = map(get(normalized, `meta.${endpoint}.data`), 'id')
-
-            successData.paged = {
-              ...params,
-              records,
-            }
+            payload: { ...payload, data: body },
           }
 
           if (has(types, 'SUCCESS')) {
