@@ -1,5 +1,5 @@
 import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
-import { Home } from 'containers/pages/public'
+import { Home, Profile } from 'containers/pages/public'
 import { Common, NotFound } from 'containers/layout'
 
 const routes = () => [
@@ -11,6 +11,11 @@ const routes = () => [
                 path: ROOT_PATH,
                 exact: true,
                 component: Home
+            }, 
+            {
+                path: PUBLIC_PATHS.PROFILE,
+                exact: true,
+                component: Profile
             }, 
         ]
     },
