@@ -13,7 +13,7 @@ const Navbar = () => {
         <Link to={ROOT_PATH}>HOPE</Link>
       </div>
       
-      <Menu mode="horizontal" className="my-menu" defaultSelectedKeys={[pathname]}>
+      <Menu mode="horizontal" className="my-menu" selectedKeys={[pathname]}>
         <Menu.Item key={PUBLIC_PATHS.HOW_WE_WORK}>
           <Link to={PUBLIC_PATHS.HOW_WE_WORK}>HOW WE WORK</Link>
         </Menu.Item>
