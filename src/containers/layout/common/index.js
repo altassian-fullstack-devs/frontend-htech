@@ -7,10 +7,11 @@ const { Header, Content, Footer } = Layout
 
 const Common = ({ route }) => {
   return (
-    <Layout className="layout">
-      <Header className="my-header">
+    <Layout>
+      <Header className="nav-header">
         <Navbar />
       </Header>
+      <div className="nav-header-empty"/>
       <Content>
         { renderRoutes(route.routes) }
       </Content>

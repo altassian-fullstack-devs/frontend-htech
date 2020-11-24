@@ -7,8 +7,8 @@ import Navbar from './common/header'
 const { Header, Content } = Layout
 
 const Auth = ({ route }) => (
-  <Layout className="layout">
-    <Header className="my-header">
+  <Layout>
+    <Header className="nav-header">
       <Navbar />
     </Header>
     <Content>
