@@ -16,7 +16,7 @@ export const signIn = (email, password) =>
       password,
     },
     types: AUTHENTICATE,
-    needsNormalization: false
+    withoutPushToData: true
   })
 
 export const authCheck = () => (dispatch, getState) =>
@@ -25,5 +25,5 @@ export const authCheck = () => (dispatch, getState) =>
     endpoint: ENDPOINT.AUTH_CHECK,
     query: {},
     types: AUTHENTICATE,
-    needsNormalization: false
+    withoutPushToData: true
   })(dispatch, getState)

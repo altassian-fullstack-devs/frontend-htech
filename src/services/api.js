@@ -50,6 +50,7 @@ export default options => async (dispatch, getState) => {
     fileParams,
     payload,
     types,
+    withoutPushToData = false
   } = merge({}, defaultOptions, options)
 
   const HTTPMethod = method.toLowerCase()
@@ -121,6 +122,7 @@ export default options => async (dispatch, getState) => {
 
           const successData = {
             ok: true,
+            withoutPushToData,
             payload: { ...payload, data: body },
           }
 

@@ -8,7 +8,7 @@ export const LOG_OUT = 'visitor/LOG_OUT'
 
 export const loadVisitor = () => 
   apiCall({
-    endpoint: ENDPOINT.FETCH_PROFILE,
+    endpoint: ENDPOINT.FETCH_ACCOUNT,
     query: {},
     types: LOAD_VISITOR,
   })
