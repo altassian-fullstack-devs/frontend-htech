@@ -6,6 +6,7 @@ export const AUTH_ROOT = `${ROOT_PATH}auth/`
 
 export const PUBLIC_PATHS = {
     BLOG: `${ROOT_PATH}blog`,
+    NOT_FOUND: `${ROOT_PATH}page-404`,
 }
 
 export const AUTH_PATHS = {

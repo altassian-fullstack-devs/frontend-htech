@@ -1,6 +1,6 @@
-import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
+import { ROOT_PATH } from 'constants/paths'
 import { Home } from 'containers/pages/public'
-import { Common, NotFound } from 'containers/layout'
+import { NotFoundRedirector } from 'components/redirector'
 
 const routes = () => [
   {
@@ -8,7 +8,7 @@ const routes = () => [
     exact: true,
     component: Home
   },
-  { component: NotFound },
+  { component: NotFoundRedirector }
 ]
 
 export default routes
