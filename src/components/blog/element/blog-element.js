@@ -1,11 +1,15 @@
 import react from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
 
 const BlogElement = ({imgUrl, title, content, date, view}) => {
 
   return (
     <div className="blog-post" data-id="1131">
         <div className="image">
-          <a href="#">
+          {/* <a href=""> */}
+          <a>
+            <Link to={PUBLIC_PATHS.BLOGDETAIL} />
             <img alt="img"  src={imgUrl} />
           </a>
         </div>
