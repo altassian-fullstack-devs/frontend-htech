@@ -11,6 +11,7 @@ const Auth = ({ route }) => (
     <Header className="nav-header">
       <Navbar />
     </Header>
+    <div className="nav-header-empty"/>
     <Content>
       {renderRoutes(route.routes)}
     </Content>
