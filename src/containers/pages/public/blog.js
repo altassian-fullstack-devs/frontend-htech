@@ -1,11 +1,14 @@
 
 import React from 'react'
 
+import BlogFirst from 'components/blog/blog-first'
+
+
 const Blog = () => {
   return (
-    <div className="page-blog">
-      Blog
-    </div>
+    <>
+    <BlogFirst/>
+    </>
   )
 }
 
