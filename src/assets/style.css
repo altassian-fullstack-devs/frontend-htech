@@ -1,21 +1,23 @@
-.my-menu {
+body {
+  background-color: white;
+}
+.nav-menu {
   display: flex;
   justify-content: center;
   background-color: transparent!important;
   color: white!important;
   border-bottom: none!important;
 }
-.my-header {
+.nav-header {
   background-color: rgba(0, 0, 0, 0.9)!important;
-  opacity: 0.5;
+  /* opacity: 0.5; */
   z-index: 10;
   width: 100%;
   position: fixed;
 }
-.site-layout-content {
-  min-height: 280px;
-  padding: 24px;
-  background: #fff;
+.nav-header-empty {
+  background-color: black;
+  height: 64px;
 }
 .logo {
   float: left;
@@ -30,6 +32,9 @@
 .ant-row-rtl .logo {
   float: right;
   margin: 16px 0 16px 24px;
+}
+.ant-menu-horizontal > .ant-menu-item a {
+  color: white;
 }
 
 /* Container */

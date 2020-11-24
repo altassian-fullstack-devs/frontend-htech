@@ -1,6 +1,6 @@
-import App from 'app'
-import { Developer, Client, Admin, Root, Auth } from 'containers/layout'
-import { ADMIN_ROOT, AUTH_ROOT, CLIENT_ROOT, DEVELOPER_ROOT, ROOT_PATH } from 'constants/paths'
+import { Developer, Client, Admin, Root, Auth, Common } from 'containers/layout'
+import { NotFound } from 'containers/pages/public'
+import { ADMIN_ROOT, AUTH_ROOT, CLIENT_ROOT, DEVELOPER_ROOT, PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
 import { USER_TYPES } from 'constants/types'
 import publicRoutes from './public'
 import authRoutes from './auth'
@@ -48,8 +48,12 @@ const routes = viewer => {
       routes: authRoutes(viewer)
     },
     {
+      path: PUBLIC_PATHS.NOT_FOUND,
+      component: NotFound
+    },
+    {
       path: ROOT_PATH,
-      component: Root,
+      component: Common,
       routes: publicRoutes()
     }
   ]

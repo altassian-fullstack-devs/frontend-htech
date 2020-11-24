@@ -16,9 +16,9 @@ function* session() {
 
     if (!success) {
       yield put(logOut())
+    } else {
+      yield put(appReady())
     }
-    
-    yield put(appReady())
   }
 }
 

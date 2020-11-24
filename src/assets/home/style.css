@@ -1,6 +1,6 @@
 /* Hero */
 .hero-container {
-  min-height: 810px;
+  min-height: 750px;
   position: relative;
   background-image: url('./hero/hero.jpg');
   background-position: center top;
@@ -37,30 +37,30 @@
   width: 70%;
 }
 
-.homepage p {
+.page-home p {
   font-size: 25px;
 }
-.homepage h2 {
+.page-home h2 {
   font-size: 60px;
 }
-.homepage h3 {
+.page-home h3 {
   font-size: 45px;
 }
 @media only screen and (max-width: 950px) {
-  .homepage h1 {
+  .page-home h1 {
     font-size: 50px;
   }
 }
 @media only screen and (max-width: 815px) {
-  .homepage h1 {
+  .page-home h1 {
     font-size: 37px;
     line-height: 1.1;
     margin-top: 26px;
   }
-  .homepage p {
+  .page-home p {
     font-size: 17px;
   }
-  .homepage h2 {
+  .page-home h2 {
     font-size: 35px;
   }
 }
@@ -186,6 +186,39 @@ span.text {
 .partner-carousel .figure {
   font-size: 60px;
   font-weight: 600;
+}
+
+/* Featured works */
+.mobile-device {
+  right: 0;
+  left: 0;
+  transform: translateX(10px);
+  -webkit-box-shadow: inset 0 4px 10px 1px #fff,inset 0 0 6px 0px rgba(66,77,86,.5),0 0px 0 #aeb5bb,22px 20px 50px -25px rgba(0,0,0,.5);
+  box-shadow: inset 0 4px 10px 1px #fff, inset 0 0 6px 0px rgba(66,77,86,.5), 0 0px 0 #aeb5bb, 22px 20px 50px -25px rgba(0,0,0,.5);
+  border-radius: 36px;
+  padding: 15px 15px;
+  width: 260px;
+  height: 530px;
+}
+.screen {
+  width: 228px;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  overflow: hidden;
+}
+.shadow-box {
+  -webkit-box-shadow: 0 0 1px rgba(0,0,0,.1), 0 2px 6px rgba(0,0,0,.03);
+  box-shadow: 0 0 1px rgba(0,0,0,.1), 0 2px 6px rgba(0,0,0,.03);
+}
+.client-describe {
+  font-style: italic;
+  color: grey;
+}
+.client-name {
+  font-size: 17px;
+  font-weight: bold;
 }
 
 /* Colors */
