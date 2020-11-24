@@ -5,7 +5,7 @@ import {Hero, Custom, CoreValue, MeetTheTeam, Partner, FeaturedWorks} from 'comp
 
 const Home = () => {
   return (
-    <div className="homepage">
+    <div className="page-home">
       <Hero />
       <Custom />
       <CoreValue />

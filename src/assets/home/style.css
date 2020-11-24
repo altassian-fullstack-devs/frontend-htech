@@ -1,6 +1,6 @@
 /* Hero */
 .hero-container {
-  min-height: 810px;
+  min-height: 750px;
   position: relative;
   background-image: url('./hero/hero.jpg');
   background-position: center top;
@@ -37,30 +37,30 @@
   width: 70%;
 }
 
-.homepage p {
+.page-home p {
   font-size: 25px;
 }
-.homepage h2 {
+.page-home h2 {
   font-size: 60px;
 }
-.homepage h3 {
+.page-home h3 {
   font-size: 45px;
 }
 @media only screen and (max-width: 950px) {
-  .homepage h1 {
+  .page-home h1 {
     font-size: 50px;
   }
 }
 @media only screen and (max-width: 815px) {
-  .homepage h1 {
+  .page-home h1 {
     font-size: 37px;
     line-height: 1.1;
     margin-top: 26px;
   }
-  .homepage p {
+  .page-home p {
     font-size: 17px;
   }
-  .homepage h2 {
+  .page-home h2 {
     font-size: 35px;
   }
 }

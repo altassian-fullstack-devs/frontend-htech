@@ -1,9 +1,8 @@
-import { Redirect } from 'react-router'
-import { AUTH_PATHS, ROOT_PATH } from 'constants/paths'
+import { AUTH_PATHS } from 'constants/paths'
 import { SignIn, SignUp } from 'containers/pages/auth'
-import { NotFound } from 'containers/layout'
 
-const AuthorizedRedirector = () => <Redirect to={ROOT_PATH} />
+import { AuthorizedRedirector, NotFoundRedirector } from 'components/redirector'
+
 const redirectAuthorized = viewer => component =>
   viewer.isAuthenticated ? AuthorizedRedirector : component
 
@@ -18,7 +17,7 @@ const routes = viewer => [
     exact: true,
     component: redirectAuthorized(viewer)(SignUp),
   },
-  { component: NotFound },
+  { component: NotFoundRedirector }
 ]
 
 export default routes
