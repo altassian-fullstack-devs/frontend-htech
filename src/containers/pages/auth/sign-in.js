@@ -34,14 +34,14 @@ const SignIn = () => {
       onFinish={onFinish} 
       validateMessages={validateMessages}
     >
-      <Form.Item name={['user', 'email']} rules={[{ required: true, type: 'email' }]} messageVariables={{ label: 'Email' }}>
-        <Input prefix={<MailOutlined className='form-field-icon' />} placeholder="Email" />
+      <Form.Item name='email' rules={[{ required: true, type: 'email' }]} messageVariables={{ label: 'Email' }}>
+        <Input prefix={<MailOutlined className='form-field-icon' />} placeholder='Email' />
       </Form.Item>
-      <Form.Item name="password" rules={[{ required: true }]} messageVariables={{ label: 'Password' }}>
-        <Input.Password prefix={<LockOutlined className='form-field-icon' />} placeholder="Password" />
+      <Form.Item name='password' rules={[{ required: true }]} messageVariables={{ label: 'Password' }}>
+        <Input.Password prefix={<LockOutlined className='form-field-icon' />} placeholder='Password' />
       </Form.Item>
       <Form.Item wrapperCol={layout.wrapperCol}>
-        <Button className='auth-form-button' type="primary" htmlType="submit">
+        <Button className='auth-form-button' type='primary' htmlType='submit'>
           Sign in
         </Button>
         <div style={{ marginTop: 15}}>
