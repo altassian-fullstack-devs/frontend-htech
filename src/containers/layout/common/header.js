@@ -17,6 +17,9 @@ const Navbar = () => {
         <Menu.Item key={PUBLIC_PATHS.HOW_WE_WORK}>
           <Link to={PUBLIC_PATHS.HOW_WE_WORK}>HOW WE WORK</Link>
         </Menu.Item>
+        <Menu.Item key={PUBLIC_PATHS.DEVELOPERS}>
+          <Link to={PUBLIC_PATHS.DEVELOPERS}>DEVELOPERS</Link>
+        </Menu.Item>
         <Menu.Item key={PUBLIC_PATHS.PORTFOLIO}>
           <Link to={PUBLIC_PATHS.PORTFOLIO}>PORTFOLIO</Link>
         </Menu.Item>
