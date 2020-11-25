@@ -1,5 +1,7 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd';
+import { Link } from 'react-router-dom';
+import { AUTH_PATHS } from 'constants/paths';
 
 const layout = {
   labelCol: { span: 8 },
@@ -53,6 +55,9 @@ const SignUp = () => {
         <Button type="primary" htmlType="submit">
           Sign up
         </Button>
+        <div>
+          Already have an account? <Link to={AUTH_PATHS.SIGN_IN}>Sign in here</Link>
+        </div>
       </Form.Item>
     </Form>
   );
