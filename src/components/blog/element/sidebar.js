@@ -22,7 +22,7 @@ const Sidebar = ({}) => {
               <span className="input-text">
                 <input id="sidebar_subscribe_email" name="email" placeholder="Email*" type="text"/>
                 <label className="sidebar_subscribe_email">
-                  <img alt="arrow" src="img/blog/detail/red_arrow.png"/>
+                  <img alt="arrow" src="/assets/images/blog/detail/red_arrow.png"/>
                 </label>
               </span>
             </span>

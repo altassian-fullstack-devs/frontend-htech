@@ -1,6 +1,5 @@
 import React from 'react'
 import { Col, Row, Tag, Rate } from 'antd'
-import 'assets/profile/style.css'
 
 const items_about = [
   {
@@ -56,27 +55,27 @@ const items_skills = ['React Native', 'React', 'Redux Thunk', 'Ionic', 'JavaScri
 
 const items_portfolio = [
   {
-    url: require('assets/profile/portfolio1.jpg').default,
+    url: require('assets/images/profile/portfolio1.jpg').default,
     title: 'Canadian Wanderlust',
     content: 'My Travel Blog for my post-university travels'
   },
   {
-    url: require('assets/profile/portfolio2.jpg').default,
+    url: require('assets/images/profile/portfolio2.jpg').default,
     title: 'Fury Fighting Gear',
     content: 'A fighting gear company I started'
   },
   {
-    url: require('assets/profile/portfolio3.jpg').default,
+    url: require('assets/images/profile/portfolio3.jpg').default,
     title: 'Original Thai Food',
     content: 'Website I built for a restaurant I like in Thailand'
   },
   {
-    url: require('assets/profile/portfolio4.jpg').default,
+    url: require('assets/images/profile/portfolio4.jpg').default,
     title: 'Resume Website',
     content: 'A react based resume website template'
   },
   {
-    url: require('assets/profile/portfolio5.jpg').default,
+    url: require('assets/images/profile/portfolio5.jpg').default,
     title: 'Smirkspace',
     content: 'A React and Meteor based chat University project'
   },

@@ -23,7 +23,7 @@ const FeaturedWorks = () => {
         <h2>Featured Works</h2>
         <Row>
           <Col md={8} xs={12}>
-            <img src="img/featured-works-mobile-carousel/client.png" width="100px"/>
+            <img src="/assets/images/featured-works-mobile-carousel/client.png" width="100px"/>
             <p className="client-name">Jerry Kestenbaum</p>
             <span className="client-describe">FOUNDER AND CEO BUILDINGLINK.COM</span>
           </Col>
@@ -40,17 +40,17 @@ const FeaturedWorks = () => {
         <Slider {...sliderSettings} style={{paddingTop:'13px', paddingLeft: '17px'}}>
           <div style={{marginRight: '40px'}}>
             <div className="screen">
-              <img src="img/featured-works-mobile-carousel/1.webp" style={{width:'100%', height:'100%'}}/>
+              <img src="/assets/images/featured-works-mobile-carousel/1.webp" style={{width:'100%', height:'100%'}}/>
             </div>
           </div>
           <div style={{marginRight: '40px'}}>
             <div className="screen">
-              <img src="img/featured-works-mobile-carousel/2.webp" style={{width:'100%', height:'100%'}}/>
+              <img src="/assets/images/featured-works-mobile-carousel/2.webp" style={{width:'100%', height:'100%'}}/>
             </div>
           </div>
           <div style={{padding: '30px'}}>
             <div className="screen">
-              <img src="img/featured-works-mobile-carousel/3.webp" style={{width:'100%', height:'100%'}}/>
+              <img src="/assets/images/featured-works-mobile-carousel/3.webp" style={{width:'100%', height:'100%'}}/>
             </div>
           </div>
         </Slider>

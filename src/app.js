@@ -6,8 +6,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import routes from 'config/routes'
 import createStore from 'store'
 
-import 'antd/dist/antd.less'
-import 'assets/style.css'
+import 'assets/styles/index.less'
 
 const { store, history } = createStore({})
 

@@ -6,7 +6,7 @@ const ArticleBody = ({}) => {
   return (
       <div className="articleBody">
           <div className="header-image darkness">
-            <img alt="automation_cover" src="img/blog/detail/automation_cover.original.png"/>
+            <img alt="automation_cover" src="/assets/images/blog/detail/automation_cover.original.png"/>
             <a className="blog-header-button" href="">
                <span>Blog</span>
             </a>
