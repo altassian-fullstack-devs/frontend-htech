@@ -8,8 +8,9 @@ export const PUBLIC_PATHS = {
     HOW_WE_WORK: `${ROOT_PATH}how-we-work`,
     BLOG: `${ROOT_PATH}blog`,
     PROFILE: `${ROOT_PATH}profile`,
-    BLOGDETAIL :`${ROOT_PATH}blog-detail`,
+    BLOG_DETAIL :`${ROOT_PATH}blog-detail`,
     PORTFOLIO: `${ROOT_PATH}portfolio`,
+    GALLERY_DETAIL : `${ROOT_PATH}gallery-detail`,
     ABOUT_US: `${ROOT_PATH}about-us`,
     NOT_FOUND: `${ROOT_PATH}page-404`,
 }

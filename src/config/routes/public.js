@@ -1,5 +1,5 @@
 import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
-import { Home, Blog, Portfolio, HowWeWork, AboutUs, Profile } from 'containers/pages/public'
+import { Home, Blog, Portfolio, HowWeWork, AboutUs, Profile, GalleryDetail, BlogDetail } from 'containers/pages/public'
 import { NotFoundRedirector } from 'components/redirector'
 
 const routes = () => [
@@ -22,6 +22,16 @@ const routes = () => [
     path: PUBLIC_PATHS.BLOG,
     exact: true,
     component: Blog
+  },
+  {
+    path: PUBLIC_PATHS.BLOG_DETAIL,
+    exact: true,
+    component: BlogDetail
+  },
+  {
+    path: PUBLIC_PATHS.GALLERY_DETAIL,
+    exact: true,
+    component: GalleryDetail
   },
   {
     path: PUBLIC_PATHS.ABOUT_US,

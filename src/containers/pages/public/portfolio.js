@@ -1,11 +1,12 @@
 
 import React from 'react'
+import Gallery from '../../../components/portfolio/gallery'
 
 const Portfolio = () => {
   return (
-    <div className="page-portfolio">
-      Portfolio
-    </div>
+    <>
+    <Gallery/>
+    </>
   )
 }
 
