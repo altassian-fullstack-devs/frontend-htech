@@ -4,7 +4,7 @@ import { SignIn, SignUp } from 'containers/pages/auth'
 import { AuthorizedRedirector, NotFoundRedirector } from 'components/redirector'
 
 const redirectAuthorized = viewer => component =>
-  viewer.isAuthenticated ? AuthorizedRedirector : component
+  viewer.isReady ? AuthorizedRedirector : component
 
 const routes = viewer => [
   {

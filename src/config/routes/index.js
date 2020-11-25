@@ -1,7 +1,7 @@
 import { Developer, Client, Admin, Root, Auth, Common } from 'containers/layout'
 import { NotFound } from 'containers/pages/public'
 import { ADMIN_ROOT, AUTH_ROOT, CLIENT_ROOT, DEVELOPER_ROOT, PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
-import { USER_TYPES } from 'constants/types'
+import { USER_ROLES } from 'constants/roles'
 import publicRoutes from './public'
 import authRoutes from './auth'
 import adminRoutes from './admin'
@@ -9,35 +9,35 @@ import developerRoutes from './developer'
 import clientRoutes from './client'
 
 
-const routesForType = viewer => ({
-  [USER_TYPES.admin]: [
+const routesForRole = viewer => ({
+  [USER_ROLES.admin]: [
     {
       path: ADMIN_ROOT,
       component: Admin,
       routes: adminRoutes(viewer),
     },
   ],
-  [USER_TYPES.developer]: [
+  [USER_ROLES.developer]: [
     {
       path: DEVELOPER_ROOT,
       component: Developer,
       routes: developerRoutes(viewer)
     }
   ],
-  [USER_TYPES.client]: [
+  [USER_ROLES.client]: [
     {
       path: CLIENT_ROOT,
       component: Client,
       routes: clientRoutes(viewer)
     }
   ]
-}[viewer.type])
+}[viewer.role])
 
 const routes = viewer => {
   let viewerRouters = []
 
-  if (viewer.isAuthenticated) {
-    viewerRouters = routesForType(viewer)
+  if (viewer.isReady) {
+    viewerRouters = routesForRole(viewer)
   }
 
   const allRoutes = [
