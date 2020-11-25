@@ -17,9 +17,9 @@ export const loadHistories = ({
 } = {}) => (dispatch, getState) => {
 }
 
-export const updateHistory = (data, id, pid = null) => {
+export const updateHistory = (data, id, ownerId = null) => {
   let query = { data, id }
-  pid && merge(query, { pid })
+  ownerId && merge(query, { ownerId })
 
   return apiCall({
     method: 'PUT',
@@ -29,9 +29,9 @@ export const updateHistory = (data, id, pid = null) => {
   })
 }
 
-export const createHistory = (data, pid = null) => {
+export const createHistory = (data, ownerId = null) => {
   let query = { data }
-  pid && merge(query, { pid })
+  ownerId && merge(query, { ownerId })
   
   return apiCall({
     method: 'POST',

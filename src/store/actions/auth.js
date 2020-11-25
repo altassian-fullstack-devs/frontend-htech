@@ -16,14 +16,15 @@ export const signIn = (email, password) =>
       password,
     },
     types: AUTHENTICATE,
-    withoutPushToData: true
+    withoutPush: true
   })
 
-export const authCheck = () => (dispatch, getState) =>
-  apiCall({
-    method: 'GET',
-    endpoint: ENDPOINT.AUTH_CHECK,
-    query: {},
-    types: AUTHENTICATE,
-    withoutPushToData: true
-  })(dispatch, getState)
+export const signInByToken = token => apiCall({
+  method: 'POST',
+  endpoint: ENDPOINT.SIGN_IN_BY_TOKEN,
+  query: {
+    token
+  },
+  types: AUTHENTICATE,
+  withoutPush: true
+})

@@ -3,16 +3,18 @@ import { connectRouter } from 'connected-react-router'
 
 import app from './app'
 import auth from './auth'
-import visitor from './visitor'
 import developer from './developer'
 import data from './data'
+import accounts from './accounts'
+import persist from './persist'
 
 export default history => 
   combineReducers({
     app,
     auth,
     data,
-    visitor,
     developer,
+    accounts,
+    persist,
     router: connectRouter(history)
   })

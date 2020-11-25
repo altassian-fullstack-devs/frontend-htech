@@ -1,6 +1,6 @@
 import { all, fork, put, take, race } from 'redux-saga/effects'
 import { AUTHENTICATE } from 'store/actions/auth'
-import { logOut, loadVisitor, LOAD_VISITOR } from 'store/actions/visitor'
+import { logOut, loadVisitor, LOAD_MY_ACCOUNT } from 'store/actions/accounts'
 import { appReady } from 'store/actions/app'
 
 function* session() {
@@ -10,8 +10,8 @@ function* session() {
     yield put(loadVisitor())
 
     const { success } = yield race({
-      success: take(LOAD_VISITOR.SUCCESS),
-      failure: take(LOAD_VISITOR.FAILURE),
+      success: take(LOAD_MY_ACCOUNT.SUCCESS),
+      failure: take(LOAD_MY_ACCOUNT.FAILURE),
     })
 
     if (!success) {

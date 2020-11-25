@@ -1,10 +1,9 @@
 import get from 'lodash/get'
-import omit from 'lodash/omit'
 import pick from 'lodash/pick'
 import mergeWith from 'lodash/mergeWith'
 import isArray from 'lodash/isArray'
 
-import { LOG_OUT } from 'store/actions/visitor'
+import { LOG_OUT } from 'store/actions/accounts'
 
 import handlersReducer from './handlers'
 
@@ -17,7 +16,7 @@ const excludedReducers = []
 export default (state = initialState, action) => {
   const data = get(action, 'payload.data')
   const ok = get(action, 'ok', false)
-  const withoutPushToData = get(action, 'withoutPushToData', false)
+  const withoutPush = get(action, 'withoutPush', false)
 
   if (action.type === LOG_OUT) {
     return mergeWith(
@@ -27,11 +26,11 @@ export default (state = initialState, action) => {
     )
   }
 
-  if (data && ok && !withoutPushToData) {
+  if (data && ok && !withoutPush) {
     const nextState = mergeWith(
       {},
       state,
-      omit(data, 'meta'),
+      data,
       (obj, src) => isArray(obj) ? src : undefined
     )
 

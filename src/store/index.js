@@ -20,7 +20,7 @@ const transformerConfig = {
 const persistConfig = {
   key: 'bam',
   storage,
-  whitelist: ['visitor'],
+  whitelist: ['persist'],
 
   stateReconciler: seamlessImmutableReconciler,
   transforms: [seamlessImmutableTransformCreator(transformerConfig)],

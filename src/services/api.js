@@ -6,6 +6,7 @@ import merge from 'lodash/merge'
 import isEmpty from 'lodash/isEmpty'
 
 import { API } from 'constants/app'
+import { getAuthorizationHeader } from 'store/selectors/persist'
 
 const sendMethod = HTTPMethod =>
   HTTPMethod === 'post' ||
@@ -34,6 +35,8 @@ const defaultOptions = {
   fileParams: null,
   types: null,
   paged: false,
+  withoutPush: false,
+  withoutAuthorization: false
 }
 
 const absoluteUrl = new RegExp('^(?:[a-z]+:)?//', 'i')
@@ -50,8 +53,11 @@ export default options => async (dispatch, getState) => {
     fileParams,
     payload,
     types,
-    withoutPushToData = false
+    withoutPush,
+    withoutAuthorization
   } = merge({}, defaultOptions, options)
+  
+  const authHeader = getAuthorizationHeader(getState())
 
   const HTTPMethod = method.toLowerCase()
 
@@ -65,6 +71,10 @@ export default options => async (dispatch, getState) => {
     if (!isEmpty(query)) request.field(query)
   } else {
     request[sendMethod(HTTPMethod)](sendArguments(HTTPMethod, query))
+  }
+
+  if (authHeader && !withoutAuthorization) {
+    headers.authorization = authHeader
   }
 
   if (has(types, 'REQUEST')) {
@@ -122,7 +132,7 @@ export default options => async (dispatch, getState) => {
 
           const successData = {
             ok: true,
-            withoutPushToData,
+            withoutPush,
             payload: { ...payload, data: body },
           }
 

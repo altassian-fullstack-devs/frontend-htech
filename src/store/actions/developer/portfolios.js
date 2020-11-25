@@ -9,17 +9,33 @@ export const CREATE_PORTFOLIO = createAsyncAction('developer/portfolios/CREATE')
 export const UPDATE_PORTFOLIO = createAsyncAction('developer/portfolios/UPDATE')
 
 export const loadPortfolios = ({
-  paged = true,
   number = 1,
   size = 10,
   sort,
-  filters
-} = {}) => (dispatch, getState) => {
+  filters,
+} = {}, ownerId = null) => (dispatch, getState) => {
+  let params = {
+    page: {
+      number,
+      size,
+    },
+    sort,
+    filter: filters
+  }
+
+  ownerId && merge(params, { ownerId })
+
+  return apiCall({
+    method: 'POST',
+    endpoint: ENDPOINT.LOAD_PORTFOLIOS,
+    types: LOAD_PORTFOLIOS,
+    query: params
+  })(dispatch, getState)
 }
 
-export const updatePortfolio = (data, id, pid = null) => {
+export const updatePortfolio = (data, id, ownerId = null) => {
   let query = { data, id }
-  pid && merge(query, { pid })
+  ownerId && merge(query, { ownerId })
 
   return apiCall({
     method: 'PUT',
@@ -29,9 +45,9 @@ export const updatePortfolio = (data, id, pid = null) => {
   })
 }
 
-export const createPortfolio = (data, pid = null) => {
+export const createPortfolio = (data, ownerId = null) => {
   let query = { data }
-  pid && merge(query, { pid })
+  ownerId && merge(query, { ownerId })
   
   return apiCall({
     method: 'POST',
