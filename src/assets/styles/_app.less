@@ -1,6 +1,9 @@
 body {
   background-color: white;
 }
+.App {
+  overflow: hidden;
+}
 .nav-menu {
   display: flex;
   justify-content: center;
@@ -44,6 +47,61 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/* Contact Us */
+.contact-form {
+  .require {
+    position: relative;
+  }
+  .require label {
+    position: absolute;
+    top: 5%;
+    transform: translateX(-50%);
+    right: 0;
+    font-size: 27px;
+  }
+  form input, form textarea, form .file-select {
+    border: none;
+    border-bottom: 1px solid #000000;
+    background-color: transparent;
+    padding: 6.5px 2.5%;
+    font-size: 22px;
+    margin-bottom: 13px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    width: 100%;
+    font-style: normal;
+    color: #808080!important;
+  }
+  form input:focus, form textarea:focus {
+    outline: none;
+  }
+  .form-part {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .customized-file-input {
+    display: none;
+  }
+  .send-button {
+    font-size: 29px;
+    font-weight: 300;
+    padding: 10px 20px;
+    width: 50%;
+    margin-top: 40px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right,#f41351,#eb1c23);
+    outline: none;
+    border: none;
+    color: white;
+  }
+  .head-text {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+  }
+}
+
 
 /* Container */
 .container {
