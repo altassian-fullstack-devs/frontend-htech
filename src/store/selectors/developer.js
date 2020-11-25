@@ -4,17 +4,13 @@ import { getData } from '../data'
 
 export const getState = state => state.developer
 
-export const getProfiles = getEntities(getState, getData, {
-  type: 'profiles'
-})
-
 export const getProfile = getEntities(getState, getData, {
   type: 'profiles',
-  field: 'profile',
+  field: 'current',
   singular: true,
 })
 
-export const getProfileId = createSelector(getState, state => state.profile)
+export const getProfileId = createSelector(getState, state => state.current)
 
 export const getPortfolios = getEntities(getState, getData, {
   type: 'portfolios'
