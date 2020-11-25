@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag } from 'antd'
+import { Col, Row, Tag, Rate } from 'antd'
 import 'assets/profile/style.css'
 
 const items_about = [
@@ -7,6 +7,27 @@ const items_about = [
     title: 'Full-Stack Mobile Expert',
     content: 'Hello, My name is Andrey and I am a top-skilled mobile software expert with 2+ years of experience. My main occupation is React Native and Flutter. I have done several projects with Flutter, Android Native, React-Native, Cocos2d and Swift. I am currently looking for an opportunity to showcase my ability for bulding and maintaining mobile apps.'
   },
+]
+
+const items_workhistory = [
+  {
+    name: 'React Native Developer',
+    score: 5,
+    date: 'Sep - Oct 2019',
+    review: 'Working with Andrey was an amazing experience, he\'s a great developer always available and willing to help us with his expertise.'
+  },
+  {
+    name: 'Prototype for a small "memory-like" childrens game',
+    score: 4.5,
+    date: 'Aug - Sep 2019',
+    review: 'Andrey was very pleasant to work with. Always ready to communicate and ready to go the extra mile. Highly recommend!'
+  },
+  {
+    name: 'Expo Mobile App',
+    score: 5,
+    date: 'July - Aug 2019',
+    review: 'Great work!'
+  }
 ]
 
 const items_education = [
@@ -22,7 +43,7 @@ const items_education = [
   },
 ]
 
-const items_work = [
+const items_employment = [
   {
     company: 'Exadel, Inc',
     title: 'Software Engineer',
@@ -61,20 +82,34 @@ const items_portfolio = [
   },
 ]
 
+const leftLayout = {
+  md: { span: 6, offset: 2 },
+  xs: { span: 24 }
+}
+
+const rightLayout = {
+  md: { span:12, offset: 1 },
+  xs: { span:22, offset: 1 }
+}
+
+const portfolioLayout = {
+  md: { span:8 },
+  xs: { span:24 }
+}
+
 const About = () => {
   return (
     <section id="about">
-      <div className="row">
-        <div className="one columns">
+      <Row>
+        <Col {...leftLayout} align='center'>
           <img className="avatar-layout" src="http://gogs.hope.com/avatars/6?s=287" />
-          <h1 className="name">Andrey S.</h1>
-        </div>
-
-        <div className="two columns main-col">
-          <h2>{items_about[0].title}</h2>
+          <h3 className="name">Andrey S.</h3>
+        </Col>
+        <Col {...rightLayout}>
+          <h1>{items_about[0].title}</h1>
           <h3>{items_about[0].content}</h3>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </section>
   )
 }
@@ -82,55 +117,70 @@ const About = () => {
 const Resume = () => {
   return (
     <section id="resume">
-      <div className="row education">
-        <div className="one columns header-col">
-          <h1><span>Education</span></h1>
-        </div>
+      <div className='work'>
+        <Row>
+          <Col {...leftLayout} align='center'>
+            <h1><span>Work history</span></h1>
+          </Col>
+          <Col {...rightLayout}>
+            {items_workhistory.map((item) => (
+              <div class="item_workhistory">
+                <h1>{item.name}</h1>
+                <Rate value={item.score} disabled allowHalf />
+                <p className="date">{item.date}</p>
+                <h3>{item.review}</h3>
+              </div>
+            ))}
+          </Col>
+        </Row>
+      </div>
 
-        <div className="two columns main-col">
-          {items_education.map((item) => (
-            <div className="row item">
-              <div className="three columns">
-                <h2>{item.name}</h2>
+      <div className='education'>
+        <Row>
+          <Col {...leftLayout} align='center'>
+            <h1><span>Education</span></h1>
+          </Col>
+          <Col {...rightLayout}>
+            {items_education.map((item) => (
+              <div>
+                <h1>{item.name}</h1>
                 <p className="date">{item.date}</p>
                 <h3>{item.degree}</h3>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </Col>
+        </Row>
       </div>
 
-      <div className="row work">
-        <div className="one columns header-col">
-          <h1><span>Work</span></h1>
-        </div>
-
-        <div className="two columns main-col">
-          {items_work.map((item) => (
-            <div className="row item">
-              <div className="three columns">
-                <h2>{item.company}</h2>
+      <div className='employment'>
+        <Row>
+          <Col {...leftLayout} align='center'>
+            <h1><span>Employment history</span></h1>
+          </Col>
+          <Col {...rightLayout}>
+            {items_employment.map((item) => (
+              <div>
+                <h1>{item.company}</h1>
                 <p className="info">{item.title}<span>&bull;</span> <em className="date">{item.date}</em></p>
                 <h3>{item.description}</h3>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </Col>
+        </Row>
       </div>
 
-      <div className="row">
-        <div className="one columns header-col">
+      <Row>
+        <Col {...leftLayout} align='center'>
           <h1><span>Skills</span></h1>
-        </div>
-
-        <div className="two columns main-col">
-          {items_skills.map((item) => (
-            <div className="columns row">
+        </Col>
+        <Col {...rightLayout}>
+          <Row>
+            {items_skills.map((item) => (
               <Tag className="skill_item" color="#aaa">{item}</Tag>
-            </div>
-          ))}
-        </div>
-      </div>
+            ))}
+          </Row>
+        </Col>
+      </Row>
     </section>
   )
 }
@@ -138,29 +188,31 @@ const Resume = () => {
 const Portfolio = () => {
   return (
     <section id="portfolio">
-      <div className="row">
-        <div className="three columns collapsed">
-          <h1>Portfolio</h1>
-        </div>
+      <h1>Portfolio</h1>
 
-        <div id="portfolio-wrapper" className="bgrid-quarters s-bgrid-thirds cf">
-          {items_portfolio.map((item) => (
-            <div className="columns portfolio-item">
-              <div className="item-wrap">
-                <a title={item.title}>
-                  <img alt={item.title} src={item.url} />
-                  <div className="overlay">
-                    <div className="portfolio-item-meta">
-                      <h5>{item.title}</h5>
-                      <p>{item.content}</p>
-                    </div>
+      <Row align='center'>
+        <Col span={18}>
+          <Row gutter={[50, 50]}>
+            {items_portfolio.map((item) => (
+              <Col {...portfolioLayout}>
+                <div className="portfolio-item">
+                  <div className="item-wrap">
+                    <a title={item.title}>
+                      <img alt={item.title} src={item.url} />
+                      <div className="overlay">
+                        <div className="portfolio-item-meta">
+                          <h5>{item.title}</h5>
+                          <p>{item.content}</p>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+                </div>
+              </Col> 
+            ))}
+          </Row>
+        </Col>
+      </Row>
     </section>
   )
 }
@@ -168,9 +220,9 @@ const Portfolio = () => {
 const Profile = () => {
   return (
     <div>
-      <About/>
-      <Resume/>
-      <Portfolio/>
+      <About />
+      <Resume />
+      <Portfolio />
     </div>
   )
 }
