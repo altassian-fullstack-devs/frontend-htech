@@ -4,19 +4,19 @@ import RedLineChoose from './red-line-choose'
 
 const data = [
   {
-    imageURL: 'assets/images/meet-the-team/1.png',
+    imageURL: require('assets/images/meet-the-team/1.png').default,
     title: 'Discovery',
     content: 'Once we learn more about your needs, we start building a team able to complete your mission on time and in line with users’ and investors’ expectations.'
   }, {
-    imageURL: 'assets/images/meet-the-team/2.png',
+    imageURL: require('assets/images/meet-the-team/2.png').default,
     title: 'Setup',
     content: 'We get back to you with the first thoroughly pre-screened CVs. You interview future team members to find those that are a perfect fit for your company.'
   }, {
-    imageURL: 'assets/images/meet-the-team/3.png',
+    imageURL: require('assets/images/meet-the-team/3.png').default,
     title: 'Kickoff',
     content: 'Your brand-new software development powerhouses work back-to-back with you to put your solution in motion.'
   }, {
-    imageURL: 'assets/images/meet-the-team/4.png',
+    imageURL: require('assets/images/meet-the-team/4.png').default,
     title: 'Ramp up',
     content: 'Fresh off the release, we scale your team to match your product’s increasing success.'
   }, 

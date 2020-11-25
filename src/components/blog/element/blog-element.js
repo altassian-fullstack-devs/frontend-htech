@@ -24,7 +24,7 @@ const BlogElement = ({imgUrl, title, content, date, view}) => {
           {date}
           </div>
           <span className="viewed">
-            <img src="/assets/images/blog/eye-light-grey_.png" />{view} 
+            <img src={require("assets/images/blog/eye-light-grey_.png").default} />{view} 
           </span>
         </div>
     </div>

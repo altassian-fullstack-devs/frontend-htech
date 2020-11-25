@@ -50,7 +50,7 @@ const Gallery = ({ }) => {
   return (
     <main>
     <div className="projects">
-      <img alt="img" src="/assets/images/portfolio/our_works_header.png" />
+      <img alt="img" src={require("assets/images/portfolio/our_works_header.png").default} />
         <div className="our_works_header">
           <h1>Our works</h1>
           <h3>
