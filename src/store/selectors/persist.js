@@ -10,17 +10,17 @@ export const getAccess = createSelector(
 )
 
 export const getAccessToken = createSelector(
-  getAccess(),
+  getAccess,
   access => get(access, 'access_token')
 )
 
 export const getAccessTokenType = createSelector(
-  getAccess(),
+  getAccess,
   access => get(access, 'token_type')
 )
 
 export const getAccessTokenExpiresAt = createSelector(
-  getAccess(),
+  getAccess,
   access => get(access, 'expires_at')
 )
 
