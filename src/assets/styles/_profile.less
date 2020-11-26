@@ -41,6 +41,11 @@ img.pull-left { margin: 12px 18px 0px 0px; }
 #resume a, #resume a:visited  { color: #0762f9; }
 #resume a:hover, #resume a:focus { color: #313131; }
 
+#resume .underline_blue {
+  border-bottom: 3px solid #0762f9;
+  padding-bottom: 6px;
+}
+
 #resume h1 {
   font: 18px/24px 'opensans-bold', sans-serif;
   text-transform: uppercase;
@@ -55,21 +60,21 @@ img.pull-left { margin: 12px 18px 0px 0px; }
   padding-bottom: 20px;
 }
 
-.work, .education, .employment, .skills {
+#resume .work, .education, .employment, .skills {
   margin-bottom: 48px;
   padding-bottom: 24px;
   border-bottom: 1px solid #E8E8E8;
 }
 
-#resume .item_workhistory {
-  margin-bottom: 24px;
-  border-bottom: 1px solid #E8E8E8;
+#resume .workhistory_star {
+  color: @primary-color;
 }
 
 #resume .date {
   font: 15px/24px 'opensans-regular', sans-serif;
   color: #6E7881;
   margin-top: 6px;
+  margin-bottom: 10px;
 }
 
 #resume .info {

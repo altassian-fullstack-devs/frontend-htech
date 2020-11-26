@@ -1,5 +1,6 @@
 import React from 'react'
-import { Col, Row, Tag, Rate } from 'antd'
+import { Col, Row, Tag, Rate, Typography, Button, Space, Modal, Input } from 'antd'
+import { EditOutlined } from '@ant-design/icons'
 
 const items_about = [
   {
@@ -96,20 +97,52 @@ const portfolioLayout = {
   xs: { span:24 }
 }
 
+const { Title } = Typography
+
+const ReachableContext = React.createContext();
+const UnreachableContext = React.createContext();
+
+const modalEditTitle = {
+  title: 'Your Title',
+  icon: null,
+  content: (
+    <>
+      <Input value={value => `${value}`}/>
+      <ReachableContext.Consumer>{value => `${value}`}</ReachableContext.Consumer>
+    </>
+  ),
+};
+
 const About = () => {
+  const [modal, contextHolder] = Modal.useModal();
+
   return (
-    <section id="about">
-      <Row>
-        <Col {...leftLayout} align='center'>
-          <img className="avatar-layout" src="http://gogs.hope.com/avatars/6?s=287" />
-          <h3 className="name">Andrey S.</h3>
-        </Col>
-        <Col {...rightLayout}>
-          <h1>{items_about[0].title}</h1>
-          <h3>{items_about[0].content}</h3>
-        </Col>
-      </Row>
-    </section>
+    <ReachableContext.Provider value="Hey">
+      <section id="about">
+        <Row>
+          <Col {...leftLayout} align='center'>
+            <img className="avatar-layout" src="http://gogs.hope.com/avatars/6?s=287" />
+            <Title level={4} className="name">Andrey S.</Title>
+          </Col>
+          <Col {...rightLayout}>
+            <Space align='top'>
+              <Title level={3}>{items_about[0].title}</Title>
+              <Button shape="circle" icon={<EditOutlined />} onClick={() => {
+                modal.confirm(modalEditTitle);
+              }} />
+            </Space>
+
+            <Space align='top'>
+              <div>{items_about[0].content}</div>
+              <Button shape="circle" icon={<EditOutlined />} />
+            </Space>
+          </Col>
+        </Row>
+      </section>
+
+      {contextHolder}
+      <UnreachableContext.Provider value="Bamboo" />
+    </ReachableContext.Provider>
   )
 }
 
@@ -119,15 +152,15 @@ const Resume = () => {
       <div className='work'>
         <Row>
           <Col {...leftLayout} align='center'>
-            <h1><span>Work history</span></h1>
+            <Title level={3}>Work history</Title>
           </Col>
           <Col {...rightLayout}>
             {items_workhistory.map((item) => (
-              <div class="item_workhistory">
-                <h1>{item.name}</h1>
-                <Rate value={item.score} disabled allowHalf />
-                <p className="date">{item.date}</p>
-                <h3>{item.review}</h3>
+              <div class="work">
+                <Title level={4}>{item.name}</Title>
+                <Rate className="workhistory_star" value={item.score} disabled allowHalf />
+                <div className="date">{item.date}</div>
+                <div>{item.review}</div>
               </div>
             ))}
           </Col>
@@ -137,14 +170,17 @@ const Resume = () => {
       <div className='education'>
         <Row>
           <Col {...leftLayout} align='center'>
-            <h1><span>Education</span></h1>
+            <Title level={3}>Education</Title>
           </Col>
           <Col {...rightLayout}>
             {items_education.map((item) => (
-              <div>
-                <h1>{item.name}</h1>
-                <p className="date">{item.date}</p>
-                <h3>{item.degree}</h3>
+              <div class="education">
+                <Space align='top'>
+                  <Title level={4}>{item.name}</Title>
+                  <Button shape="circle" icon={<EditOutlined />} />
+                </Space>
+                <div className="date">{item.date}</div>
+                <div>{item.degree}</div>
               </div>
             ))}
           </Col>
@@ -154,14 +190,17 @@ const Resume = () => {
       <div className='employment'>
         <Row>
           <Col {...leftLayout} align='center'>
-            <h1><span>Employment history</span></h1>
+            <Title level={3}>Employment history</Title>
           </Col>
           <Col {...rightLayout}>
             {items_employment.map((item) => (
-              <div>
-                <h1>{item.company}</h1>
-                <p className="info">{item.title}<span>&bull;</span> <em className="date">{item.date}</em></p>
-                <h3>{item.description}</h3>
+              <div class="employment">
+                <Space align='top'>
+                  <Title level={4}>{item.company}</Title>
+                  <Button shape="circle" icon={<EditOutlined />} />
+                </Space>
+                <div className="info">{item.title}<span>&bull;</span> <em className="date">{item.date}</em></div>
+                <div>{item.description}</div>
               </div>
             ))}
           </Col>
@@ -170,14 +209,17 @@ const Resume = () => {
 
       <Row>
         <Col {...leftLayout} align='center'>
-          <h1><span>Skills</span></h1>
+          <Title level={3}>Skills</Title>
         </Col>
         <Col {...rightLayout}>
-          <Row>
-            {items_skills.map((item) => (
-              <Tag className="skill_item" color="#aaa">{item}</Tag>
-            ))}
-          </Row>
+          <Space align='top'>
+            <Row>
+              {items_skills.map((item) => (
+                <Tag className="skill_item" color="#aaa">{item}</Tag>
+              ))}
+            </Row>
+            <Button shape="circle" icon={<EditOutlined />} />
+          </Space>
         </Col>
       </Row>
     </section>
@@ -187,7 +229,12 @@ const Resume = () => {
 const Portfolio = () => {
   return (
     <section id="portfolio">
-      <h1>Portfolio</h1>
+      <Row align='center'>
+        <Space align='top'>
+          <Title level={3} align="">Portfolio</Title>
+          <Button shape="circle" icon={<EditOutlined />} />
+        </Space>
+      </Row>
 
       <Row align='center'>
         <Col span={18}>
@@ -200,8 +247,8 @@ const Portfolio = () => {
                       <img alt={item.title} src={item.url} />
                       <div className="overlay">
                         <div className="portfolio-item-meta">
-                          <h5>{item.title}</h5>
-                          <p>{item.content}</p>
+                          <Title level={5}>{item.title}</Title>
+                          <Title level={5}>{item.content}</Title>
                         </div>
                       </div>
                     </a>
