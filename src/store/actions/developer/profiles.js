@@ -15,7 +15,7 @@ export const loadProfile = (ownerId = null) => apiCall({
   query: ownerId ? { ownerId } : {}
 })
 
-const updateProfile = (data, ownerId) => apiCall({
+const updateProfile = (data, ownerId = null) => apiCall({
   method: 'PUT',
   endpoint: ENDPOINT.UPDATE_PROFILE,
   types: UPDATE_PROFILE,

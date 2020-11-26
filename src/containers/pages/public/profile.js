@@ -265,7 +265,7 @@ const Portfolio = () => {
 
 const Profile = () => {
   return (
-    <div>
+    <div className="page-profile">
       <About />
       <Resume />
       <Portfolio />

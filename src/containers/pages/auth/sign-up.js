@@ -1,11 +1,14 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd';
-import { Link } from 'react-router-dom';
-import { AUTH_PATHS } from 'constants/paths';
+import { Form, Input, Button } from 'antd'
+import { UserOutlined, MailOutlined, LockOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
+import { AUTH_PATHS } from 'constants/paths'
 
 const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 8 },
+  wrapperCol: {
+    md: { span: 8, offset: 8 },
+    xs: { span: 24 }
+  },
 };
 
 const validateMessages = {
@@ -31,31 +34,24 @@ const SignUp = () => {
       onFinish={onFinish} 
       validateMessages={validateMessages}
     >
-      <Form.Item name={['user', 'name']} label="Name" rules={[{ required: true }]}>
-        <Input />
+      <Form.Item name={['user', 'name']} rules={[{ required: true }]} messageVariables={{ label: 'Name' }}>
+        <Input prefix={<UserOutlined className='form-field-icon' />} placeholder="Name" />
       </Form.Item>
-      <Form.Item name={['user', 'email']} label="Email" rules={[{ required: true, type: 'email' }]}>
-        <Input />
+      <Form.Item name={['user','email']} rules={[{ required: true, type: 'email' }]} messageVariables={{ label: 'Email' }}>
+        <Input prefix={<MailOutlined className='form-field-icon' />} placeholder="Email" />
       </Form.Item>
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: 'Please input password!' }]}
-      >
-        <Input.Password />
+      <Form.Item name={['user','password']} rules={[{ required: true }]} messageVariables={{ label: 'Password' }}>
+        <Input.Password prefix={<LockOutlined className='form-field-icon' />} placeholder="Password" />
       </Form.Item>
-      <Form.Item
-        label="Confirm Password"
-        name="confirm-password"
-        rules={[{ required: true, message: 'Please input confirm password!' }]}
-      >
-        <Input.Password />
+      <Form.Item name={['user','confirm_password']} rules={[{ required: true }]} messageVariables={{ label: 'Confirm Password' }}>
+        <Input.Password prefix={<LockOutlined className='form-field-icon' />} placeholder="Confirm Password" />
       </Form.Item>
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        <Button type="primary" htmlType="submit">
+
+      <Form.Item wrapperCol={layout.wrapperCol}>
+        <Button className='auth-form-button' type="primary" htmlType="submit">
           Sign up
         </Button>
-        <div>
+        <div style={{ marginTop: 15 }}>
           Already have an account? <Link to={AUTH_PATHS.SIGN_IN}>Sign in here</Link>
         </div>
       </Form.Item>

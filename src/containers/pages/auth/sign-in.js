@@ -1,11 +1,18 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd';
-import { Link } from 'react-router-dom';
-import { AUTH_PATHS } from 'constants/paths';
+import { Form, Input, Button } from 'antd'
+import { Link } from 'react-router-dom'
+import { connect  } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import { MailOutlined, LockOutlined } from '@ant-design/icons'
+import { getError, getIsLoading } from 'store/selectors/auth'
+import { signIn } from 'store/actions/auth'
+import { AUTH_PATHS } from 'constants/paths'
 
 const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 8 },
+  wrapperCol: {
+    md: { span: 8, offset: 8 },
+    xs: { span: 24 }
+  },
 };
 
 const validateMessages = {
@@ -19,9 +26,13 @@ const validateMessages = {
   },
 };
 
-const SignIn = () => {
-  const onFinish = values => {
-    console.log(values);
+const SignIn = ({
+  onSignIn,
+  isLoading,
+  error
+}) => {
+  const onFinish = ({ user: { email, password } }) => {
+    onSignIn(email, password)
   };
 
   return (
@@ -31,21 +42,17 @@ const SignIn = () => {
       onFinish={onFinish} 
       validateMessages={validateMessages}
     >
-      <Form.Item name={['user', 'email']} label="Email" rules={[{ required: true, type: 'email' }]}>
-        <Input />
+      <Form.Item name={['user', 'email']} rules={[{ required: true, type: 'email' }]} messageVariables={{ label: 'Email' }}>
+        <Input prefix={<MailOutlined className='form-field-icon' />} placeholder='Email' />
       </Form.Item>
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: 'Please input password!' }]}
-      >
-        <Input.Password />
+      <Form.Item name={['user', 'password']} rules={[{ required: true }]} messageVariables={{ label: 'Password' }}>
+        <Input.Password prefix={<LockOutlined className='form-field-icon' />} placeholder='Password' />
       </Form.Item>
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        <Button type="primary" htmlType="submit">
+      <Form.Item wrapperCol={layout.wrapperCol}>
+        <Button className='auth-form-button' type='primary' htmlType='submit'>
           Sign in
         </Button>
-        <div>
+        <div style={{ marginTop: 15}}>
           Doesn't have an account? <Link to={AUTH_PATHS.SIGN_UP}>Sign up here</Link>
         </div>
       </Form.Item>
@@ -53,4 +60,12 @@ const SignIn = () => {
   );
 };
 
-export default SignIn
+export default connect(
+  createStructuredSelector({
+    error: getError,
+    isLoading: getIsLoading
+  }),
+  {
+    onSignIn: signIn
+  }
+)(SignIn)

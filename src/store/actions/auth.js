@@ -19,6 +19,24 @@ export const signIn = (email, password) =>
     withoutPush: true
   })
 
+export const signUp = ({
+  email,
+  password,
+  role,
+  location
+}) => apiCall({
+  method: 'POST',
+  endpoint: ENDPOINT.SIGN_UP,
+  query: {
+    email,
+    password,
+    role,
+    location
+  },
+  types: AUTHENTICATE,
+  withoutPush: true
+})
+
 export const signInByToken = token => apiCall({
   method: 'POST',
   endpoint: ENDPOINT.SIGN_IN_BY_TOKEN,
