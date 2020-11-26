@@ -14,24 +14,19 @@ body {
   z-index: 10;
   width: 100%;
   position: fixed;
+
+  .nav-header-content {
+    max-width: 1140px;
+    padding: 0 16px;
+    margin: auto;
+  }
 }
 .nav-header-empty {
   background-color: black;
   height: 64px;
 }
-.side-menu {
-	display: flex;
-	justify-content: center;
-	background-color: transparent!important;
-	color: white!important;
-	border-bottom: none!important;
-}
-.side-bar {
-  background-color: rgba(0, 0, 0, 0.9)!important;
-  /* opacity: 0.5; */
-  z-index: 10;
-  height: 100%;
-  position: fixed;
+.page-content {
+  min-height: calc(100vh - 134px);
 }
 .logo {
   float: left;

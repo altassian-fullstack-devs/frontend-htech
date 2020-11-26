@@ -37,7 +37,7 @@ const routes = viewer => {
   let viewerRouters = []
 
   if (viewer.isReady) {
-    viewerRouters = routesForRole(viewer)
+    viewerRouters = routesForRole(viewer) || []
   }
 
   const allRoutes = [
