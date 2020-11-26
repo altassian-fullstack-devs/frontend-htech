@@ -6,11 +6,10 @@ const ArticleBody = ({}) => {
       <div className="articleBody">
         <div className="header-image darkness">
           <img alt="automation_cover" src={require('assets/images/blog/detail/automation_cover.original.png').default}/>
-          
           <a className="blog-header-button" href="/blog">
               <span>Blog</span>
           </a>
-          <a className="hidden" href="" >
+          <a className="hidden" href="#" >
             Automating automation: How technology is changing the business world
           </a>
           <span className="blog-header">

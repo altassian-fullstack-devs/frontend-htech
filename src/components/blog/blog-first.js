@@ -1,6 +1,6 @@
 import BlogElement from "./element/blog-element"
-// import Pagenation from 'antd'
 import TagElement from "components/common/tag-element"
+import { Pagination, Tag } from 'antd'
 
 const blog_data =[
   {
@@ -66,37 +66,28 @@ const BlogFirst = ({}) => {
 
   return (
     <main>
-    <div className="blog">
-      <div className="container-1440"></div>  
-        <h1>iTech blog</h1>
-        <div className="projects flexbox">
+      <div className="blog">
+        <div className="container-1440"></div>  
+          <h1>iTech blog</h1>
+          <div className="projects flexbox">
             <div className="tags js-blog-tags">
               <ul>
-              {tag_data.map((tag,idx)=> (
-                    <TagElement {...tag}  key={'tag-element' + idx} />
-                ))}
+                {tag_data.map((tag,idx)=> (
+                      <TagElement {...tag}  key={'tag-element' + idx} />
+                  ))}
               </ul>
             </div>
             <div id="blog" style={{minHeight:"99px"}}>
-                <div className="content flexbox">
+              <div className="content flexbox">
                 {blog_data.map( (blog, idx) => (
                   <BlogElement  {...blog} key={"blog-element" + idx} />
                 ))}
                 </div>
-
-                
-                {/* <Pagenation></Pagenation> */}
                 <div className="paging">
-                  <span className="active" data-page="1">1</span>
-                    <a data-page="2" href="">2</a>
-                    <a data-page="3" href="">3</a>
-                    <a data-page="4" href="">4</a>
-                    <a data-page="5" href="">5</a>
-                    <a data-page="6" href="">6</a>
-                    <a className="next" data-page="7" href=""></a>
-                </div>
+                  <Pagination onChange={onchange} total={150}/>
                 </div>
               </div>
+            </div>
         </div>
     </main>
   )

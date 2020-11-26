@@ -1,7 +1,4 @@
-import ArticleBody from './element/article-body'
-import RelatedArticle from './element/related_article'
-import Sidebar from "./element/sidebar"
-import Contact from "./element/contact"
+import { ArticleBody, RelatedArticle, Sidebar, Contact } from "./element"
 
 const BlogDetail = ({}) =>{
   return (

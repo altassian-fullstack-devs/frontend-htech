@@ -1,10 +1,12 @@
-import react from "react"
+
 
 const LeftBlock = ({}) =>{
   return (
     <div className="left-block">
       <span>
-        <span className="project-header">Solution</span>
+        <span className="project-header">
+          Solution
+        </span>
         <p></p>
         <p>Backed by solid mobile development expertise, our team delivered an Android-powered app from scratch that facilitated control over Bevi’s machine hardware.</p>
         <p>The resulting solution enabled end-users to choose from a variety of flavors and enhanced their overall experience.</p>
@@ -13,7 +15,6 @@ const LeftBlock = ({}) =>{
         <p></p>
       </span>
       <img alt="bevi-04" src={ require('assets/images/portfolio/portfolio-detail/bevi-04.original.format-png.png').default} />
-     
   </div>
   )
 }

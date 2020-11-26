@@ -1,6 +1,6 @@
-import react from 'react'
+import TagElement from "../common/tag-element"
 import GalleryItem from "./gallery-item"
-
+import { Pagination } from 'antd'
 
 const gallery_data = [
   {
@@ -46,93 +46,79 @@ const gallery_data = [
     tags: ["Automative","FinTech"],
   },
 ]
+const tag_data =[
+  {
+    datatag : "angular",
+    tagname : "Angular",
+  },{
+    datatag : "react",
+    tagname : "React",
+  },{
+    datatag : "ror",
+    tagname : "Ruby on Rails",
+  },{
+    datatag : "python",
+    tagname : "Python",
+  },{
+    datatag : "php",
+    tagname : "PHP",
+  },{
+    datatag : "node",
+    tagname : "Node",
+  },{
+    datatag : "dotnet",
+    tagname : ".NET",
+  },{
+    datatag : "java",
+    tagname : "Java",
+  },{
+    datatag : "salesforce",
+    tagname : "sf",
+  },{
+    datatag : "mobile",
+    tagname : "Mobile",
+  },{
+    datatag : "qa",
+    tagname : "QA and Testing",
+  },{
+    datatag : "react native",
+    tagname : "React Native",
+  },
+ 
+]
 const Gallery = ({ }) => {
 
   return (
     <main>
-    <div className="projects">
-      <img alt="img" src={require('assets/images/portfolio/our_works_header.png').default} />
-      
+      <div className="projects">
+        <img alt="img" src={require('assets/images/portfolio/our_works_header.png').default} />
         <div className="our_works_header">
           <h1>Our works</h1>
           <h3>
             We don’t have to pick our best works as we give our best shot every single time. Here are just some of our stellar projects to help inspire your own.
           </h3>
         </div>
-        <div className="projects flexbox">
+          <div className="projects flexbox">
             <div className="tags">
               <ul className=" projects-filter">
-              <li data-tag="angular">
-                <div>Angular</div>
-              </li>
-              <li data-tag="react">
-                <div>React</div>
-              </li>
-              <li data-tag="ror">
-                <div>Ruby on Rails</div>
-              </li>
-              <li data-tag="python">
-                <div>Python</div>
-              </li>
-              <li data-tag="php">
-                <div>PHP</div>
-              </li>
-              <li data-tag="node">
-                <div>Node</div>
-              </li>
-              <li data-tag="dotnet">
-                <div>.NET</div>
-              </li>
-              <li data-tag="java">
-                <div>Java</div>
-              </li>
-              <li data-tag="sf">
-                <div>Salesforce</div>
-              </li>
-              <li data-tag="mobile">
-                <div>Mobile</div>
-              </li>
-              <li data-tag="qa">
-                <div>QA and Testing</div>
-              </li>
-              <li data-tag="react-native">
-                <div>React Native</div>
-              </li>  
-                {/*<ul> <li data-tag="insights">
-                  <div>Insights</div>
-                </li>
-                <li data-tag="community">
-                  <div>Community</div>
-                </li>
-                <li data-tag="success_stories">
-                  <div>Success Stories</div>
-                </li>
-                <li data-tag="event">
-                  <div>Events</div>
-                </li> */}
-                  
+                {tag_data.map((tag,idx)=> (
+                      <TagElement {...tag}  key={'tag-element' + idx} />
+                  ))}
               </ul>
             </div>
             <div id="blog" style={{minHeight:"99px"}}>
-                <div className="content flexbox">
+              <div className="content flexbox">
                 {gallery_data.map((gallery, idx) => (
-                          <GalleryItem active={(idx==0)} key={"gallery" + idx} {...gallery}/>
+                          <GalleryItem  {...gallery} key={"gallery" + idx} />
                       ))}     
-                </div>
-                {/* <Pagenation></Pagenation> */}
-                <div className="paging">
-                  <span className="active" data-page="1">1</span>
-                    <a data-page="2" href="">2</a>
-                    <a data-page="3" href="">3</a>
-                    <a data-page="4" href="">4</a>
-                    <a data-page="5" href="">5</a>
-                    <a data-page="6" href="">6</a>
-                    <a className="next" data-page="7" href=""></a>
-                </div>
-                </div>
+              </div> 
+              <div className="paging">
+                <Pagination onChange={onchange} total={150} pageSizeOptions={10}/>
               </div>
+            </div>
+          </div>
         </div>
-    </main>
+      </main>
   )
 }
 

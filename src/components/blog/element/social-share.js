@@ -22,7 +22,6 @@ const SocialShare = ({}) => {
         </span> 
         <span className="yey">
         <img src= {require('assets/images/blog/detail/eye_red.png').default} />&nbsp;798</span>
-        
       </div>
   </div>
   )

@@ -3,18 +3,15 @@ import react from "react"
 const GalleryItem = ({imgUrl,projectname}) =>{
   return (
     <div className="blog-post project-margin">
-        <div className="image">
-          <a href="/gallery-detail">
-            <img alt="img"  src={imgUrl} />
-          </a>
-        </div>
-        <div className="related-post-header">
-            <a href="/gallery-datail">{projectname}</a>
-        </div>
-        {/* <div className="content">
-        {content}
-        </div> */}
+      <div className="image">
+        <a href="/gallery-detail">
+          <img alt="img"  src={imgUrl} />
+        </a>
       </div>
+      <div className="related-post-header">
+          <a href="/gallery-datail">{projectname}</a>
+      </div>
+    </div>
   )
 }
 
