@@ -4,9 +4,9 @@ import Gallery from '../../../components/portfolio/gallery'
 
 const Portfolio = () => {
   return (
-    <>
-    <Gallery/>
-    </>
+    <div className="page-portfolio">
+      <Gallery/>
+    </div>
   )
 }
 
