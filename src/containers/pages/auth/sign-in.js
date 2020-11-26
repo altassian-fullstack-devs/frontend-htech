@@ -26,9 +26,13 @@ const validateMessages = {
   },
 };
 
-const SignIn = () => {
-  const onFinish = values => {
-    console.log(values);
+const SignIn = ({
+  onSignIn,
+  isLoading,
+  error
+}) => {
+  const onFinish = ({ user: { email, password } }) => {
+    onSignIn(email, password)
   };
 
   return (

@@ -4,7 +4,6 @@ import { createFields, createReducerHandlers, createReducer } from "store/utils"
 const initialState = {
   ...createFields('profiles'),
   ...createFields('profiles', 'selected', true),
-  defaultSize: 10
 }
 
 const handlers = {

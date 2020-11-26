@@ -1,3 +1,4 @@
+import get from 'lodash/get'
 import { createSelector } from 'reselect'
 import { getEntities } from 'store/utils'
 import { getData } from '../data'
@@ -10,7 +11,7 @@ export const getProfile = getEntities(getState, getData, {
   singular: true,
 })
 
-export const getProfileId = createSelector(getState, state => state.current)
+export const getProfileId = createSelector(getState, state => get(state, 'profiles.selected'))
 
 export const getPortfolios = getEntities(getState, getData, {
   type: 'portfolios'
