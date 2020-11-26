@@ -37,9 +37,7 @@ const YourWay = () => {
       <div className='container'>
         <h3>We make it your way</h3>
         <span>Our dedicated developers come as a 100% extension of your on-site team. They are fully-synced and always available for a chat, whether it’s a daily standup, a code review or an important decision to be made. And if needed, they’ll be happy to drop&nbsp;by.</span>
-        <div>
-          {renderStat ? (<VCollapse steps={steps}/>) : (<VChooser steps={steps}/>)}
-        </div>
+        {renderStat ? (<VCollapse steps={steps}/>) : (<VChooser steps={steps}/>)}
       </div>
     </div>
   )
