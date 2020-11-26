@@ -1,22 +1,23 @@
 export const API = {
-  URL: "http://192.168.100.175:8000",
+  URL: "http://192.168.100.175:4000",
 }
 
 export const ENDPOINT = {
-  SIGN_IN: '/auth/signin',
-  SIGN_IN_BY_TOKEN: '/auth/tokens',
+  SIGN_IN: '/api/auth/signin',
+  SIGN_UP: '/api/auth/signup',
+  SIGN_IN_BY_TOKEN: '/api/auth/tokens',
 
-  LOAD_ACCOUNT: '/accounts',
-  LOAD_PROFILE: '/profiles',
-  UPDATE_PROFILE: '/profiles/update',
-  CREATE_PROFILE: '/profiles/create',
-  DEACTIVATE_PROFILE: '/profiles/deactivate',
+  LOAD_ACCOUNT: '/api/accounts',
+  LOAD_PROFILE: '/api/profiles',
+  UPDATE_PROFILE: '/api/profiles/update',
+  CREATE_PROFILE: '/api/profiles/create',
+  DEACTIVATE_PROFILE: '/api/profiles/deactivate',
 
-  LOAD_HISTORIES: '/histories',
-  UPDATE_HISTORY: '/histories/update',
-  CREATE_HISTORY: '/histories/create',
+  LOAD_HISTORIES: '/api/histories',
+  UPDATE_HISTORY: '/api/histories/update',
+  CREATE_HISTORY: '/api/histories/create',
 
-  LOAD_PORTFOLIOS: '/portfolios',
-  UPDATE_PORTFOLIO: '/portfolios/update',
-  CREATE_PORTFOLIO: '/portfolios/create'
+  LOAD_PORTFOLIOS: '/api/portfolios',
+  UPDATE_PORTFOLIO: '/api/portfolios/update',
+  CREATE_PORTFOLIO: '/api/portfolios/create'
 }

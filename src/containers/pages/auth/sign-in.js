@@ -1,7 +1,11 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd';
-import { Link } from 'react-router-dom';
-import { AUTH_PATHS } from 'constants/paths';
+import { Form, Input, Button } from 'antd'
+import { Link } from 'react-router-dom'
+import { connect  } from 'react-redux'
+import { AUTH_PATHS } from 'constants/paths'
+import { createStructuredSelector } from 'reselect'
+import { getError, getIsLoading } from 'store/selectors/auth'
+import { signIn } from 'store/actions/auth'
 
 const layout = {
   labelCol: { span: 8 },
@@ -53,4 +57,12 @@ const SignIn = () => {
   );
 };
 
-export default SignIn
+export default connect(
+  createStructuredSelector({
+    error: getError,
+    isLoading: getIsLoading
+  }),
+  {
+    onSignIn: signIn
+  }
+)(SignIn)

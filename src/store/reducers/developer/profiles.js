@@ -3,14 +3,14 @@ import { createFields, createReducerHandlers, createReducer } from "store/utils"
 
 const initialState = {
   ...createFields('profiles'),
-  ...createFields('profiles', 'current', true),
+  ...createFields('profiles', 'selected', true),
   defaultSize: 10
 }
 
 const handlers = {
   ...createReducerHandlers('profiles', LOAD_PROFILE, {
     withReplace: true,
-    mapToKey: 'current',
+    mapToKey: 'selected',
     singular: true
   }),
 }

@@ -6,7 +6,7 @@ export const getState = state => state.developer
 
 export const getProfile = getEntities(getState, getData, {
   type: 'profiles',
-  field: 'current',
+  field: 'selected',
   singular: true,
 })
 
