@@ -13,7 +13,7 @@ const HowWeWork = () => {
       <StepBlock/>
       <YourWay/>
       <PerkWithTeam/>
-      {/* <Feature/> */}
+      <Feature/>
       <Contact/>
     </div>
   )
