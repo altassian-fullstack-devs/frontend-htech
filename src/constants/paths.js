@@ -9,8 +9,9 @@ export const PUBLIC_PATHS = {
     DEVELOPERS: `${ROOT_PATH}d/browse`,
     BLOG: `${ROOT_PATH}blog`,
     PROFILE: `${ROOT_PATH}profile`,
-    BLOGDETAIL :`${ROOT_PATH}blog-detail`,
+    BLOG_DETAIL :`${ROOT_PATH}blog-detail`,
     PORTFOLIO: `${ROOT_PATH}portfolio`,
+    GALLERY_DETAIL : `${ROOT_PATH}gallery-detail`,
     ABOUT_US: `${ROOT_PATH}about-us`,
     NOT_FOUND: `${ROOT_PATH}page-404`,
 }
