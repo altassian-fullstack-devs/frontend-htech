@@ -8,7 +8,7 @@ const Navbar = () => {
   const { pathname } = useLocation()
 
   return (
-    <>
+    <div className="nav-header-content">
       <div className="logo">
         <Link to={ROOT_PATH}>HOPE</Link>
       </div>
@@ -30,7 +30,7 @@ const Navbar = () => {
           <Link to={PUBLIC_PATHS.ABOUT_US}>ABOUT US</Link>
         </Menu.Item>
       </Menu>
-    </>
+    </div>
   )
 }
 
