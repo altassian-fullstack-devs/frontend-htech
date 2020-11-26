@@ -98,6 +98,7 @@ const portfolioLayout = {
 }
 
 const { Title } = Typography
+const { TextArea } = Input
 
 const ReachableContext = React.createContext();
 const UnreachableContext = React.createContext();
@@ -106,10 +107,15 @@ const modalEditTitle = {
   title: 'Your Title',
   icon: null,
   content: (
-    <>
-      <Input value={value => `${value}`}/>
-      <ReachableContext.Consumer>{value => `${value}`}</ReachableContext.Consumer>
-    </>
+    <ReachableContext.Consumer>{value => <Input defaultValue={value} />}</ReachableContext.Consumer>
+  ),
+};
+
+const modalEditOverview = {
+  title: 'Overview',
+  icon: null,
+  content: (
+    <ReachableContext.Consumer>{value => <TextArea defaultValue="" autoSize={true}/>}</ReachableContext.Consumer>
   ),
 };
 
@@ -117,7 +123,7 @@ const About = () => {
   const [modal, contextHolder] = Modal.useModal();
 
   return (
-    <ReachableContext.Provider value="Hey">
+    <ReachableContext.Provider value={items_about[0].title}>
       <section id="about">
         <Row>
           <Col {...leftLayout} align='center'>
@@ -134,14 +140,15 @@ const About = () => {
 
             <Space align='top'>
               <div>{items_about[0].content}</div>
-              <Button shape="circle" icon={<EditOutlined />} />
+              <Button shape="circle" icon={<EditOutlined />} onClick={() => {
+                modal.confirm(modalEditOverview);
+              }} />
             </Space>
           </Col>
         </Row>
       </section>
 
       {contextHolder}
-      <UnreachableContext.Provider value="Bamboo" />
     </ReachableContext.Provider>
   )
 }
