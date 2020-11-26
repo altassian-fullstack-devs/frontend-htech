@@ -19,6 +19,20 @@ body {
   background-color: black;
   height: 64px;
 }
+.side-menu {
+	display: flex;
+	justify-content: center;
+	background-color: transparent!important;
+	color: white!important;
+	border-bottom: none!important;
+}
+.side-bar {
+  background-color: rgba(0, 0, 0, 0.9)!important;
+  /* opacity: 0.5; */
+  z-index: 10;
+  height: 100%;
+  position: fixed;
+}
 .logo {
   float: left;
   width: 50px;
@@ -28,6 +42,10 @@ body {
   font-weight: bold;
   font-size: 24px;
   /* background: rgba(255, 255, 255, 0.3); */
+}
+.avatar {
+  float: right;
+  margin-top: 18px;
 }
 .ant-row-rtl .logo {
   float: right;
