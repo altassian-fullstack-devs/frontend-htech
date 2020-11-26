@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import MeetTheTeamCaret from './meet-the-team-caret'
 import TeamCollapse from './meet-the-team-collapse'
 import RedLineChoose from './red-line-choose'
 
@@ -40,7 +41,8 @@ const MeetTheTeam = () => {
   return (
     <div className="back-black text-white" style={{minHeight: '521px'}}>
       <i className="anticon anticon-down"></i>
-      <h3 className="center-text">Meet your team<div className="caret"/></h3>
+      <h3 className="center-text">Meet your <MeetTheTeamCaret strings={["team    ", "user    ", "support     "]}/><div className="caret"/></h3>
+      
       <div className="container">
         { renderStat ? (<TeamCollapse items={data}/>) : (<RedLineChoose panes={data}/>) }
       </div>
