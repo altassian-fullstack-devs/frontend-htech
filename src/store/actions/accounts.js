@@ -29,14 +29,14 @@ export const loadAccounts = ({
 })(dispatch, getState)
 
 export const loadAccount = (id = null) => apiCall({
-  method: 'GET',
+  method: 'POST',
   endpoint: ENDPOINT.LOAD_ACCOUNT,
   types: LOAD_ACCOUNT,
   query: id ? { id } : {}
 })
 
 export const loadVisitor = () => apiCall({
-  method: 'GET',
+  method: 'POST',
   endpoint: ENDPOINT.LOAD_ACCOUNT,
   types: LOAD_MY_ACCOUNT,
   query: {}
