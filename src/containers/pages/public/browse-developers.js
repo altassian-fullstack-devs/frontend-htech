@@ -57,7 +57,7 @@ const data = [
     name: 'Dakata D.',
     avatar: 'http://gogs.hope.com/avatars/10?s=287',
     title: '3D Artist',
-    rate: 30,
+    rate: 70,
     earning: 500000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [

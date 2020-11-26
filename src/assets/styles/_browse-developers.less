@@ -1,5 +1,7 @@
 .page-browse-developers {
+  max-width: 1150px;
   padding: 50px;
+  margin: auto;
 
   .title-filter{
     padding: 0 16px 16px;
@@ -7,7 +9,7 @@
   }
 
   .browse-developers-content {
-    padding: 20px 0;
+    padding: 50px 0 0;
     background: white;
     border: 1px solid #d9d9d9;
     border-radius: 5px;
@@ -17,6 +19,10 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 16px 24px;
+
+    &:hover {
+      background: rgba(0,0,0,0.1);
+    }
 
     .ant-row {
       width: 100%;
@@ -32,6 +38,7 @@
   }
 
   .pagination-container {
-    padding: 16px 24px;
+    padding: 30px;
+    border-top: 1px solid #d9d9d9;
   }
 }
