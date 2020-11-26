@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { Layout, Collapse, Typography, List, Avatar, Row, Col, Pagination } from 'antd'
+import { useHistory } from 'react-router-dom'
 
 const { Panel } = Collapse
 const { Content, Sider } = Layout
@@ -209,8 +210,14 @@ const data = [
 ];
 
 const BrowseDevelopers = () => {
+  const history = useHistory()
+
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
+  }
+
+  const onClickItem = item => {
+    history.push('/profile')
   }
 
   return (
@@ -222,7 +229,10 @@ const BrowseDevelopers = () => {
             itemLayout="horizontal"
             dataSource={data}
             renderItem={item => (
-              <List.Item className='list-item-developer'>
+              <List.Item 
+                className='list-item-developer'
+                onClick={() => onClickItem(item)}
+              >
                 <Row align='middle' className='row-title'>
                   <Avatar src={item.avatar} size='large' />
                   <Col style={{ marginLeft: 20}} >
