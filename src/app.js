@@ -14,6 +14,7 @@ import 'assets/styles/index.less'
 import { signInByToken } from 'store/actions/auth'
 import { getError, getIsLoading } from 'store/selectors/auth'
 import { Loading } from 'components/common'
+import { USER_ROLES } from 'constants/roles'
 
 const { store, history } = createStore({})
 
@@ -38,7 +39,7 @@ let App = ({
           <Loading />
         :
           <BrowserRouter>
-            { renderRoutes(routes({ isReady, role})) }
+            { renderRoutes(routes({ isReady: true, role: USER_ROLES.admin})) }
           </BrowserRouter>
       }
     </div>

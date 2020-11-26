@@ -22,7 +22,8 @@ export const AUTH_PATHS = {
 }
 
 export const ADMIN_PATHS = {
-
+    CLIENTS: `${ADMIN_ROOT}clients`,
+    DEVELOPERS: `${ADMIN_ROOT}developers`,
 }
 
 export const DEVELOPER_PATHS = {

@@ -3,12 +3,13 @@ import { Menu } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
 
 import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
+import { FixedWidthLayout } from 'containers/layout'
 
 const Navbar = () => {
   const { pathname } = useLocation()
 
   return (
-    <>
+    <FixedWidthLayout>
       <div className="logo">
         <Link to={ROOT_PATH}>HOPE</Link>
       </div>
@@ -30,7 +31,7 @@ const Navbar = () => {
           <Link to={PUBLIC_PATHS.ABOUT_US}>ABOUT US</Link>
         </Menu.Item>
       </Menu>
-    </>
+    </FixedWidthLayout>
   )
 }
 
