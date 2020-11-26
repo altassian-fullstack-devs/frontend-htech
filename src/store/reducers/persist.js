@@ -12,9 +12,8 @@ const handlers = {
   [AUTHENTICATE.SUCCESS]: (state, { payload }) => state.merge({
     access: pick(payload.data, ['access_token', 'token_type', 'expires_at']),
   }),
-  [LOG_OUT]: state => state.merge({
-    access: null
-  }),
+  [AUTHENTICATE.FAILURE]: state => state.merge(initialState),
+  [LOG_OUT]: state => state.merge(initialState),
 }
 
 export default createReducer(initialState, handlers)
