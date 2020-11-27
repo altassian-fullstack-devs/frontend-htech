@@ -22,6 +22,8 @@ export const AUTH_PATHS = {
 }
 
 export const ADMIN_PATHS = {
+    BLOGS: `${ADMIN_ROOT}blogs`,
+    PORTFOLIOS: `${ADMIN_ROOT}portfolios`,
     CLIENTS: `${ADMIN_ROOT}clients`,
     DEVELOPERS: `${ADMIN_ROOT}developers`,
 }
