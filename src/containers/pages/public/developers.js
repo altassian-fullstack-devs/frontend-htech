@@ -49,8 +49,8 @@ const BrowseDevelopers = ({
         <Content className="browse-developers-content">
           <List
             itemLayout="horizontal"
-            dataSource={isLoaded ? new Array(10).fill(0) : developers}
-            renderItem={item => (isLoaded ? <SkeletonItem/> : <DeveloperItem item={item} onClickItem={onClickItem}/>)}
+            dataSource={!isLoaded ? new Array(10).fill(0) : developers}
+            renderItem={item => (!isLoaded ? <SkeletonItem/> : <DeveloperItem item={item} onClickItem={onClickItem}/>)}
           />
           <Row className='pagination-container' align='end'>
             <Pagination

@@ -31,7 +31,9 @@ const handlers = {
     const total = get(action, 'payload.data.meta.total', 0)
     return state.merge({
       accounts: map(accounts, 'id'),
-      total
+      total,
+      isLoaded: true,
+      isLoading: false
     })
   },
   [LOCATION_CHANGE]: state => state.merge({ error: false }),
