@@ -1,7 +1,7 @@
 
-import TagElement from "../common/tag-element"
+import { Pagination, Tag } from 'antd'
+
 import GalleryItem from "./gallery-item"
-import { Pagination } from 'antd'
 
 const gallery_data = [
   {
@@ -47,46 +47,56 @@ const gallery_data = [
     tags: ["Automative","FinTech"],
   },
 ]
-const tag_data =[
+const tags =[
   {
-    datatag : "angular",
-    tagname : "Angular",
-  },{
-    datatag : "react",
-    tagname : "React",
-  },{
-    datatag : "ror",
-    tagname : "Ruby on Rails",
-  },{
-    datatag : "python",
-    tagname : "Python",
-  },{
-    datatag : "php",
-    tagname : "PHP",
-  },{
-    datatag : "node",
-    tagname : "Node",
-  },{
-    datatag : "dotnet",
-    tagname : ".NET",
-  },{
-    datatag : "java",
-    tagname : "Java",
-  },{
-    datatag : "sf",
-    tagname : "SalesForce",
-  },{
-    datatag : "mobile",
-    tagname : "Mobile",
-  },{
-    datatag : "qa",
-    tagname : "QA and Testing",
-  },{
-    datatag : "react native",
-    tagname : "React Native",
+    name: "Angular",
+    value: "angular"
   },
- 
+  {
+    name: "React",
+    value: "react"
+  },
+  {
+    name: "Ruby on Rails",
+    value: "ror"
+  },
+  {
+    name: "Python",
+    value: "python"
+  },
+  {
+    name: "PHP",
+    value: "php"
+  },{
+    name: "Node",
+    datatag : "node"
+  },
+  {
+    name: ".NET",
+    value: "dotnet"
+  },
+  {
+    name: "Java",
+    value: "java"
+  },
+  {
+    name: "SalesForce",
+    value: "sf"
+  },
+  {
+    name: "Mobile",
+    value: "mobile"
+  },
+  {
+    name: "QA and Testing",
+    value: "qa"
+  },
+  {
+    name: "React Native",
+    value: "react native"
+  }
 ]
+
 const Gallery = ({ }) => {
 
   return (
@@ -103,20 +113,25 @@ const Gallery = ({ }) => {
         </div>
           <div className="projects flexbox">
             <div className="tags">
-              <ul className=" projects-filter">
-                {tag_data.map((tag,idx)=> (
-                      <TagElement {...tag}  key={'tag-element' + idx} />
-                  ))}
-              </ul>
+              {tags.map((tag, idx)=> (
+                <Tag key={`tag-${idx}`}>
+                  {tag.name}
+                </Tag>
+              ))}
             </div>
             <div id="blog" style={{minHeight:"99px"}}>
               <div className="content flexbox">
                 {gallery_data.map((gallery, idx) => (
-                          <GalleryItem  {...gallery} key={"gallery" + idx} />
-                      ))}     
+                  <GalleryItem  {...gallery} key={"gallery" + idx} />
+                ))}     
               </div> 
               <div className="paging">
-                <Pagination onChange={onchange} total={50} />
+                <Pagination 
+                  showSizeChanger={false}
+                  // size='small'
+                  onChange={onchange}
+                  total={80}
+                />
               </div>
             </div>
           </div>

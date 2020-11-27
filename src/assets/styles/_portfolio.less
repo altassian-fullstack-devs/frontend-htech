@@ -1,39 +1,5 @@
 /* ** Portfolio Page */
 .page-portfolio {
-
-    html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,ol,ul,li,label,tr,th,td,article
-    {
-        margin:0;
-        padding:0;
-        border:0;
-        font-size:100%;
-        font:inherit;
-        vertical-align:baseline
-    }
-    article,aside,details,header,menu,nav,section
-    {
-        display:block
-    }
-    main {
-        position: relative;
-        display: block;
-        color: #000000;
-        background-color: #ffffff;
-    }
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'HelveticaNeueLT_iTechArt',Arial,sans-serif;
-        font-size: 14px;
-        font-weight: 300;
-        color: #000;
-        background: #FFF;
-        visibility: visible;
-        overflow-y: scroll;
-    }
-    main>.projects {
-        background-color: #f9f9fb;
-    }
     .projects {
         padding: 70px 0 6em 0;
     }
@@ -210,12 +176,6 @@
     .tags li:hover{
         cursor: pointer;
     }
-    li {
-        list-style: none;
-        line-height: 1.2;
-        font-size: 25px;
-        margin-bottom: 6px;
-    }
     @media only screen and (max-width: 1450px)
     {.projects .tags li, .projects .tags li {
         margin-bottom: 10px;
@@ -234,77 +194,7 @@
         border: none;
         background: transparent;
     }}
-    .projects .tags .projects-filter div, .projects .tags.js-blog-tags div 
-    {
-        line-height: 1;
-    }
-    .projects .tags .projects-filter div, .projects .tags.js-blog-tags div {
-        max-width: 100%;
-        width: 85%;
-        padding: 11px 3px 11px 3px;
-        text-align: center;
-        border: 1px solid #a8a8a8;
-        font-size: 17px;
-        border-radius: 25px;
-    }
-    @media only screen and (max-width: 1024px) and (min-width: 816px)
-    {.projects .tags .projects-filter div, .projects .tags.js-blog-tags div {
-        max-width: 100%;
-        width: 100%;
-        padding: 11px 3px 11px 3px;
-        text-align: center;
-        border: 1px solid #a8a8a8;
-        font-size: 12px;
-        border-radius: 25px;
-    }}
-    @media only screen and (max-width: 1200px)
-    {.projects .tags .projects-filter div {
-        width: 100%;
-    }}
-    @media only screen and (max-width: 1450px)
-    {.projects .tags .projects-filter div, .projects .tags.js-blog-tags div {
-        font-size: 14px;
-        padding: 7px 3px 7px 3px;
-    }}
-    @media only screen and (max-width: 545px)
-    {.projects .tags .projects-filter div {
-        width: 115px;
-    }}
-    @media only screen and (max-width: 815px)
-    {.projects .tags .projects-filter div {
-        width: 120px;
-    }}
-    @media only screen and (max-width: 815px)
-    {.projects .tags .projects-filter div {
-        padding: 8px 14px 9px 14px;
-        text-align: center;
-        border: 1px solid #a8a8a8;
-        border-radius: 15px;
-        font-size: 14px;
-    }}
-    @media only screen and (max-width: 350px)
-    {.projects .tags .projects-filter div {
-        padding: 8px 4px 6px 4px;
-    }}
-    @media only screen and (max-width: 390px)
-    {.projects .tags .projects-filter div {
-        padding: 8px 7px 6px 7px;
-        width: 80px;
-        font-size: 12px;
-    }}
-    @media only screen and (max-width: 430px)
-    {.projects .tags .projects-filter div {
-        width: 100px;
-        font-size: 12px;
-    }}
-    @media only screen and (max-width: 430px)
-    {.projects .tags .projects-filter div {
-        padding: 8px 10px 6px 10px;
-    }}
-    .projects .tags .projects-filter div:hover, .projects .tags.js-blog-tags div:hover 
-    {
-        color: #000000;
-    }
+    
     .tags li.active div {
         border-color: #eb1c23;
         color: #000000;
@@ -349,7 +239,8 @@
         width: 100%;
         height: 270px;
         overflow: hidden;
-    }.blog-post .image img {
+    }
+    .blog-post .image img {
         position: relative;
         min-height: 100%;
         max-width: 100%;
