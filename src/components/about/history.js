@@ -1,4 +1,4 @@
-import react, { useState } from 'react'
+import React, { useState } from 'react'
 import {Col, Row, Slider} from 'antd'
 
 let years = [2002,2006,2008,2009,2010,2012,2015,2016,2017,2018,2019]
@@ -137,8 +137,11 @@ const YearOut = ({id, cid}) => (
   //   </Col>
   // </Row>
 )
+
 const History = ({}) => {
   const [id, setId] = useState(0)
+  const ref = React.createRef();
+
   return (<>
     <div className="container">
       <h2 className="history">
@@ -152,7 +155,17 @@ const History = ({}) => {
           marks={years}
           max = {10}
           min = {0}
-          onChange = {(id) => setId(id)}
+          ref = {ref}
+          onChange = {(id) => {
+            setId(id)
+            let me = ref.current.sliderRef.style
+            console.log("Slider", me);
+            me.transform = `translateX(${100 * (5 - id)}px)`
+          }}
+          tipFormatter = {value => years[value]}
+          dots = {true}
+          // range = {true}
+          included =  {true}
           />
 
         <div className='swiper-wrapper' style={{transition: 'all 0ms ease 0s'}}>

@@ -32,24 +32,6 @@ const techs = [
 
 const initialState = { data02};
 
-const renderLabelContent = (props) => {
-  let { value, percent, x, y, midAngle, name, color, index } = props;
-  const RADIAN = Math.PI / 180;
-  console.log("props:");
-  console.log(props);
-
-  let r = 80;
-  x -= r * Math.cos(-RADIAN * midAngle);
-  y -= r * Math.sin(-RADIAN * midAngle);
-  // color
-  return (
-    <g transform={`translate(${x}, ${y})`} color={color} textAnchor={ (midAngle < -90 || midAngle >= 90) ? 'end' : 'start'}>
-      <text x={lx[index]} y={0}>{`${(percent * 100).toFixed(0)}%`}</text>
-      <text x={lx[index]} y={20}>{`${name}`}</text>
-    </g>
-  );
-};
-
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
@@ -93,10 +75,32 @@ export default class Demo extends Component {
       animation: true,
       ref
     };
+    this.renderLabelContent = this.renderLabelContent.bind(this)
   }
+
+  renderLabelContent = (props) => {
+    let { value, percent, x, y, midAngle, name, color, index } = props;
+    const RADIAN = Math.PI / 180;
+    //console.log("props:");
+    //console.log(props);
+    
+    //console.log("props1");
+    //console.log(this);
+  
+    let r = 80;
+    x -= r * Math.cos(-RADIAN * midAngle);
+    y -= r * Math.sin(-RADIAN * midAngle);
+    // color
+    return (
+      <g transform={`translate(${x}, ${y})`} color={color} textAnchor={ (midAngle < -90 || midAngle >= 90) ? 'end' : 'start'} style={{pointerEvents:'none'}}>
+        <text x={lx[index]} y={0}>{`${(percent * 100).toFixed(0)}%`}</text>
+        <text x={lx[index]} y={20}>{`${name}`}</text>
+      </g>
+    );
+  };
   
   handlePieChartEnter = (a, b, c) => {
-    console.log(a, b, c);
+    //console.log(a, b, c);
   };
 
   handleEnter = (e, activeIndex) => {
@@ -105,14 +109,15 @@ export default class Demo extends Component {
       n = techs[this.state.activeIndex].length;
     if(~activeIndex)
       m = techs[activeIndex].length;
-    // console.log(this.state.ref);
+    // //console.log(this.state.ref);
     this.state.ref.current.style.height = `${ 200 - m / 2.0 * 21.600 }px`
     // this.state.ref.current.style.height = `${Math.random * 100 % 12}px`
+    console.log("handleEnter");
     this.setState({ activeIndex });
     
   }
   handleLeave = () => {
-    console.log("123");
+    console.log("handleLeave");
     this.setState({ activeIndex: -1 });
   }
 
@@ -135,11 +140,11 @@ export default class Demo extends Component {
                 endAngle={-270}
                 innerRadius={60}
                 outerRadius={160}
-                label={renderLabelContent}
                 activeIndex={this.state.activeIndex}
                 activeShape={renderActiveShape}
                 onMouseEnter={this.handleEnter}
                 onMouseLeave={this.handleLeave}
+                label={this.renderLabelContent} 
                 paddingAngle={0}
                 isAnimationActive={this.state.animation}
               >
