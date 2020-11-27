@@ -160,7 +160,7 @@ const History = ({}) => {
             setId(id)
             let me = ref.current.sliderRef.style
             console.log("Slider", me);
-            me.transform = `translateX(${100 * (5 - id)}px)`
+            me.transform = `translateX(${100 * (2 - id)}px)`
           }}
           tipFormatter = {value => years[value]}
           dots = {true}
