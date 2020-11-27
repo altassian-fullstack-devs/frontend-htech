@@ -1,4 +1,4 @@
-import { Developer, Client, Admin, Root, Auth, Common } from 'containers/layout'
+import { Developer, Client, Admin, Root, Auth, Public } from 'containers/layout'
 import { NotFound } from 'containers/pages/public'
 import { ADMIN_ROOT, AUTH_ROOT, CLIENT_ROOT, DEVELOPER_ROOT, PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
 import { USER_ROLES } from 'constants/roles'
@@ -53,7 +53,7 @@ const routes = viewer => {
     },
     {
       path: ROOT_PATH,
-      component: Common,
+      component: Public,
       routes: publicRoutes()
     }
   ]
