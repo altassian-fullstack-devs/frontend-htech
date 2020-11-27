@@ -1,48 +1,48 @@
 .page-blog 
 {
-  html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,ol,ul,li,label,tr,th,td,article
+  html,body,div,h1,h2,h3,h4,h5,h6,p,a,img,ol,ul,li,label,tr,th,td,article
   {
-      margin:0;
-      padding:0;
-      border:0;
-      font-size:100%;
-      font:inherit;
-      vertical-align:baseline
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    font:inherit;
+    vertical-align:baseline
   }
   article,aside,details,header,menu,nav,section
   {
-      display:block
+    display:block
   }
   main {
-      position: relative;
-      display: block;
-      color: #000000;
-      background-color: #ffffff;
+    position: relative;
+    display: block;
+    color: #000000;
+    background-color: #ffffff;
   }
   .blog body {
-      margin: 0;
-      padding: 0;
-      font-family: 'HelveticaNeueLT_iTechArt',Arial,sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      color: #000;
-      background: #FFF;
-      visibility: visible;
-      overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    font-family: 'HelveticaNeueLT_iTechArt',Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #000;
+    background: #FFF;
+    visibility: visible;
+    overflow-y: scroll;
   }
   
    /**Container part**/
   .container-1440
   {
-      width:90%;
-      max-width:1580px;
-      display:block
+    width:90%;
+    max-width:1580px;
+    display:block
   }
 
   .container-600, .container-800, .container-1000, 
   .container-1200, .container-1440 
   {
-      margin: 0 auto;
+    margin: 0 auto;
   }
   .container-600{width:728px;max-width:728px}
   .container-800{width:928px;max-width:928px}
@@ -110,18 +110,9 @@
     .projects .tags.js-blog-tags ul {
         padding-bottom: 40px;
     }
-    .projects .js-blog-tags {
-        text-align: center;
-    }
     .projects .tags li {
         text-align: center;
         width: 25%;
-    }
-    li {
-        list-style: none;
-        line-height: 1.2;
-        font-size: 25px;
-        margin-bottom: 6px;
     }
    }
    .projects
@@ -156,29 +147,12 @@
     .tags li:before {
         display: none;
     }
-    .tags .projects-filter div:hover, .tags.js-blog-tags div:hover 
-    {
-        color: #000000;
-    }
-    .tags .projects-filter div, .tags.js-blog-tags div {
-        max-width: 100%;
-        width: 85%;
-        padding: 11px 3px 11px 3px;
-        text-align: center;
-        border: 1px solid #a8a8a8;
-        font-size: 19px;
-        border-radius: 25px;
-    }
     .tags li, .tags li:hover {
         color: #535558;
         background: transparent;
         white-space: nowrap;
         text-align: left;
     }
-    .tags .projects-filter div, .tags.js-blog-tags div {
-        line-height: 1;
-    }
-
    }
   
     .tags li.active div 
@@ -186,9 +160,7 @@
         border-color: #eb1c23;
         color: #000000;
     }
-    .tags .projects-filter li.active>div::before, .tags.js-blog-tags li.active>div::before {
-        background-color: #ff0000;
-    }
+    
     *:focus, *:active, *:hover {
         outline: none;
         -webkit-tap-highlight-color: transparent;
@@ -426,29 +398,6 @@
   @media only screen and (max-width: 1450px)
   {.projects .tags li, .projects .tags li {
       margin-bottom: 10px;
-  }}
-  @media only screen and (max-width: 815px)
-  {li {
-      font-size: 17px;
-  }}
-  @media only screen and (max-width: 1382px) and (min-width: 1025px)
-  {.projects .tags .projects-filter div, .projects .tags.js-blog-tags div {
-      font-size: 16px;
-  }}
-  @media only screen and (max-width: 1450px)
-  {.projects .tags .projects-filter div, .projects .tags.js-blog-tags div {
-      font-size: 14px;
-      padding: 7px 3px 7px 3px;
-  }}
-  @media only screen and (max-width: 1024px) and (min-width: 816px)
-  {.projects .tags .projects-filter div, .projects .tags.js-blog-tags div {
-      max-width: 100%;
-      width: 100%;
-      padding: 11px 3px 11px 3px;
-      text-align: center;
-      border: 1px solid #a8a8a8;
-      font-size: 14px;
-      border-radius: 25px;
   }}
   @media only screen and (max-width: 815px)
   {.projects .tags.js-blog-tags div {
@@ -1077,8 +1026,6 @@
       font-size: 1rem;
       font-weight: normal;
       text-transform: uppercase;
-      color: #FFF;
-      background-image: linear-gradient(to right,#f41351,#eb1c23);
       transition: all 0.4s ease;
       border: none;
       cursor: pointer;

@@ -1,5 +1,5 @@
 import BlogElement from "./element/blog-element"
-import TagElement from "components/common/tag-element"
+
 import { Pagination, Tag } from 'antd'
 
 const blog_data =[
@@ -46,48 +46,56 @@ const blog_data =[
     view : "1110",
   },
 ]
-const tag_data =[
+
+const tags = [
   {
-    datatag : "insights",
-    tagname : "Insights",
-  },{
-    datatag : "community",
-    tagname : "Community",
-  },{
-    datatag : "success stories",
-    tagname : "Success Stories",
-  },{
-    datatag : "event",
-    tagname : "Event",
+    name: 'Insights',
+    value: 'insights'
   },
- 
+  {
+    name: 'Community',
+    value: 'community'
+  },
+  {
+    name: 'Success Stories',
+    value: 'success-stories'
+  },
+  {
+    name: 'Event',
+    value: 'event'
+  }
 ]
+
 const BlogFirst = ({}) => {
 
   return (
     <main>
       <div className="blog">
-        <div className="container-1440"></div>  
-          <h1>iTech blog</h1>
-          <div className="projects flexbox">
-            <div className="tags js-blog-tags">
-              <ul>
-                {tag_data.map((tag,idx)=> (
-                      <TagElement {...tag}  key={'tag-element' + idx} />
-                  ))}
-              </ul>
-            </div>
-            <div id="blog" style={{minHeight:"99px"}}>
-              <div className="content flexbox">
-                {blog_data.map( (blog, idx) => (
-                  <BlogElement  {...blog} key={"blog-element" + idx} />
-                ))}
-                </div>
-                <div className="paging">
-                  <Pagination onChange={onchange} total={50} size={10}/>
-                </div>
+        <h1>iTech blog</h1>
+        <div className="projects flexbox">
+          <div className="tags js-blog-tags">
+            {tags.map((tag, idx)=> (
+              <Tag key={`tag-${idx}`}>
+                {tag.name}
+              </Tag>
+            ))}
+          </div>
+          <div id="blog" style={{minHeight: 99}}>
+            <div className="content flexbox">
+              {blog_data.map( (blog, idx) => (
+                <BlogElement  {...blog} key={`blog-element${idx}`} />
+              ))}
+              </div>
+              <div className="paging">
+                <Pagination 
+                  showSizeChanger={false}
+                  // size='small'
+                  onChange={onchange}
+                  total={80}
+                />
               </div>
             </div>
+          </div>
         </div>
     </main> 
   )
