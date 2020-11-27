@@ -1,8 +1,8 @@
 import React from 'react'
 
-const FixedWidthLayout = ({ children }) => {
+const FixedWidthLayout = ({ children, className, ...props }) => {
   return (
-    <div className='layout-fixed-width'>
+    <div className={`layout-fixed-width ${className}`} {...props}>
       {children}
     </div>
   )

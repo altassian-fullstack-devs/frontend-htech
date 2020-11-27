@@ -3,6 +3,8 @@ import React from 'react'
 import { Layout, Collapse, Typography, List, Avatar, Row, Col, Pagination } from 'antd'
 import { useHistory } from 'react-router-dom'
 
+import { FixedWidthLayout } from 'containers/layout'
+
 const { Panel } = Collapse
 const { Content, Sider } = Layout
 const { Title } = Typography
@@ -221,7 +223,7 @@ const BrowseDevelopers = () => {
   }
 
   return (
-    <div className="page-browse-developers">
+    <FixedWidthLayout className="page-browse-developers">
       <Layout>
         <SideFilter />
         <Content className="browse-developers-content">
@@ -260,7 +262,7 @@ const BrowseDevelopers = () => {
           </Row>
         </Content>
       </Layout>
-    </div>
+    </FixedWidthLayout>
   )
 }
 
