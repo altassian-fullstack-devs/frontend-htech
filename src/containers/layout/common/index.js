@@ -12,7 +12,7 @@ const Common = ({ route }) => {
         <Navbar />
       </Header>
       <div className="nav-header-empty"/>
-      <Content>
+      <Content className="page-content">
         { renderRoutes(route.routes) }
       </Content>
       <Footer style={{ textAlign: 'center' }}>HOPE ©2020 Created by HOPE LtD</Footer>

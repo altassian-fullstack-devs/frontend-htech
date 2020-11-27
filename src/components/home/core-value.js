@@ -1,6 +1,8 @@
 import React from 'react'
 import { Row } from 'antd'
+
 import CoreValueItem from './core-value-item'
+import { FixedWidthLayout } from 'containers/layout'
 
 const data = [
   {
@@ -45,24 +47,24 @@ const data = [
 const CoreValue = () => {
   return (
     <>
-    <div className="container">
-      <h2 className="section-title">
-        <b>
-          Core values ____<br/>
-          we live by
-        </b>
-      </h2>
-    </div>
-    <div style={{position: 'relative'}}>
-      <div className="left-half grey"></div>
-      <div className="container">
-        <Row>
-          {data.map((datum, idx) => (
-            <CoreValueItem {...datum} key={'core-value-item-' + idx} isLeft={ idx%2 == 0 }/>
-          ))}
-        </Row>
+      <FixedWidthLayout>
+        <h2 className="section-title">
+          <b>
+            Core values ____<br/>
+            we live by
+          </b>
+        </h2>
+      </FixedWidthLayout>
+      <div style={{ position: 'relative' }}>
+        <div className="left-half grey"></div>
+        <FixedWidthLayout>
+          <Row>
+            {data.map((datum, idx) => (
+              <CoreValueItem {...datum} key={'core-value-item-' + idx} isLeft={ idx%2 == 0 }/>
+            ))}
+          </Row>
+        </FixedWidthLayout>
       </div>
-    </div>
     </>
   )
 }

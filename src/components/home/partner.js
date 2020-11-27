@@ -1,6 +1,8 @@
 import React from 'react'
 import { Row, Col, Carousel } from 'antd'
 
+import { FixedWidthLayout } from 'containers/layout'
+
 const data = [
   {
     figure: '1700+',
@@ -16,7 +18,7 @@ const data = [
 
 const Partner = () => {
   return (
-    <div className="container">
+    <FixedWidthLayout>
       <h2 className="section-title"><span>A partner every step</span><br/> of the way</h2>
       <Row>
         <Col sm={16} xs={24}>
@@ -35,7 +37,7 @@ const Partner = () => {
           </Carousel>
         </Col>
       </Row>
-    </div>
+    </FixedWidthLayout>
   )
 }
 
