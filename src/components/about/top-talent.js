@@ -14,7 +14,7 @@ const TalentItem = ({img, alt}) => (
 )
 const TopTalent = ({}) => (
   <span class="black recognized">
-    <span class="data container-1200">
+    <span class="data container">
       <h2 class="left">A recognized leader for top talent</h2>
       <p class="left">We think the only way to do great work is to love what you do. This way, continuous recognition for bold leadership and setting new standards feels even&nbsp;better.</p>
       <span class="flexbox small-margin centered basis-30">

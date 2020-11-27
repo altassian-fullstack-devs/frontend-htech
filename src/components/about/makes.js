@@ -42,8 +42,8 @@ var settings = {
 };
 
 const Makes = ({}) => (
-  <span className="container-1200">
-    <span className="data">
+  <div className="container">
+    <div className="data">
       <h2 className="left">What makes us 'us'</h2>
       <div className="double-underline-block mobile-padding small_images">
         <div className="images">
@@ -65,7 +65,7 @@ const Makes = ({}) => (
               </div>
             </div>
       </div>
-    </span>
-  </span>
+    </div>
+  </div>
 )
 export default Makes

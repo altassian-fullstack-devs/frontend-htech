@@ -51,7 +51,7 @@ let items = [
 
 const Software = () => (
   <span className="black z-index-100 margin-minus-30">
-    <span className="container-1200">
+    <span className="container">
       <span className="data">
         <h3 className="thin">
           We’re building software solutions <br/>for 200+ clients right now

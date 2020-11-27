@@ -140,13 +140,13 @@ const YearOut = ({id, cid}) => (
 const History = ({}) => {
   const [id, setId] = useState(0)
   return (<>
-    <div className="container-1200">
+    <div className="container">
       <h2 className="history">
         iTechArt docu-series... to be stellarly continued
       </h2>
     </div>
 
-    <div className='our_history container-1200'>
+    <div className='our_history container'>
       {/* <div className='swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal'> */}
         <Slider step={null}
           marks={years}

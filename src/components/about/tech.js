@@ -35,7 +35,7 @@ const TechItems = ({}) => {
 
   const data = [10, 20, 30];
   return (
-  <Row className='techitems container-1200'>
+  <Row className='techitems container'>
     <Col sm = {24} md={24} lg={10}>
       <h2>Dedicated engineers, hand-picked</h2>
       <p>
