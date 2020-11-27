@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Layout, Collapse, Typography, List, Avatar, Row, Col, Pagination } from 'antd'
+import { Layout, Collapse, Typography, List, Avatar, Row, Col, Pagination, Skeleton } from 'antd'
 import { useHistory } from 'react-router-dom'
 
 import { FixedWidthLayout } from 'containers/layout'
@@ -214,6 +214,8 @@ const data = [
 const BrowseDevelopers = () => {
   const history = useHistory()
 
+  const loading = true
+
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   }
@@ -222,35 +224,42 @@ const BrowseDevelopers = () => {
     history.push('/profile')
   }
 
+  const renderDeveloperItem = item => (
+    <List.Item 
+      className='list-item-developer'
+      onClick={() => onClickItem(item)}
+    >
+      <Row align='middle' className='row-title'>
+        <Avatar src={item.avatar} size='large' />
+        <Col style={{ marginLeft: 20}} >
+          <Row className='title-name'>{item.name}</Row>
+          <Row>{item.title}</Row>
+        </Col>
+      </Row>
+      <Row justify="space-between" style={{ marginTop: 10, paddingRight: 20 }}>
+        <Col>$<strong>{item.rate.toFixed(2)}</strong> / hr</Col>
+        <Col>$<strong>{item.earning}</strong> earned</Col>
+        <Col>100% Job Success</Col>
+      </Row>
+      <Row style={{ marginTop: 15 }}>{item.overview}</Row>
+      <Row style={{ marginTop: 10, color: 'grey' }}>{item.skills.join(' • ')}</Row>
+    </List.Item>
+  )
+
+  const renderSkeletonItem = () => (
+    <List.Item className='list-item-developer'>
+      <Skeleton active avatar />
+    </List.Item>
+  )
+
   return (
     <FixedWidthLayout className="page-browse-developers">
       <Layout>
         <SideFilter />
         <Content className="browse-developers-content">
           <List
-            itemLayout="horizontal"
-            dataSource={data}
-            renderItem={item => (
-              <List.Item 
-                className='list-item-developer'
-                onClick={() => onClickItem(item)}
-              >
-                <Row align='middle' className='row-title'>
-                  <Avatar src={item.avatar} size='large' />
-                  <Col style={{ marginLeft: 20}} >
-                    <Row className='title-name'>{item.name}</Row>
-                    <Row>{item.title}</Row>
-                  </Col>
-                </Row>
-                <Row justify="space-between" style={{ marginTop: 10, paddingRight: 20 }}>
-                  <Col>$<strong>{item.rate.toFixed(2)}</strong> / hr</Col>
-                  <Col>$<strong>{item.earning}</strong> earned</Col>
-                  <Col>100% Job Success</Col>
-                </Row>
-                <Row style={{ marginTop: 15 }}>{item.overview}</Row>
-                <Row style={{ marginTop: 10, color: 'grey' }}>{item.skills.join(' • ')}</Row>
-              </List.Item>
-            )}
+            dataSource={loading ? new Array(10).fill(0) : data}
+            renderItem={loading ? renderSkeletonItem : renderDeveloperItem}
           />
           <Row className='pagination-container' align='end'>
             <Pagination
