@@ -1,4 +1,4 @@
-import { createReducer } from 'store/utils'
+import { createReducer } from 'utils/store'
 
 import { APP_READY } from 'store/actions/app'
 import { AUTHENTICATE } from 'store/actions/auth'

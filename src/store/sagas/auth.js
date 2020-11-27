@@ -1,9 +1,13 @@
 import { all, fork, put, take, race } from 'redux-saga/effects'
+import { push } from 'connected-react-router'
+
 import { AUTHENTICATE } from 'store/actions/auth'
-import { logOut, loadVisitor, LOAD_MY_ACCOUNT } from 'store/actions/accounts'
+import { logOut, loadVisitor, LOAD_MY_ACCOUNT, LOG_OUT } from 'store/actions/accounts'
 import { appReady } from 'store/actions/app'
 
-function* session() {
+import { ROOT_PATH } from 'constants/paths'
+
+function* auth() {
   while (true) {
     yield take(AUTHENTICATE.SUCCESS)
 
@@ -17,11 +21,22 @@ function* session() {
     if (!success) {
       yield put(logOut())
     } else {
+      yield put(push(ROOT_PATH))
       yield put(appReady())
     }
   }
 }
 
+function* redirectLogOut() {
+  while (true) {
+    yield take(LOG_OUT)
+    yield put(push(ROOT_PATH))
+  }
+}
+
 export default function* root() {
-  yield all([fork(session)])
+  yield all([
+    fork(auth),
+    fork(redirectLogOut)
+  ])
 }

@@ -1,5 +1,5 @@
 const { LOAD_HISTORIES, CREATE_HISTORY, UPDATE_HISTORY } = require("store/actions/developer/histories")
-const { createFields, createReducerHandlers, createReducer } = require("store/utils")
+const { createFields, createReducerHandlers, createReducer } = require("utils/store")
 
 const initialState = {
   ...createFields('histories'),

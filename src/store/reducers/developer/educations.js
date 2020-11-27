@@ -1,5 +1,5 @@
 const { LOAD_EDUCATIONS, CREATE_EDUCATION, UPDATE_EDUCATION } = require("store/actions/developer/educations")
-const { createFields, createReducerHandlers, createReducer } = require("store/utils")
+const { createFields, createReducerHandlers, createReducer } = require("utils/store")
 
 const initialState = {
   ...createFields('educations'),
