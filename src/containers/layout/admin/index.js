@@ -5,7 +5,7 @@ import { Layout } from 'antd'
 import Navbar from './header'
 import Sidebar from './sider'
 
-const { Header, Content, Sider } = Layout
+const { Header, Content, Sider, Footer } = Layout
 
 const Admin = ({ route }) => (
   <Layout>
@@ -15,12 +15,17 @@ const Admin = ({ route }) => (
     <div className="nav-header-empty"/>
 
     <Layout>
-      <Sider>
+      <Sider className="nav-sider">
         <Sidebar />
       </Sider>
-      <Content>
-        {renderRoutes(route.routes)}
-      </Content>
+      
+      <Layout>
+        <Content className="page-content">
+          {renderRoutes(route.routes)}
+        </Content>
+
+        <Footer style={{ textAlign: 'center' }}>HOPE ©2020 Created by HOPE LtD</Footer>
+      </Layout>
     </Layout>
   </Layout>
 )

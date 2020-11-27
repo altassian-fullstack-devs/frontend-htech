@@ -1,6 +1,7 @@
 
 import React from 'react'
-import {Hero, Custom, CoreValue, MeetTheTeam, Partner, FeaturedWorks} from 'components/home'
+import { Hero, Custom, CoreValue, MeetTheTeam, Partner, FeaturedWorks } from 'components/home'
+import { Contact } from 'components/common'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <MeetTheTeam />
       <Partner />
       <FeaturedWorks />
+      <Contact />
     </div>
   )
 }

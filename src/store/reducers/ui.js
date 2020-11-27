@@ -1,4 +1,4 @@
-import { createReducer } from 'store/utils'
+import { createReducer } from 'utils/store'
 
 import {
   UPDATE_FILTER_FORM,

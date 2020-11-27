@@ -1,4 +1,4 @@
-import { createAsyncAction } from 'store/utils'
+import { createAsyncAction } from 'utils/store'
 import apiCall from 'services/api'
 import { ENDPOINT } from 'constants/app'
 

@@ -1,12 +1,20 @@
+import react from 'react'
 
-import React from 'react'
+import {AboutHero, BulletProof, AboutMap, Software, TechItems, History, TopTalent, Makes, Feature} from 'components/about'
 
-const AboutUs = () => {
-  return (
-    <div className="page-about-us">
-      About Us
+const AboutPage = ({}) => (
+  <div className='page-about-us'>
+    <div className="article page">
+      <AboutHero/>
+      <BulletProof/>
+      <AboutMap/>
+      <Software/>
+      <TechItems/>
+      <History/>
+      <TopTalent/>
+      <Makes/>
+      <Feature/>
     </div>
-  )
-}
-
-export default AboutUs
+  </div>
+)
+export default AboutPage

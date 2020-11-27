@@ -1,6 +1,6 @@
 import { LOCATION_CHANGE } from 'connected-react-router'
 
-import { createFields, createReducer, createReducerHandlers } from 'store/utils'
+import { createFields, createReducer, createReducerHandlers } from 'utils/store'
 import { LOAD_ACCOUNTS, LOAD_ACCOUNT, LOAD_MY_ACCOUNT, LOG_OUT } from 'store/actions/accounts'
 import get from 'lodash/get'
 import map from 'lodash/map'

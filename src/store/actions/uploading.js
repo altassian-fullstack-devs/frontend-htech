@@ -1,6 +1,6 @@
 import nanoid from 'nanoid'
 
-import { createAsyncAction } from 'store/utils'
+import { createAsyncAction } from 'utils/store'
 import apiCall from 'services/api'
 
 export const UPLOAD_FILE = createAsyncAction('uploading/FILE')

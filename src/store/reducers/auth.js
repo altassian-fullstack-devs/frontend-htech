@@ -2,7 +2,7 @@ import { LOCATION_CHANGE } from 'connected-react-router'
 
 import { AUTHENTICATE, RESET_PASSWORD } from 'store/actions/auth'
 import { LOG_OUT } from 'store/actions/accounts'
-import { createReducer } from 'store/utils'
+import { createReducer } from 'utils/store'
 
 const initialState = {
   isLoading: false,

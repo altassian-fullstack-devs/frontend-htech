@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 import { createSelector } from 'reselect'
-import { extractEntities, getEntities } from 'store/utils'
+import { extractEntities, getEntities } from 'utils/store'
 import { getData } from './data'
 
 export const getState = state => state.accounts

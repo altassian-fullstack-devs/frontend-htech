@@ -1,4 +1,4 @@
-import { createReducer } from "store/utils"
+import { createReducer } from "utils/store"
 
 import pick from "lodash/pick"
 import { AUTHENTICATE } from "store/actions/auth"
