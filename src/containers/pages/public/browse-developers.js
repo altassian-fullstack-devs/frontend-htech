@@ -1,7 +1,14 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import { Layout, Collapse, Typography, List, Avatar, Row, Col, Pagination } from 'antd'
 import { useHistory } from 'react-router-dom'
+
+import { loadUsers } from 'store/actions/accounts'
+import { changePage, changePageSize, updateFilterForm } from 'store/actions/ui'
+import { getCurrentPage, getFilterForm } from 'store/selectors/ui'
+import { getIsLoadedUsers, getIsLoadingUsers, getTotal, getUsers } from 'store/selectors/accounts'
 
 const { Panel } = Collapse
 const { Content, Sider } = Layout
@@ -36,184 +43,26 @@ const SideFilter = () => (
   </Sider>
 )
 
-const data = [
-  {
-    name: 'Ricardo G.',
-    avatar: 'http://gogs.hope.com/avatars/6?s=287',
-    title: 'Cartoonist/Caricaturist/Illustrator',
-    rate: 60,
-    earning: 100000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Dakata D.',
-    avatar: 'http://gogs.hope.com/avatars/10?s=287',
-    title: '3D Artist',
-    rate: 70,
-    earning: 500000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Alexey M.',
-    avatar: 'http://gogs.hope.com/avatars/9?s=287',
-    title: 'Linux web admin | Ubuntu | VPS | CPanel | Hosting | CMS expert',
-    rate: 99.99,
-    earning: 100000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Konstantis S.',
-    avatar: 'http://gogs.hope.com/avatars/8?s=287',
-    title: 'Video, Audio Production, Graphic Design',
-    rate: 60,
-    earning: 100000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Alex I.',
-    avatar: 'http://gogs.hope.com/avatars/7?s=287',
-    title: '2D & 3D Animation, Motion graphic, Video Production',
-    rate: 40,
-    earning: 300000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Eason Chow Wal T.',
-    avatar: 'http://gogs.hope.com/avatars/5?s=287',
-    title: 'Industrial Designer, Entrepreneur, Innovator, Maker and Thinker',
-    rate: 45,
-    earning: 20000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Claudia D.',
-    avatar: 'http://gogs.hope.com/avatars/4?s=287',
-    title: 'English/Portuguese Translator & Interpreter',
-    rate: 40,
-    earning: 15000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Karlen S.',
-    avatar: 'http://gogs.hope.com/avatars/11?s=287',
-    title: 'Master of PS | Photo EDITING and MANIPULATION | High-END Retouching',
-    rate: 45,
-    earning: 40000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Eugen L.',
-    avatar: 'http://gogs.hope.com/avatars/3?s=287',
-    title: 'Graphic design/Presentation | Pitch deck design/Web design',
-    rate: 28,
-    earning: 3000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  },
-  {
-    name: 'Priyanka S.',
-    avatar: 'http://gogs.hope.com/avatars/12?s=287',
-    title: 'Senior Product/Project Manager',
-    rate: 30,
-    earning: 20000,
-    overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
-    skills: [
-      'Comit Art',
-      'Digital Painting',
-      'Illustrations',
-      'Caricature Drawing',
-      'Jewelry Design',
-      '3D Modeling',
-      'Interior Design'
-    ]
-  }
-];
-
-const BrowseDevelopers = () => {
+const BrowseDevelopers = ({
+  filters,
+  page,
+  isLoaded,
+  isLoading,
+  developers,
+  total,
+  loadUsers,
+  changePage,
+  changePageSize,
+  updateFilterForm,
+}) => {
   const history = useHistory()
 
-  const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
+  useEffect(() => {
+    loadUsers()
+  }, [])
+
+  const onChangePage = (page) => {
+    changePage('developers', page)
   }
 
   const onClickItem = item => {
@@ -227,7 +76,7 @@ const BrowseDevelopers = () => {
         <Content className="browse-developers-content">
           <List
             itemLayout="horizontal"
-            dataSource={data}
+            dataSource={developers}
             renderItem={item => (
               <List.Item 
                 className='list-item-developer'
@@ -237,16 +86,16 @@ const BrowseDevelopers = () => {
                   <Avatar src={item.avatar} size='large' />
                   <Col style={{ marginLeft: 20}} >
                     <Row className='title-name'>{item.name}</Row>
-                    <Row>{item.title}</Row>
+                    <Row>{item.profile.title}</Row>
                   </Col>
                 </Row>
                 <Row justify="space-between" style={{ marginTop: 10, paddingRight: 20 }}>
-                  <Col>$<strong>{item.rate.toFixed(2)}</strong> / hr</Col>
-                  <Col>$<strong>{item.earning}</strong> earned</Col>
+                  <Col>$<strong>{item.profile.hourly_rate.toFixed(2)}</strong> / hr</Col>
+                  <Col>$<strong>{item.total_earning}</strong> earned</Col>
                   <Col>100% Job Success</Col>
                 </Row>
-                <Row style={{ marginTop: 15 }}>{item.overview}</Row>
-                <Row style={{ marginTop: 10, color: 'grey' }}>{item.skills.join(' • ')}</Row>
+                <Row style={{ marginTop: 15 }}>{item.profile.overview}</Row>
+                {/* <Row style={{ marginTop: 10, color: 'grey' }}>{item.skills.join(' • ')}</Row> */}
               </List.Item>
             )}
           />
@@ -254,9 +103,9 @@ const BrowseDevelopers = () => {
             <Pagination
               showSizeChanger={false}
               size='small'
-              onShowSizeChange={onShowSizeChange} 
+              onChange={onChangePage} 
               defaultCurrent={1} 
-              total={80} />
+              total={total} />
           </Row>
         </Content>
       </Layout>
@@ -264,4 +113,19 @@ const BrowseDevelopers = () => {
   )
 }
 
-export default BrowseDevelopers
+export default connect(
+  createStructuredSelector({
+    filters: getFilterForm('developers'),
+    page: getCurrentPage('developers'),
+    developers: getUsers,
+    total: getTotal,
+    isLoading: getIsLoadingUsers,
+    isLoaded: getIsLoadedUsers
+  }),
+  {
+    loadUsers,
+    changePage,
+    changePageSize,
+    updateFilterForm
+  }
+)(BrowseDevelopers)

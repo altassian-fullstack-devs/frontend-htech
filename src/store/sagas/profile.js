@@ -1,24 +1,8 @@
 import { all, put, take, fork, race } from 'redux-saga/effects'
-import { push } from 'connected-react-router'
 
-import { ROOT_PATH } from 'constants/paths'
-import { LOG_OUT } from 'store/actions/accounts'
-import { AUTHENTICATE } from 'store/actions/auth'
 import { loadProfile, LOAD_PROFILE, UPDATE_PROFILE } from 'store/actions/developer/profiles'
 import { loadHistories, UPDATE_HISTORY } from 'store/actions/developer/histories'
 import { loadPortfolios, UPDATE_PORTFOLIO } from 'store/actions/developer/portfolios'
-
-function* watchAuthentication() {
-  yield take(AUTHENTICATE.SUCCESS)
-  yield put(push(ROOT_PATH))
-}
-
-function* redirectLogOut() {
-  while (true) {
-    yield take(LOG_OUT)
-    yield put(push(ROOT_PATH))
-  }
-}
 
 function* fetchProfile() {
   while (true) {
@@ -42,7 +26,7 @@ function* watchProfileUpdate() {
       certificate: take(UPDATE_CERTIFICATE.SUCCESS)
     })
 
-    if (profile ) {
+    if (profile) {
       const { meta: { ownerId } } = profile
       loadProfile(ownerId)
     }
@@ -69,7 +53,7 @@ function* watchProfileUpdate() {
   }
 }
 
-function* watchProfileCreate() {
+function* watchProfileFieldCreate() {
   while (true) {
     const { history, portfolio, education, certificate } = yield race({
       history: take(CREATE_HISTORY.SUCCESS),
@@ -102,10 +86,8 @@ function* watchProfileCreate() {
 
 export default function* root() {
   yield all([
-    fork(watchAuthentication),
-    fork(redirectLogOut),
     fork(fetchProfile),
-    fork(watchProfileCreate),
+    fork(watchProfileFieldCreate),
     fork(watchProfileUpdate)
   ])
 }

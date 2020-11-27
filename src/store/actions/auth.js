@@ -37,12 +37,10 @@ export const signUp = ({
   withoutPush: true
 })
 
-export const signInByToken = token => apiCall({
+export const signInByToken = () => apiCall({
   method: 'POST',
   endpoint: ENDPOINT.SIGN_IN_BY_TOKEN,
-  query: {
-    token
-  },
+  query: {},
   types: AUTHENTICATE,
   withoutPush: true
 })

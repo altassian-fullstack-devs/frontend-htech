@@ -7,6 +7,7 @@ import developer from './developer'
 import data from './data'
 import accounts from './accounts'
 import persist from './persist'
+import ui from './ui'
 
 export default history => 
   combineReducers({
@@ -16,5 +17,6 @@ export default history =>
     developer,
     accounts,
     persist,
+    ui,
     router: connectRouter(history)
   })

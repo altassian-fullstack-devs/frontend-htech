@@ -2,7 +2,6 @@ import { LOAD_PROFILE } from "store/actions/developer/profiles"
 import { createFields, createReducerHandlers, createReducer } from "store/utils"
 
 const initialState = {
-  ...createFields('profiles'),
   ...createFields('profiles', 'selected', true),
 }
 
