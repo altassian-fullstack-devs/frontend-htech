@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Col, Row, Slider} from 'antd'
-
+import { FixedWidthLayout } from 'containers/layout';
 let years = [2002,2006,2008,2009,2010,2012,2015,2016,2017,2018,2019]
 let showData = [
   [
@@ -143,13 +143,13 @@ const History = ({}) => {
   const ref = React.createRef();
 
   return (<>
-    <div className="container">
+    <FixedWidthLayout className="container">
       <h2 className="history">
         iTechArt docu-series... to be stellarly continued
       </h2>
-    </div>
+    </FixedWidthLayout>
 
-    <div className='our_history container'>
+    <FixedWidthLayout className='our_history container'>
       {/* <div className='swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal'> */}
         <Slider step={null}
           marks={years}
@@ -173,7 +173,7 @@ const History = ({}) => {
             {/* <YearOut id={id}/> */}
         </div>
       {/* </div> */}
-    </div>
+    </FixedWidthLayout>
   </>
 )
 }

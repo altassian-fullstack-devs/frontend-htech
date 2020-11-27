@@ -2,7 +2,7 @@ import react from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { FixedWidthLayout } from 'containers/layout';
 let data = [
   {img:'what_makes_us-01.original.png', desc:'Invest in FF Ventures to support the early-stage tech companies'},
   {img:'what_makes_us-03.original.png', desc:'Sponsor industry events to foster sharing expertise within the community'},
@@ -42,7 +42,7 @@ var settings = {
 };
 
 const Makes = ({}) => (
-  <div className="container">
+  <FixedWidthLayout className="container">
     <div className="data">
       <h2 className="left">What makes us 'us'</h2>
       <div className="double-underline-block mobile-padding small_images">
@@ -66,6 +66,6 @@ const Makes = ({}) => (
             </div>
       </div>
     </div>
-  </div>
+  </FixedWidthLayout>
 )
 export default Makes
