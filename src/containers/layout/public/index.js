@@ -5,7 +5,7 @@ import Navbar from './header'
 
 const { Header, Content, Footer } = Layout
 
-const Common = ({ route }) => {
+const Public = ({ route }) => {
   return (
     <Layout>
       <Header className="nav-header">
@@ -20,4 +20,4 @@ const Common = ({ route }) => {
   )
 }
 
-export default Common
+export default Public
