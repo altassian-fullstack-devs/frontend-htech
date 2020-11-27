@@ -28,39 +28,35 @@
     margin-top: 37px;
     color: white;
   }
-  .child-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   .hero-content {
     width: 70%;
   }
   
-  .page-home p {
+  p {
     font-size: 25px;
   }
-  .page-home h2 {
+  h2 {
     font-size: 60px;
   }
-  .page-home h3 {
+  h3 {
     font-size: 45px;
   }
+
   @media only screen and (max-width: 950px) {
-    .page-home h1 {
+    h1, .hero-cover h1 {
       font-size: 50px;
     }
   }
   @media only screen and (max-width: 815px) {
-    .page-home h1 {
+    h1, .hero-cover h1 {
       font-size: 37px;
       line-height: 1.1;
       margin-top: 26px;
     }
-    .page-home p {
+    p {
       font-size: 17px;
     }
-    .page-home h2 {
+    h2 {
       font-size: 35px;
     }
   }
@@ -115,9 +111,12 @@
     right: 50%;
     top: 0;
     bottom: 0;
+    @media only screen and (max-width: 815px) {
+      display: none;
+    }
   }
   .left-core-value-item {
-    padding-left: 0px;
+    padding-left: 10px;
   }
   
   /* Meet the team */
@@ -203,7 +202,7 @@
   .screen {
     width: 228px;
     height: 500px;
-    margin: 0 auto;
+    // margin: 0 auto;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     overflow: hidden;
@@ -211,6 +210,12 @@
   .shadow-box {
     -webkit-box-shadow: 0 0 1px rgba(0,0,0,.1), 0 2px 6px rgba(0,0,0,.03);
     box-shadow: 0 0 1px rgba(0,0,0,.1), 0 2px 6px rgba(0,0,0,.03);
+  }
+  .slider-screen-wrap {
+    margin-left: 25px;
+  }
+  .slider-wrap {
+    width: 650px;
   }
   .client-describe {
     font-style: italic;
@@ -261,5 +266,19 @@
   }
   .no-border {
     border: none!important;
+  }
+  .gradient-button {
+    margin-top: 40px;
+    padding: 15px 52px;
+    font-size: 16px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right,#f41351,#eb1c23);
+    outline: none;
+    border: none;
+    a {color: white;}
+  }
+  .gradient-button:hover {
+    opacity: 0.8;
+    transition: all .8s ease;
   }
 }

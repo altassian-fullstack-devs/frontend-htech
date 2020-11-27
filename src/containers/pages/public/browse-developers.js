@@ -3,6 +3,8 @@ import React from 'react'
 import { Layout, Collapse, Typography, List, Avatar, Row, Col, Pagination } from 'antd'
 import { useHistory } from 'react-router-dom'
 
+import { FixedWidthLayout } from 'containers/layout'
+
 const { Panel } = Collapse
 const { Content, Sider } = Layout
 const { Title } = Typography
@@ -41,7 +43,7 @@ const data = [
     name: 'Ricardo G.',
     avatar: 'http://gogs.hope.com/avatars/6?s=287',
     title: 'Cartoonist/Caricaturist/Illustrator',
-    rate: 50,
+    rate: 60,
     earning: 100000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [
@@ -75,7 +77,7 @@ const data = [
     name: 'Alexey M.',
     avatar: 'http://gogs.hope.com/avatars/9?s=287',
     title: 'Linux web admin | Ubuntu | VPS | CPanel | Hosting | CMS expert',
-    rate: 30,
+    rate: 99.99,
     earning: 100000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [
@@ -92,7 +94,7 @@ const data = [
     name: 'Konstantis S.',
     avatar: 'http://gogs.hope.com/avatars/8?s=287',
     title: 'Video, Audio Production, Graphic Design',
-    rate: 50,
+    rate: 60,
     earning: 100000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [
@@ -109,7 +111,7 @@ const data = [
     name: 'Alex I.',
     avatar: 'http://gogs.hope.com/avatars/7?s=287',
     title: '2D & 3D Animation, Motion graphic, Video Production',
-    rate: 35,
+    rate: 40,
     earning: 300000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [
@@ -126,7 +128,7 @@ const data = [
     name: 'Eason Chow Wal T.',
     avatar: 'http://gogs.hope.com/avatars/5?s=287',
     title: 'Industrial Designer, Entrepreneur, Innovator, Maker and Thinker',
-    rate: 80,
+    rate: 45,
     earning: 20000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [
@@ -143,8 +145,8 @@ const data = [
     name: 'Claudia D.',
     avatar: 'http://gogs.hope.com/avatars/4?s=287',
     title: 'English/Portuguese Translator & Interpreter',
-    rate: 20,
-    earning: 3000,
+    rate: 40,
+    earning: 15000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [
       'Comit Art',
@@ -160,7 +162,7 @@ const data = [
     name: 'Karlen S.',
     avatar: 'http://gogs.hope.com/avatars/11?s=287',
     title: 'Master of PS | Photo EDITING and MANIPULATION | High-END Retouching',
-    rate: 50,
+    rate: 45,
     earning: 40000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [
@@ -194,7 +196,7 @@ const data = [
     name: 'Priyanka S.',
     avatar: 'http://gogs.hope.com/avatars/12?s=287',
     title: 'Senior Product/Project Manager',
-    rate: 125,
+    rate: 30,
     earning: 20000,
     overview: "20 years of experience in cartoon and caricature creation gives me the skills to meet client's needs. I work in 2 steps: first, a sketch; second - after client approval - digital painting of the sketch.",
     skills: [
@@ -221,7 +223,7 @@ const BrowseDevelopers = () => {
   }
 
   return (
-    <div className="page-browse-developers">
+    <FixedWidthLayout className="page-browse-developers">
       <Layout>
         <SideFilter />
         <Content className="browse-developers-content">
@@ -260,7 +262,7 @@ const BrowseDevelopers = () => {
           </Row>
         </Content>
       </Layout>
-    </div>
+    </FixedWidthLayout>
   )
 }
 

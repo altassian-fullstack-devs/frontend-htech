@@ -1,8 +1,7 @@
-import Admin from './admin'
-import Client from './client'
-import Developer from './developer'
-import Root from './root'
-import Common from './common'
-import Auth from './auth'
-
-export { Admin, Client, Developer, Common, Root, Auth }
+export { default as Admin } from './admin'
+export { default as Client } from './client'
+export { default as Developer } from './developer'
+export { default as Root } from './root'
+export { default as Common } from './common'
+export { default as Auth } from './auth'
+export { default as FixedWidthLayout } from './fixed-width'
