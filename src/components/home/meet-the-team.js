@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+
 import TeamCollapse from './meet-the-team-collapse'
 import RedLineChoose from './red-line-choose'
+import { FixedWidthLayout } from 'containers/layout'
 
 const data = [
   {
@@ -41,9 +43,9 @@ const MeetTheTeam = () => {
     <div className="back-black text-white" style={{minHeight: '521px'}}>
       <i className="anticon anticon-down"></i>
       <h3 className="center-text">Meet your team<div className="caret"/></h3>
-      <div className="container">
+      <FixedWidthLayout>
         { renderStat ? (<TeamCollapse items={data}/>) : (<RedLineChoose panes={data}/>) }
-      </div>
+      </FixedWidthLayout>
     </div>
   )
 }

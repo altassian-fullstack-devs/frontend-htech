@@ -1,6 +1,7 @@
-import { Row } from 'antd'
 import React from 'react'
+import { Row } from 'antd'
 
+import { FixedWidthLayout } from 'containers/layout'
 import CustomFeatureItem from './custom-feature-item'
 
 const items = [
@@ -18,7 +19,7 @@ const items = [
 
 const Custom = () => {
   return (
-    <div className="container">
+    <FixedWidthLayout>
       <h2 className="section-title">
         <b>Custom Software development</b><br/> 
         for <span className="red">your company</span>
@@ -29,7 +30,7 @@ const Custom = () => {
           <CustomFeatureItem {...item} key={'custom-feature-item-' + idx}/>
         ))}
       </Row>
-    </div>
+    </FixedWidthLayout>
   )
 }
 
