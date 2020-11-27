@@ -2,9 +2,9 @@ import { ArticleBody, RelatedArticle, Sidebar, Contact } from "./element"
 
 const BlogDetail = ({}) =>{
   return (
-    <main>
+    <div className="page-blog">
       <div className="drawer-overlay hidden" style={{marginTop:"50px"}}></div>
-      <div className="blog-cost page">
+      <div className="blog-post page">
         <article className="vertical-slider-item">
           <div className="container-800 container-relative">
             <Sidebar />
@@ -14,7 +14,7 @@ const BlogDetail = ({}) =>{
         <RelatedArticle />
         <Contact />
       </div>
-    </main>
+    </div>
   )
 }
 

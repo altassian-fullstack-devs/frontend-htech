@@ -84,12 +84,12 @@ const BlogFirst = ({}) => {
                 ))}
                 </div>
                 <div className="paging">
-                  <Pagination onChange={onchange} total={150}/>
+                  <Pagination onChange={onchange} total={50} size={10}/>
                 </div>
               </div>
             </div>
         </div>
-    </main>
+    </main> 
   )
 
 }

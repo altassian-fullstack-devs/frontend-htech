@@ -2,7 +2,7 @@ import { HeaderBlock, RightBlock, LeftBlock } from "./element"
 
 const GalleryDetail = ({}) =>{
   return (
-    <main>
+    <div className="page-portfolio">
       <div className="project page">
         <div className="blue_header" style={{backgroundColor : "#2557f5"}}>
           <span>Bevi / Food and Beverage</span>
@@ -14,7 +14,7 @@ const GalleryDetail = ({}) =>{
           <LeftBlock />
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 
