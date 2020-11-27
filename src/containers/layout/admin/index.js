@@ -9,10 +9,10 @@ const { Header, Content, Sider, Footer } = Layout
 
 const Admin = ({ route }) => (
   <Layout>
-    <Header className="nav-header">
+    <Header className="admin-nav-header">
       <Navbar />
     </Header>
-    <div className="nav-header-empty"/>
+    <div className="admin-nav-header-empty"/>
 
     <Layout>
       <Sider className="nav-sider">

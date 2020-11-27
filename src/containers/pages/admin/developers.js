@@ -54,7 +54,7 @@ for (let i = 0; i < 100; i++) {
     key: (i+1).toString(),
     name: `Daniel ${i+1}`,
     skills: `React-native`,
-    hourlyrate: `${i+20} / hr`,
+    hourlyrate: `${i+20}$ / hr`,
     jobsuccess: `${100-i}% Job Success`,
   });
 }

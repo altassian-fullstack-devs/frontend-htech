@@ -1,16 +1,32 @@
-.header-avatar-popover {
-  padding-top: 0px;
-  margin-top: 15px;
-  float: right;
-  background: transparent;
-  border: transparent;
+.admin-nav-header {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9)!important;
+  /* opacity: 0.5; */
+  z-index: 10;
+  width: 100%;
+  padding: 0;
+  padding-left: 40px;
+  padding-right: 40px;
 
-  .header-avatar-button {
+  .header-avatar-popover {
     padding-top: 0px;
-    padding-right: 0px;
+    margin-top: 15px;
+    float: right;
     background: transparent;
     border: transparent;
+  
+    .header-avatar-button {
+      padding-top: 0px;
+      padding-right: 0px;
+      background: transparent;
+      border: transparent;
+    }
   }
+}
+
+.admin-nav-header-empty {
+  background-color: black;
+  height: 64px;
 }
 
 .nav-sider {
@@ -31,8 +47,8 @@
     float: right;
     margin-bottom: 10px;
   }
-}
 
-.table-developers {
-  border: 1px solid #e7e7e7;
+  .table-developers {
+    border: 1px solid #e7e7e7;
+  }
 }
