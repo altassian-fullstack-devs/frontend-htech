@@ -1,3 +1,4 @@
+
 import TagElement from "../common/tag-element"
 import GalleryItem from "./gallery-item"
 import { Pagination } from 'antd'
@@ -72,8 +73,8 @@ const tag_data =[
     datatag : "java",
     tagname : "Java",
   },{
-    datatag : "salesforce",
-    tagname : "sf",
+    datatag : "sf",
+    tagname : "SalesForce",
   },{
     datatag : "mobile",
     tagname : "Mobile",
@@ -91,7 +92,9 @@ const Gallery = ({ }) => {
   return (
     <main>
       <div className="projects">
-        <img alt="img" src={require('assets/images/portfolio/our_works_header.png').default} />
+        <picture>
+          <img alt="img" src={require('assets/images/portfolio/our_works_header.png').default} />
+        </picture>
         <div className="our_works_header">
           <h1>Our works</h1>
           <h3>
@@ -113,7 +116,7 @@ const Gallery = ({ }) => {
                       ))}     
               </div> 
               <div className="paging">
-                <Pagination onChange={onchange} total={150} pageSizeOptions={10}/>
+                <Pagination onChange={onchange} total={50} />
               </div>
             </div>
           </div>
