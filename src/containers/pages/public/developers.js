@@ -57,7 +57,7 @@ const BrowseDevelopers = ({
               showSizeChanger={false}
               size='small'
               onChange={onChangePage}
-              defaultCurrent={1}
+              defaultCurrent={page}
               total={total} />)}
           </Row>
         </Content>

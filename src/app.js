@@ -28,8 +28,8 @@ let App = ({
   autoSignIn
 }) => {
   useEffect(() => {
-    hasToken && autoSignIn()
-  }, [hasToken])
+    autoSignIn()
+  }, [])
 
   return (
     <div className="App">
