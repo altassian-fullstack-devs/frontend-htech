@@ -1,10 +1,12 @@
 import React from 'react'
 import { Row, Col } from 'antd'
+
 import ContactCustomizedFile from './contact-customized-file'
+import { FixedWidthLayout } from 'containers/layout'
 
 const Contact = () => {
   return (
-    <div className="container contact-form">
+    <FixedWidthLayout className='contact-form'>
       <h2 className="head-text">Contact us</h2>
       <form>
         <Row>
@@ -38,7 +40,7 @@ const Contact = () => {
           </Col>
         </Row>
       </form>
-    </div>
+    </FixedWidthLayout>
   )
 }
 
