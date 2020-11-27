@@ -90,6 +90,26 @@ h3 {
   margin: 0.4em 0;
   font-size: 2.1em;
 }
+
+.container {
+  width: 80%;
+  max-width: 1280px;
+  display: block;
+
+  @media only screen and (max-width: 815px) {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  @media only screen and (max-width: 1024px) and (min-width: 816px) {
+    width: 98%;
+  }
+
+  @media only screen and (max-width: 1382px) and (min-width: 1025px) {
+    width: 98%;
+  }
+}
 /* normal element style */
 body {
   margin: 0;
