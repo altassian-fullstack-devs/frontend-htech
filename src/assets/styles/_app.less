@@ -63,6 +63,7 @@ body {
   .require {
     position: relative;
   }
+
   .require label {
     position: absolute;
     top: 5%;
@@ -70,6 +71,13 @@ body {
     right: 0;
     font-size: 27px;
   }
+
+  @media (min-width: 768px) { 
+    .container {
+      max-width: 720px;
+    }
+  }
+  
   form input, form textarea, form .file-select {
     border: none;
     border-bottom: 1px solid #000000;
