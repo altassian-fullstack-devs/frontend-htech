@@ -1,30 +1,31 @@
 import get from 'lodash/get'
 import { createSelector } from 'reselect'
-import { getEntities } from 'utils/store'
-import { getData } from '../data'
 
 export const getState = state => state.developer
 
-export const getProfile = getEntities(getState, getData, {
-  type: 'profiles',
-  field: 'selected',
-  singular: true,
-})
+export const getProfile = createSelector(getState, state => get(state, 'profiles.selected'))
 
-export const getProfileId = createSelector(getState, state => get(state, 'profiles.selected'))
+export const getProfileId = createSelector(
+  getProfile,
+  profile => get(profile, 'id')
+)
 
-export const getPortfolios = getEntities(getState, getData, {
-  type: 'portfolios'
-})
+export const getPortfolios = createSelector(
+  getState,
+  state => get(state, 'portfolios.portfolios')
+)
 
-export const getHistories = getEntities(getState, getData, {
-  type: 'histories',
-})
+export const getHistories = createSelector(
+  getState,
+  state => get(state, 'histories.histories')
+)
 
-export const getEducations = getEntities(getState, getData, {
-  type: 'educations',
-})
+export const getEducations = createSelector(
+  getState,
+  state => get(state, 'educations.educations')
+)
 
-export const getCertificates = getEntities(getState, getData, {
-  type: 'certificates'
-})
+export const getCertificates = createSelector(
+  getState,
+  state => get(state, 'certificates.certificates')
+)

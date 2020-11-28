@@ -1,64 +1,56 @@
 import get from 'lodash/get'
 import { createSelector } from 'reselect'
-import { extractEntities, getEntities } from 'utils/store'
-import { getData } from './data'
 
 export const getState = state => state.accounts
 
-export const getVisitorId = createSelector(
+export const getVisitor = createSelector(
   getState,
   state => state.me
 )
 
-export const getVisitor = createSelector(
-  getData,
-  getVisitorId,
-  (data, id) => extractEntities(data, 'accounts', id, true)
+export const getVisitorId = createSelector(
+  getVisitor,
+  visitor => get(visitor, 'id')
 )
 
 export const getVisitorRole = createSelector(
   getVisitor,
-  state => get(state, 'id')
+  visitor => get(visitor, 'role')
 )
 
 export const getVisitorName = createSelector(
   getVisitor,
-  state => get(state, 'name')
+  visitor => get(visitor, 'name')
 )
 
 export const getVisitorPhoto = createSelector(
   getVisitor,
-  state => get(state, 'photo')
+  visitor => get(visitor, 'photo')
 )
 
-export const getSelectedUserId = createSelector(
+export const getSelectedUser = createSelector(
   getState,
   state => state.selected
 )
 
-export const getSelectedUser = createSelector(
-  getData,
-  getSelectedUserId,
-  (data, id) => extractEntities(data, 'accounts', id, true)
+export const getSelectedUserId = createSelector(
+  getSelectedUser,
+  user => get(user, 'id')
 )
 
-export const getUserEntities = getEntities(getState, getData, {
-  type: 'accounts'
-})
-
 export const getIsLoadingUsers = createSelector(
-  getUserEntities,
+  getState,
   state => state.isLoading
 )
 
 export const getIsLoadedUsers = createSelector(
-  getUserEntities,
+  getState,
   state => state.isLoaded
 )
 
 export const getUsers = createSelector(
-  getUserEntities,
-  state => get(state, 'entities', [])
+  getState,
+  state => get(state, 'accounts', [])
 )
 
 export const getTotal = createSelector(
