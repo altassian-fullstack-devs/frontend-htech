@@ -11,10 +11,10 @@ const Sidebar = () => {
     <>
       <Menu className='side-menu' mode="vertical" selectedKeys={[pathname]} theme="dark">
         <Menu.Item key={ADMIN_PATHS.BLOGS}>
-          <Link to={ADMIN_PATHS.CLIENTS}>BLOGS</Link>
+          <Link to={ADMIN_PATHS.BLOGS}>BLOGS</Link>
         </Menu.Item>
         <Menu.Item key={ADMIN_PATHS.PORTFOLIOS}>
-          <Link to={ADMIN_PATHS.CLIENTS}>PORTFOLIOS</Link>
+          <Link to={ADMIN_PATHS.PORTFOLIOS}>PORTFOLIOS</Link>
         </Menu.Item>
         <Menu.Item key={ADMIN_PATHS.CLIENTS}>
           <Link to={ADMIN_PATHS.CLIENTS}>CLIENTS</Link>

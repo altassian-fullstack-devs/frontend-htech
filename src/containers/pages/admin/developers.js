@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Table, Space, Popconfirm } from 'antd'
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router-dom'
+import { ADMIN_PATHS } from 'constants/paths'
 
 const columns = [
   {
@@ -54,7 +55,7 @@ for (let i = 0; i < 100; i++) {
     key: (i+1).toString(),
     name: `Daniel ${i+1}`,
     skills: `React-native`,
-    hourlyrate: `${i+20}$ / hr`,
+    hourlyrate: `$${i+20} / hr`,
     jobsuccess: `${100-i}% Job Success`,
   });
 }
@@ -69,7 +70,7 @@ const Developers = () => {
   return (
     <div className="page-admin-developers">
       <Button className="create-button" shape="circle" icon={<PlusOutlined />} onClick={() => {
-        
+        history.push(ADMIN_PATHS.DEVELOPER);
       }} />
       <Table
         className="table-developers"
@@ -78,7 +79,9 @@ const Developers = () => {
         pagination={{position: ["bottomCenter"]}}
         onRow={(record) => {
           return {
-            onClick: () => {onClickItem()}
+            onClick: () => {
+              history.push(ADMIN_PATHS.DEVELOPER);
+            }
           };
         }}
       />

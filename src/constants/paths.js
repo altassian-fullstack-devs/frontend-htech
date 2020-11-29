@@ -26,6 +26,8 @@ export const ADMIN_PATHS = {
     PORTFOLIOS: `${ADMIN_ROOT}portfolios`,
     CLIENTS: `${ADMIN_ROOT}clients`,
     DEVELOPERS: `${ADMIN_ROOT}developers`,
+    CLIENT: `${ADMIN_ROOT}clients/:id`,
+    DEVELOPER: `${ADMIN_ROOT}developers/:id`,
 }
 
 export const DEVELOPER_PATHS = {
