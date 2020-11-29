@@ -3,7 +3,6 @@ import { LOCATION_CHANGE } from 'connected-react-router'
 import { createFields, createReducer, createReducerHandlers } from 'utils/store'
 import { LOAD_ACCOUNTS, LOAD_ACCOUNT, LOAD_MY_ACCOUNT, LOG_OUT } from 'store/actions/accounts'
 import get from 'lodash/get'
-import map from 'lodash/map'
 
 const initialState = {
   ...createFields('accounts'),
@@ -13,24 +12,20 @@ const initialState = {
 }
 
 const handlers = {
-  ...createReducerHandlers('accounts', LOAD_ACCOUNTS, {
-    withReplace: true,
-  }),
+  ...createReducerHandlers('accounts', LOAD_ACCOUNTS),
   ...createReducerHandlers('accounts', LOAD_ACCOUNT, {
-    withReplace: true,
-    mapTokey: 'selected',
+    mapToKey: 'selected',
     singular: true
   }),
   ...createReducerHandlers('accounts', LOAD_MY_ACCOUNT, {
-    withReplace: true,
-    mapTokey: 'me',
+    mapToKey: 'me',
     singular: true
   }),
   [LOAD_ACCOUNTS.SUCCESS]: (state, action) => {
     const accounts = get(action, 'payload.data.accounts', [])
     const total = get(action, 'payload.data.meta.total', 0)
     return state.merge({
-      accounts: map(accounts, 'id'),
+      accounts,
       total,
       isLoaded: true,
       isLoading: false

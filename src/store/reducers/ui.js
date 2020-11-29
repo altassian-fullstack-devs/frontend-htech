@@ -1,5 +1,6 @@
-import { createReducer } from 'utils/store'
+import { LOCATION_CHANGE } from 'connected-react-router'
 
+import { createReducer } from 'utils/store'
 import {
   UPDATE_FILTER_FORM,
   CHANGE_PAGE,
@@ -8,7 +9,12 @@ import {
 } from 'store/actions/ui'
 
 const initialState = {
-  developersFilterForm: {},
+  developersFilterForm: {
+  },
+  developersPaged: {
+    number: 1,
+    size: 10
+  }
 }
 
 const handlers = {
@@ -18,6 +24,8 @@ const handlers = {
   [CHANGE_PAGE_SIZE]: (state, { payload: { type, size } }) => state.setIn([`${type}Paged`, 'size'], size),
   
   [CHANGE_SORTED]: (state, { payload: { type, sorted } }) => state.setIn([`${type}Sorted`, 'sorted'], sorted),
+
+  [LOCATION_CHANGE]: state => state.merge(initialState),
 }
 
 export default createReducer(initialState, handlers)

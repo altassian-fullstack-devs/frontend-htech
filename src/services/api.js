@@ -129,7 +129,6 @@ export default options => async (dispatch, getState) => {
           resolve(failureData)
         } else {
           const body = get(data, 'body')
-
          
           const successData = {
             ok: true,

@@ -7,9 +7,7 @@ const initialState = {
 }
 
 const handlers = {
-  ...createReducerHandlers('certificates', LOAD_CERTIFICATES, {
-    withReplace: true
-  }),
+  ...createReducerHandlers('certificates', LOAD_CERTIFICATES),
 }
 
 export default createReducer(initialState, handlers)

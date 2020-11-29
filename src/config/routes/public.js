@@ -47,7 +47,7 @@ const routes = () => [
     component: AboutUs
   },
   {
-    path: PUBLIC_PATHS.PROFILE,
+    path: PUBLIC_PATHS.DEVELOPER_PROFILE,
     exact: true,
     component: Profile
   },

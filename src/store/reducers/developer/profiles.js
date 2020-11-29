@@ -7,7 +7,6 @@ const initialState = {
 
 const handlers = {
   ...createReducerHandlers('profiles', LOAD_PROFILE, {
-    withReplace: true,
     mapToKey: 'selected',
     singular: true
   }),

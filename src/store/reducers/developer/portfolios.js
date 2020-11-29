@@ -7,9 +7,7 @@ const initialState = {
 }
 
 const handlers = {
-  ...createReducerHandlers('portfolios', LOAD_PORTFOLIOS, {
-    withReplace: true
-  }),
+  ...createReducerHandlers('portfolios', LOAD_PORTFOLIOS),
 }
 
 export default createReducer(initialState, handlers)

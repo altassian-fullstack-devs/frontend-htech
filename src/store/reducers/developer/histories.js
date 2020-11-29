@@ -7,9 +7,7 @@ const initialState = {
 }
 
 const handlers = {
-  ...createReducerHandlers('histories', LOAD_HISTORIES, {
-    withReplace: true
-  }),
+  ...createReducerHandlers('histories', LOAD_HISTORIES),
 }
 
 export default createReducer(initialState, handlers)

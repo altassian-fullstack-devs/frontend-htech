@@ -1,7 +1,7 @@
 import { all, fork, put, take, race } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 
-import { AUTHENTICATE } from 'store/actions/auth'
+import { AUTHENTICATE, AUTO_AUTHENTICATE } from 'store/actions/auth'
 import { logOut, loadVisitor, LOAD_MY_ACCOUNT, LOG_OUT } from 'store/actions/accounts'
 import { appReady } from 'store/actions/app'
 
@@ -9,7 +9,10 @@ import { ROOT_PATH } from 'constants/paths'
 
 function* auth() {
   while (true) {
-    yield take(AUTHENTICATE.SUCCESS)
+    const { manual } = yield race({
+      manual: take(AUTHENTICATE.SUCCESS),
+      auto: take(AUTO_AUTHENTICATE.SUCCESS)
+    })
 
     yield put(loadVisitor())
 
@@ -21,7 +24,7 @@ function* auth() {
     if (!success) {
       yield put(logOut())
     } else {
-      yield put(push(ROOT_PATH))
+      manual && (yield put(push(ROOT_PATH)))
       yield put(appReady())
     }
   }

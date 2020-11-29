@@ -53,7 +53,7 @@ const SignIn = ({
           Sign in
         </Button>
         <div style={{ marginTop: 15}}>
-          Doesn't have an account? <Link to={AUTH_PATHS.SIGN_UP}>Sign up here</Link>
+          Or <Link to={AUTH_PATHS.SIGN_UP}>Sign up here</Link>
         </div>
       </Form.Item>
     </Form>
