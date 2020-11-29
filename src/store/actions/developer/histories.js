@@ -1,6 +1,6 @@
 import merge from "lodash/merge";
 
-import { createAsyncAction } from "store/utils";
+import { createAsyncAction } from "utils/store";
 import { ENDPOINT } from 'constants/app'
 import apiCall from 'services/api'
 

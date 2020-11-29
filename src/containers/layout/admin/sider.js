@@ -9,12 +9,12 @@ const Sidebar = () => {
 
   return (
     <>
-      <Menu mode="vertical" selectedKeys={[pathname]}>
-        <Menu.Item key={ADMIN_PATHS.CLIENTS}>
-          <Link to={ADMIN_PATHS.CLIENTS}>BLOGS</Link>
+      <Menu className='side-menu' mode="vertical" selectedKeys={[pathname]} theme="dark">
+        <Menu.Item key={ADMIN_PATHS.BLOGS}>
+          <Link to={ADMIN_PATHS.BLOGS}>BLOGS</Link>
         </Menu.Item>
-        <Menu.Item key={ADMIN_PATHS.CLIENTS}>
-          <Link to={ADMIN_PATHS.CLIENTS}>PORTFOLIOS</Link>
+        <Menu.Item key={ADMIN_PATHS.PORTFOLIOS}>
+          <Link to={ADMIN_PATHS.PORTFOLIOS}>PORTFOLIOS</Link>
         </Menu.Item>
         <Menu.Item key={ADMIN_PATHS.CLIENTS}>
           <Link to={ADMIN_PATHS.CLIENTS}>CLIENTS</Link>

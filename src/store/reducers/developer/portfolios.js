@@ -1,5 +1,5 @@
 import { LOAD_PORTFOLIOS, CREATE_PORTFOLIO, UPDATE_PORTFOLIO } from "store/actions/developer/portfolios"
-import { createFields, createReducerHandlers, createReducer } from "store/utils"
+import { createFields, createReducerHandlers, createReducer } from "utils/store"
 
 const initialState = {
   ...createFields('portfolios'),
@@ -7,9 +7,7 @@ const initialState = {
 }
 
 const handlers = {
-  ...createReducerHandlers('portfolios', LOAD_PORTFOLIOS, {
-    withReplace: true
-  }),
+  ...createReducerHandlers('portfolios', LOAD_PORTFOLIOS),
 }
 
 export default createReducer(initialState, handlers)

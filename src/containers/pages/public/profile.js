@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import { connect } from 'react-redux'
 import { Col, Row, Tag, Rate, Typography, Button, Space, Modal, Input } from 'antd'
 import { EditOutlined } from '@ant-design/icons'
+import { useRouteMatch } from 'react-router-dom'
+import { createStructuredSelector } from 'reselect'
+import merge from 'lodash/merge'
+import pick from 'lodash/pick'
+import { loadUser } from 'store/actions/accounts'
+
+import { getCertificates, getEducations, getHistories, getPortfolios, getProfile } from 'store/selectors/developer'
+import { avatarURL } from 'utils/url'
+import { getSelectedUser } from 'store/selectors/accounts'
+import get from 'lodash/get'
+import { strToArray } from 'utils/string'
+
 
 const items_about = [
   {
@@ -51,8 +64,6 @@ const items_employment = [
     description: 'Exadel was a great company which you might hope to work in. But I had some free time and I really wanna do nothing except coding that time. And I am out of that company. So I\'d like to find a chance to improve my skill and earn extra cash on Upwork.'
   }
 ]
-
-const items_skills = ['React Native', 'React', 'Redux Thunk', 'Ionic', 'JavaScript', 'TypeScript', 'Kotlin', 'Swift', 'Java', 'Flutter', 'Python']
 
 const items_portfolio = [
   {
@@ -119,27 +130,49 @@ const modalEditOverview = {
   ),
 };
 
-const About = () => {
+const About = ({
+  user,
+  profile
+}) => {
   const [modal, contextHolder] = Modal.useModal();
+
+  
+  const { hourly_rate, skills, overview, title } = merge({}, {
+    'hourly_rate': 25,
+    'skills': '',
+    'overview': '',
+    'title': ''
+  },
+  pick(profile, [
+    'hourly_rate',
+    'skills',
+    'overview',
+    'title'
+  ]))
+
+  const { avatar, name } = pick(user, [
+    'avatar',
+    'name'
+  ])
 
   return (
     <ReachableContext.Provider value={items_about[0].title}>
       <section id="about">
         <Row>
           <Col {...leftLayout} align='center'>
-            <img className="avatar-layout" src="http://gogs.hope.com/avatars/6?s=287" />
-            <Title level={4} className="name">Andrey S.</Title>
+            <img className="avatar-layout" src={avatarURL(avatar)} />
+            <Title level={4} className="name">{name}</Title>
           </Col>
           <Col {...rightLayout}>
             <Space align='top'>
-              <Title level={3}>{items_about[0].title}</Title>
+              <Title level={3}>{title}</Title>
               <Button shape="circle" icon={<EditOutlined />} onClick={() => {
                 modal.confirm(modalEditTitle);
               }} />
             </Space>
 
             <Space align='top'>
-              <div>{items_about[0].content}</div>
+              <div>{overview}</div>
               <Button shape="circle" icon={<EditOutlined />} onClick={() => {
                 modal.confirm(modalEditOverview);
               }} />
@@ -153,7 +186,16 @@ const About = () => {
   )
 }
 
-const Resume = () => {
+const Resume = ({
+  profile
+}) => {
+  const [skills, setSkills] = useState([])
+  const _skills = get(profile, 'skills', '')
+
+  useMemo(() => {
+    _skills.length > 0 && setSkills(strToArray(_skills))
+  }, [_skills])
+
   return (
     <section id="resume">
       <div className='work'>
@@ -221,8 +263,8 @@ const Resume = () => {
         <Col {...rightLayout}>
           <Space align='top'>
             <Row>
-              {items_skills.map((item) => (
-                <Tag className="skill_item" color="#aaa">{item}</Tag>
+              {skills.map((skill) => (
+                <Tag className="skill_item" color="#aaa">{skill}</Tag>
               ))}
             </Row>
             <Button shape="circle" icon={<EditOutlined />} />
@@ -270,14 +312,40 @@ const Portfolio = () => {
   )
 }
 
-const Profile = () => {
+const Profile = ({
+  user,
+  profile,
+  histories,
+  portfolios,
+  educations,
+  certificates,
+  loadUser
+}) => {
+  const match = useRouteMatch()
+
+  useEffect(() => {
+    match && loadUser(match.params.id)
+  }, [match])
+
   return (
     <div className="page-profile">
-      <About />
-      <Resume />
+      <About user={user} profile={profile}/>
+      <Resume profile={profile}/>
       <Portfolio />
     </div>
   )
 }
 
-export default Profile
+export default connect(
+  createStructuredSelector({
+    user: getSelectedUser,
+    profile: getProfile,
+    portfolios: getPortfolios,
+    histories: getHistories,
+    educations: getEducations,
+    certificates: getCertificates
+  }),
+  {
+    loadUser
+  }
+)(Profile)

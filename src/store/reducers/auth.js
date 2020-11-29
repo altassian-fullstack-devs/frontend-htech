@@ -1,8 +1,8 @@
 import { LOCATION_CHANGE } from 'connected-react-router'
 
-import { AUTHENTICATE, RESET_PASSWORD } from 'store/actions/auth'
+import { AUTHENTICATE, AUTO_AUTHENTICATE, RESET_PASSWORD } from 'store/actions/auth'
 import { LOG_OUT } from 'store/actions/accounts'
-import { createReducer } from 'store/utils'
+import { createReducer } from 'utils/store'
 
 const initialState = {
   isLoading: false,
@@ -31,6 +31,9 @@ const handlers = {
   [AUTHENTICATE.REQUEST]: handleRequest,
   [AUTHENTICATE.SUCCESS]: handleSuccess,
   [AUTHENTICATE.FAILURE]: handleFailure,
+  [AUTO_AUTHENTICATE.REQUEST]: handleRequest,
+  [AUTO_AUTHENTICATE.SUCCESS]: handleSuccess,
+  [AUTO_AUTHENTICATE.FAILURE]: handleFailure,
   
   [RESET_PASSWORD.REQUEST]: handleRequest,
   [RESET_PASSWORD.SUCCESS]: handleSuccess,

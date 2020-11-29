@@ -1,5 +1,5 @@
 const { LOAD_CERTIFICATES, CREATE_CERTIFICATE, UPDATE_CERTIFICATE } = require("store/actions/developer/certificates")
-const { createFields, createReducerHandlers, createReducer } = require("store/utils")
+const { createFields, createReducerHandlers, createReducer } = require("utils/store")
 
 const initialState = {
   ...createFields('certificates'),
@@ -7,9 +7,7 @@ const initialState = {
 }
 
 const handlers = {
-  ...createReducerHandlers('certificates', LOAD_CERTIFICATES, {
-    withReplace: true
-  }),
+  ...createReducerHandlers('certificates', LOAD_CERTIFICATES),
 }
 
 export default createReducer(initialState, handlers)

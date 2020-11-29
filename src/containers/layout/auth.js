@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { renderRoutes } from 'react-router-config'
 import { Layout } from 'antd'
-import Navbar from './common/header'
+import Navbar from './public/header'
 
 const { Header, Content } = Layout
 

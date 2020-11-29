@@ -1,13 +1,16 @@
 import { all, fork } from 'redux-saga/effects'
-// import visitor from './visitor'
-import session from './session'
+import auth from './auth'
 import uploading from './uploading'
+import ui from './ui'
+import profile from './profile'
 
 const rootSaga = function* root() {
   yield all([
-    // fork(visitor), 
-    fork(session), 
-    fork(uploading)])
+    fork(auth), 
+    fork(profile),
+    fork(uploading),
+    fork(ui)
+  ])
 }
 
 export default rootSaga

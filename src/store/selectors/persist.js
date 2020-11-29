@@ -14,6 +14,11 @@ export const getAccessToken = createSelector(
   access => get(access, 'access_token')
 )
 
+export const getHasToken = createSelector(
+  getAccessToken,
+  token => !!token
+)
+
 export const getAccessTokenType = createSelector(
   getAccess,
   access => get(access, 'token_type')

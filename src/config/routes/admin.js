@@ -1,16 +1,26 @@
 import { ADMIN_PATHS } from 'constants/paths'
-import { Clients, Developers } from 'containers/pages/admin'
+import { Clients, Developers, Client, Developer } from 'containers/pages/admin'
 
 const routes = () => [
   {
     path: ADMIN_PATHS.CLIENTS,
-    extract: true,
+    exact: true,
     component: Clients
   },
   {
     path: ADMIN_PATHS.DEVELOPERS,
-    extract: true,
+    exact: true,
     component: Developers
+  },
+  {
+    path: ADMIN_PATHS.CLIENT,
+    exact: true,
+    component: Client
+  },
+  {
+    path: ADMIN_PATHS.DEVELOPER,
+    exact: true,
+    component: Developer
   },
 ]
 

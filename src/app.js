@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { renderRoutes } from 'react-router-config'
 import { BrowserRouter } from 'react-router-dom'
-import { Provider, useSelector, connect } from 'react-redux'
+import { Provider, connect, ReactReduxContext } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { createStructuredSelector } from 'reselect'
+import { PersistGate } from 'redux-persist/integration/react'
 
 import routes from 'config/routes'
 import createStore from 'store'
@@ -14,23 +15,19 @@ import 'assets/styles/index.less'
 import { signInByToken } from 'store/actions/auth'
 import { getError, getIsLoading } from 'store/selectors/auth'
 import { Loading } from 'components/common'
-import { USER_ROLES } from 'constants/roles'
+import { getHasToken } from 'store/selectors/persist'
 
-const { store, history } = createStore({})
+const { store, history, persistor } = createStore({})
 
 let App = ({
   role,
   isReady,
   isLoading,
-  error,
   autoSignIn
 }) => {
   useEffect(() => {
-    const signIn = async () => {
-      await autoSignIn()
-    }
-    signIn()
-  }, [])
+    autoSignIn && autoSignIn()
+  }, [autoSignIn])
 
   return (
     <div className="App">
@@ -39,7 +36,7 @@ let App = ({
           <Loading />
         :
           <BrowserRouter>
-            { renderRoutes(routes({ isReady: true, role: USER_ROLES.admin})) }
+            { renderRoutes(routes({ isReady, role })) }
           </BrowserRouter>
       }
     </div>
@@ -51,7 +48,8 @@ App = connect(
     error: getError,
     isLoading: getIsLoading,
     isReady: getIsReady,
-    role: getVisitorRole
+    role: getVisitorRole,
+    hasToken: getHasToken
   }),
   {
     autoSignIn: signInByToken
@@ -59,10 +57,12 @@ App = connect(
 )(App)
 
 const Container = () => (
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <App/>
-      </ConnectedRouter>
+    <Provider store={store} context={ReactReduxContext}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ConnectedRouter history={history} context={ReactReduxContext}>
+          <App/>
+        </ConnectedRouter>
+      </PersistGate>
     </Provider>
   );
 

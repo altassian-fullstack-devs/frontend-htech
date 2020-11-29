@@ -1,6 +1,6 @@
 export { default as Home } from './home'
 export { default as Profile } from './profile'
-export { default as BrowseDevelopers } from './browse-developers'
+export { default as BrowseDevelopers } from './developers'
 export { default as HowWeWork } from './how-we-work'
 export { default as Portfolio } from './portfolio'
 export { default as Blog } from './blog'
