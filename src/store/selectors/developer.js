@@ -3,7 +3,10 @@ import { createSelector } from 'reselect'
 
 export const getState = state => state.developer
 
-export const getProfile = createSelector(getState, state => get(state, 'profiles.selected'))
+export const getProfile = createSelector(
+  getState,
+  state => get(state, 'profiles.selected')
+)
 
 export const getProfileId = createSelector(
   getProfile,

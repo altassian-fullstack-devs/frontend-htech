@@ -17,7 +17,6 @@ import DeveloperItem from 'components/developers/developer-item'
 const { Content } = Layout
 
 const BrowseDevelopers = ({
-  filters,
   page,
   isLoaded,
   isLoading,
@@ -25,8 +24,6 @@ const BrowseDevelopers = ({
   total,
   loadUsers,
   changePage,
-  changePageSize,
-  updateFilterForm,
 }) => {
   const history = useHistory()
 
@@ -39,7 +36,7 @@ const BrowseDevelopers = ({
   }
 
   const onClickItem = (id) => {
-    history.push('/profile')
+    history.push(`developers/${id}`)
   }
 
   return (
@@ -53,12 +50,16 @@ const BrowseDevelopers = ({
             renderItem={item => (isLoading ? <SkeletonItem/> : <DeveloperItem item={item} onClickItem={onClickItem}/>)}
           />
           <Row className='pagination-container' align='end'>
-            {isLoaded && total > 0 && (<Pagination
-              showSizeChanger={false}
-              size='small'
-              onChange={onChangePage}
-              defaultCurrent={page}
-              total={total} />)}
+            {
+              isLoaded && total > 0 && (
+                <Pagination
+                  showSizeChanger={false}
+                  size='small'
+                  onChange={onChangePage}
+                  defaultCurrent={page}
+                  total={total} />
+              )
+            }
           </Row>
         </Content>
       </Layout>

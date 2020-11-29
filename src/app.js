@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { renderRoutes } from 'react-router-config'
 import { BrowserRouter } from 'react-router-dom'
-import { Provider, connect } from 'react-redux'
+import { Provider, connect, ReactReduxContext } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { createStructuredSelector } from 'reselect'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -23,13 +23,11 @@ let App = ({
   role,
   isReady,
   isLoading,
-  error,
-  hasToken,
   autoSignIn
 }) => {
   useEffect(() => {
-    autoSignIn()
-  }, [])
+    autoSignIn && autoSignIn()
+  }, [autoSignIn])
 
   return (
     <div className="App">
@@ -59,9 +57,9 @@ App = connect(
 )(App)
 
 const Container = () => (
-    <Provider store={store}>
+    <Provider store={store} context={ReactReduxContext}>
       <PersistGate loading={null} persistor={persistor}>
-        <ConnectedRouter history={history}>
+        <ConnectedRouter history={history} context={ReactReduxContext}>
           <App/>
         </ConnectedRouter>
       </PersistGate>

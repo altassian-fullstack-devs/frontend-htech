@@ -55,7 +55,7 @@ export const createReducerHandlers = (type, actionTypes, handlerOptions = {}) =>
       } else {
         set(nextState, mappedResourceType, payloadResource)
       }
-      return state.merge({}, nextState, addToState)
+      return state.merge(nextState)
     }
   }
 }
