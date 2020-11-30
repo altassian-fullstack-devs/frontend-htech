@@ -25,11 +25,7 @@ function* updateList({ type, payload }) {
 
   const uiState = yield select(getUiState)
 
-  const filters = pick(get(uiState, `${payload.type}FilterForm`), [
-    'category',
-    'hourlyRate',
-    'jobSuccessRate',
-  ])
+  const filters = get(uiState, `${payload.type}FilterForm`, {})
 
   yield put(action({
     filters,

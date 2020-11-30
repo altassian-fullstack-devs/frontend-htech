@@ -1,7 +1,7 @@
 import { all, put, take, fork, race } from 'redux-saga/effects'
 
 import { loadProfile, LOAD_PROFILE, UPDATE_PROFILE } from 'store/actions/developer/profiles'
-// import { loadHistories, UPDATE_HISTORY } from 'store/actions/developer/histories'
+import { loadHistories, UPDATE_HISTORY } from 'store/actions/developer/histories'
 // import { loadPortfolios, UPDATE_PORTFOLIO } from 'store/actions/developer/portfolios'
 import { LOAD_ACCOUNT } from 'store/actions/accounts'
 import isArray from 'lodash/isArray'
@@ -15,7 +15,7 @@ function* fetchProfile() {
     if (role == USER_ROLES.developer) {
       yield all([
         put(loadProfile(id)),
-        // put(loadHistories(id)),
+        put(loadHistories({}, id)),
         // put(loadPortfolios(id)),
         // put(loadEducations(id)),
         // put(loadCertificates(id))

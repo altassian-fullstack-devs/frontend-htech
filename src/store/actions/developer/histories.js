@@ -8,13 +8,25 @@ export const LOAD_HISTORIES = createAsyncAction('developer/histories/LOAD')
 export const CREATE_HISTORY = createAsyncAction('developer/histories/CREATE')
 export const UPDATE_HISTORY = createAsyncAction('developer/histories/UPDATE')
 
-export const loadHistories = ({
-  paged = true,
-  number = 1,
-  size = 10,
-  sort,
-  filters
-} = {}) => (dispatch, getState) => {
+export const loadHistories = (params, id = null) => (dispatch, getState) => {
+  const defaultParams = {
+    page: {
+      number: 1,
+      size: 10,
+    },
+    sort: {},
+    filters: {},
+  }
+  
+  const query = merge({}, defaultParams, params)
+  id && merge(query, { id })
+
+  return apiCall({
+    method: 'POST',
+    endpoint: ENDPOINT.LOAD_HISTORIES,
+    types: LOAD_HISTORIES,
+    query
+  })(dispatch, getState)
 }
 
 export const updateHistory = (data, id, ownerId = null) => {

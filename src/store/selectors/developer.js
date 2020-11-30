@@ -20,7 +20,9 @@ export const getPortfolios = createSelector(
 
 export const getHistories = createSelector(
   getState,
-  state => get(state, 'histories.histories')
+  state => {
+    return get(state, 'histories.histories')
+  }
 )
 
 export const getEducations = createSelector(
