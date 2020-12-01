@@ -1,3 +1,8 @@
+export const GLOBAL = {
+  COMPANY_NAME_SHORT: 'HOPANA',
+  COMPANY_NAME_LONG: 'Hopana Tech'
+}
+
 export const API = {
   URL: "http://192.168.100.175:8000",
 }

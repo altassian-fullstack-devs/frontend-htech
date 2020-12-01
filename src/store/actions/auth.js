@@ -1,6 +1,7 @@
 import { createAsyncAction } from 'utils/store'
 import apiCall from 'services/api'
 import { ENDPOINT } from 'constants/app'
+import { getHasToken } from 'store/selectors/persist'
 
 export const AUTHENTICATE = createAsyncAction('auth/AUTHENTICATE')
 export const AUTO_AUTHENTICATE = createAsyncAction('auth/AUTHENTICATE/AUTO')
@@ -38,10 +39,21 @@ export const signUp = ({
   withoutPush: true
 })
 
-export const signInByToken = () => apiCall({
-  method: 'POST',
-  endpoint: ENDPOINT.SIGN_IN_BY_TOKEN,
-  query: {},
-  types: AUTO_AUTHENTICATE,
-  withoutPush: true
-})
+export const signInByToken = () => (dispatch, getState) => {
+  const hasToken = getHasToken(getState())
+  if (hasToken) {
+    return apiCall({
+      method: 'POST',
+      endpoint: ENDPOINT.SIGN_IN_BY_TOKEN,
+      query: {},
+      types: AUTO_AUTHENTICATE,
+      withoutPush: true
+    })
+  }
+  return dispatch({
+    type: AUTHENTICATE.FAILURE,
+    error: {
+      message: 'NO EXISTS TOKEN'
+    }
+  })
+}
