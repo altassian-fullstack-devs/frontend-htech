@@ -13,36 +13,42 @@ import { getVisitorRole } from 'store/selectors/accounts'
 
 import 'assets/styles/index.less'
 import { signInByToken } from 'store/actions/auth'
-import { getError, getIsLoading } from 'store/selectors/auth'
+import { getError, getIsLoaded, getIsLoading } from 'store/selectors/auth'
 import { Loading } from 'components/common'
 import { getHasToken } from 'store/selectors/persist'
-import { USER_ROLES } from 'constants/roles'
 
 const { store, history, persistor } = createStore({})
 
 let App = ({
   role,
   isReady,
-  isLoading,
+  isSigningIn,
+  hasToken,
   autoSignIn
 }) => {
   useEffect(() => {
     autoSignIn && autoSignIn()
   }, [autoSignIn])
 
-  return isLoading ?
-    <Loading />
-  : (
-    <BrowserRouter>
-      { renderRoutes(routes({ isReady: true, role: USER_ROLES.developer })) }
-    </BrowserRouter>
+  return (
+    <div className="App">
+      {
+        (isSigningIn || (hasToken && !isReady)) ?
+          <Loading />
+        :
+          <BrowserRouter>
+            { renderRoutes(routes({ isReady, role })) }
+          </BrowserRouter>
+      }
+    </div>
   )
 }
 
 App = connect(
   createStructuredSelector({
     error: getError,
-    isLoading: getIsLoading,
+    isSigningIn: getIsLoading,
+    isSignedIn: getIsLoaded,
     isReady: getIsReady,
     role: getVisitorRole,
     hasToken: getHasToken

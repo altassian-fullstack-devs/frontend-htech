@@ -23,15 +23,24 @@ body {
       font-size: 24px;
     }
 
+    .nav-right-container {
+      min-width: 70px;
+    }
+
     .nav-menu {
       display: flex;
       justify-content: center;
       background-color: transparent;
       border-bottom: 0;
+
+      &.ant-menu-horizontal > .ant-menu-item {
+        border-bottom: 0;
+      }
     }
 
     .nav-avatar-button {
       padding: 0;
+      float: right;
     }
   }
 }
@@ -50,8 +59,14 @@ body {
   margin-right: auto;
 }
 
-.ant-menu-horizontal > .ant-menu-item a {
-  color: white;
+.ant-menu-horizontal {
+  > .ant-menu-item a {
+    color: white;
+  }
+
+  > .ant-menu-item-selected a {
+    color: @primary-color;
+  }
 }
 
 .loading-container {

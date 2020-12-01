@@ -5,7 +5,10 @@ import { AUTHENTICATE, AUTO_AUTHENTICATE } from 'store/actions/auth'
 import { logOut, loadVisitor, LOAD_MY_ACCOUNT, LOG_OUT } from 'store/actions/accounts'
 import { appReady } from 'store/actions/app'
 
-import { ROOT_PATH } from 'constants/paths'
+import { ADMIN_ROOT, CLIENT_PATHS, DEVELOPER_PATHS, ROOT_PATH } from 'constants/paths'
+import { USER_ROLES } from 'constants/roles'
+import isArray from 'lodash/isArray'
+import head from 'lodash/head'
 
 function* auth() {
   while (true) {
@@ -24,7 +27,21 @@ function* auth() {
     if (!success) {
       yield put(logOut())
     } else {
-      manual && (yield put(push(ROOT_PATH)))
+      if (manual) {
+        const { payload: { data: { accounts } }} = success
+        const { role } = isArray(accounts) ? head(accounts) : accounts
+        
+        if (role === USER_ROLES.admin) {
+          yield put(push(ADMIN_ROOT))
+        } else if (role === USER_ROLES.client) {
+          yield put(push(CLIENT_PATHS.MY_JOBS))
+        } else if (role === USER_ROLES.developer) {
+          yield put(push(DEVELOPER_PATHS.MY_JOBS))
+        } else {
+          yield put(push(ROOT_PATH))
+        }
+      }
+
       yield put(appReady())
     }
   }

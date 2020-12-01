@@ -1,19 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { Layout } from 'antd'
-import Navbar from './header'
+
+import { NavBar, Footer } from 'components/common'
+import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
 import Sidebar from './sider'
 
-const { Header, Content, Sider, Footer } = Layout
+const { Content, Sider } = Layout
+
+const popOverContent = (
+  <div>
+    <p><Link to={PUBLIC_PATHS.PROFILE}>Profile</Link></p>
+    <p><Link to={ROOT_PATH}>Sign out</Link></p>
+  </div>
+);
 
 const Admin = ({ route }) => (
   <Layout>
-    <Header className="admin-nav-header">
-      <Navbar />
-    </Header>
-    <div className="admin-nav-header-empty"/>
-
+    <NavBar popOverContent={popOverContent} />
+    
     <Layout>
       <Sider className="nav-sider">
         <Sidebar />
@@ -24,7 +31,7 @@ const Admin = ({ route }) => (
           {renderRoutes(route.routes)}
         </Content>
 
-        <Footer style={{ textAlign: 'center' }}>HOPE ©2020 Created by HOPE LtD</Footer>
+        <Footer />
       </Layout>
     </Layout>
   </Layout>
