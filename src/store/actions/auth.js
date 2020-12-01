@@ -40,12 +40,12 @@ export const signUp = ({
 export const signInByToken = () => (dispatch, getState) => {
   const hasToken = getHasToken(getState())
   if (hasToken) {
-    return apiCall({
+    return dispatch(apiCall({
       method: 'POST',
       endpoint: ENDPOINT.SIGN_IN_BY_TOKEN,
       query: {},
       types: AUTO_AUTHENTICATE
-    })
+    }))
   }
   return dispatch({
     type: AUTHENTICATE.FAILURE,
