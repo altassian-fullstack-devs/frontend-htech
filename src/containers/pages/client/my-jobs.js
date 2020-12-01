@@ -56,19 +56,18 @@ const MyJobs = () => {
 
   return (
     <FixedWidthLayout className="page-client-jobs">
-      <Layout className="button-wrapper">
-        <Button className="button-new-job">Post a Job</Button>
+      <Layout className="client-jobs-header">
+        <div>My Jobs</div>
+        <Button className="button-new-job" href="/">Post a Job</Button>
       </Layout>
-      <Layout>
-        <SideFilter />
-        <Content className="client-jobs-content">
-          <List
-            itemLayout="horizontal"
-            dataSource={job_data}
-            renderItem={item => <JobItem item={item} onClickItem={onClickItem}/>}
-          />
-        </Content>
-      </Layout>
+      <Content className="client-jobs-content">
+        <div className="jobs-content-header">Active contracts ({job_data.length})</div>
+        <List
+          itemLayout="horizontal"
+          dataSource={job_data}
+          renderItem={item => <JobItem item={item} onClickItem={onClickItem}/>}
+        />
+      </Content>
     </FixedWidthLayout>
   )
 }

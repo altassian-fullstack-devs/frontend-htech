@@ -1,9 +1,13 @@
 .page-client-jobs {
   padding-bottom: 50px;
 
-  .button-wrapper {
-    align-items: flex-end;
-    margin: 10px 0 5px;
+  .client-jobs-header {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0 10px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 20px;
 
     .button-new-job {
       font-weight: bold;
@@ -25,10 +29,16 @@
   }
 
   .client-jobs-content {
-    padding: 50px 0 0;
     background: white;
     border: 1px solid #d9d9d9;
     border-radius: 5px;
+
+    .jobs-content-header {
+      padding: 15px 20px 15px;
+      border-bottom: solid 1px lightgray;
+      font-size: 16px;
+      font-weight: bold;
+    }
   }
 
   .list-item-job {
