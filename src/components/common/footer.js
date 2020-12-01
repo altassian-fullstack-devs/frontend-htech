@@ -1,8 +1,9 @@
 import { Layout } from 'antd'
+import { GLOBAL } from 'constants/app'
 
 const Footer = () => (
   <Layout.Footer style={{ textAlign: 'center' }}>
-    HOPE ©2020 Created by HOPE LtD
+    {GLOBAL.COMPANY_NAME_SHORT} ©2020 Created by {GLOBAL.COMPANY_NAME_LONG} LtD
   </Layout.Footer>
 )
 

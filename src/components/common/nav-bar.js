@@ -7,6 +7,7 @@ import { createStructuredSelector } from 'reselect'
 import {  ROOT_PATH } from 'constants/paths'
 import { FixedWidthLayout } from 'containers/layout'
 import { getIsReady } from 'store/selectors/app'
+import { GLOBAL } from 'constants/app'
 
 const NavBar = ({ 
   children, 
@@ -20,7 +21,7 @@ const NavBar = ({
       <Layout.Header className="nav-header">
         <FixedWidthLayout className="nav-bar">
           <div className="logo">
-            <Link to={ROOT_PATH}>HOPE</Link>
+            <Link to={ROOT_PATH}>{GLOBAL.COMPANY_NAME_SHORT}</Link>
           </div>
           
           <Menu mode="horizontal" className="nav-menu" selectedKeys={[pathname]}>

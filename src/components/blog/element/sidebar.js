@@ -1,18 +1,18 @@
 
 const category_list =  [
   {
-    url : "https://www.hope.com/blog/?tags=insights",
+    url : "blog/?tags=insights",
     name : "Insights",
   },{
-    url : "https://www.hope.com/blog/?tags=community",
+    url : "blog/?tags=community",
     name : "Community",
 
   },{
-    url : "https://www.hope.com/blog/?tags=events",
+    url : "blog/?tags=events",
     name : "Events",
 
   },{
-    url : "https://www.hope.com/blog/?tags=success_stories",
+    url : "blog/?tags=success_stories",
     name : "Success stories",
   }
 ]
