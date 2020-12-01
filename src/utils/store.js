@@ -30,7 +30,6 @@ export const createFields = (type, field, singular = false) => {
 export const createReducerHandlers = (type, actionTypes, handlerOptions = {}) => {
   const field = handlerOptions['mapToKey']
   const singular = handlerOptions['singular']
-  const addToState = handlerOptions['addToState']
   const addKey = !field || field === type ? '' : capitalizeFirstLetter(field)
   return {
     [actionTypes.REQUEST]: state => state.merge({

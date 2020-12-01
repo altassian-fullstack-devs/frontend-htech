@@ -17,8 +17,7 @@ export const signIn = (email, password) =>
       email,
       password,
     },
-    types: AUTHENTICATE,
-    withoutPush: true
+    types: AUTHENTICATE
   })
 
 export const signUp = ({
@@ -35,8 +34,7 @@ export const signUp = ({
     role,
     location
   },
-  types: AUTHENTICATE,
-  withoutPush: true
+  types: AUTHENTICATE
 })
 
 export const signInByToken = () => (dispatch, getState) => {
@@ -46,8 +44,7 @@ export const signInByToken = () => (dispatch, getState) => {
       method: 'POST',
       endpoint: ENDPOINT.SIGN_IN_BY_TOKEN,
       query: {},
-      types: AUTO_AUTHENTICATE,
-      withoutPush: true
+      types: AUTO_AUTHENTICATE
     })
   }
   return dispatch({
