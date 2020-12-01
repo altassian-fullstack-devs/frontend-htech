@@ -1,20 +1,22 @@
 import React from 'react'
-import { Menu } from 'antd'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
+import { Layout, Menu } from 'antd'
 
+import { NavBar, Footer } from 'components/common'
 import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
-import { FixedWidthLayout } from 'containers/layout'
 
-const Navbar = () => {
-  const { pathname } = useLocation()
+const popOverContent = (
+  <div>
+    <p><Link to={PUBLIC_PATHS.PROFILE}>Profile</Link></p>
+    <p><Link to={ROOT_PATH}>Sign out</Link></p>
+  </div>
+);
 
+const Public = ({ route }) => {
   return (
-    <FixedWidthLayout>
-      <div className="logo">
-        <Link to={ROOT_PATH}>HOPE</Link>
-      </div>
-      
-      <Menu mode="horizontal" className="nav-menu" selectedKeys={[pathname]}>
+    <Layout>
+      <NavBar popOverContent={popOverContent}>
         <Menu.Item key={PUBLIC_PATHS.HOW_WE_WORK}>
           <Link to={PUBLIC_PATHS.HOW_WE_WORK}>HOW WE WORK</Link>
         </Menu.Item>
@@ -30,9 +32,15 @@ const Navbar = () => {
         <Menu.Item key={PUBLIC_PATHS.ABOUT_US}>
           <Link to={PUBLIC_PATHS.ABOUT_US}>ABOUT US</Link>
         </Menu.Item>
-      </Menu>
-    </FixedWidthLayout>
+      </NavBar>
+
+      <Layout.Content className="page-content">
+        { renderRoutes(route.routes) }
+      </Layout.Content>
+      
+      <Footer />
+    </Layout>
   )
 }
 
-export default Navbar
+export default Public

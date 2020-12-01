@@ -28,8 +28,8 @@ const BrowseDevelopers = ({
   const history = useHistory()
 
   useEffect(() => {
-    loadUsers()
-  }, [])
+    loadUsers && loadUsers()
+  }, [loadUsers])
 
   const onChangePage = (page) => {
     changePage('developers', page)

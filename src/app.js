@@ -16,6 +16,7 @@ import { signInByToken } from 'store/actions/auth'
 import { getError, getIsLoading } from 'store/selectors/auth'
 import { Loading } from 'components/common'
 import { getHasToken } from 'store/selectors/persist'
+import { USER_ROLES } from 'constants/roles'
 
 const { store, history, persistor } = createStore({})
 
@@ -29,17 +30,12 @@ let App = ({
     autoSignIn && autoSignIn()
   }, [autoSignIn])
 
-  return (
-    <div className="App">
-      {
-        isLoading ?
-          <Loading />
-        :
-          <BrowserRouter>
-            { renderRoutes(routes({ isReady, role })) }
-          </BrowserRouter>
-      }
-    </div>
+  return isLoading ?
+    <Loading />
+  : (
+    <BrowserRouter>
+      { renderRoutes(routes({ isReady: true, role: USER_ROLES.developer })) }
+    </BrowserRouter>
   )
 }
 
