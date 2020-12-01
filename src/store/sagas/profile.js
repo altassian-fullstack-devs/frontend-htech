@@ -8,6 +8,7 @@ import isArray from 'lodash/isArray'
 import head from 'lodash/head'
 import { USER_ROLES } from 'constants/roles'
 import { loadEducations } from 'store/actions/developer/educations'
+import { loadEmployments } from 'store/actions/developer/employments'
 
 function* fetchProfile() {
   while (true) {
@@ -18,6 +19,7 @@ function* fetchProfile() {
         put(loadProfile(id)),
         put(loadHistories({}, id)),
         put(loadEducations({}, id)),
+        put(loadEmployments({}, id))
         // put(loadPortfolios(id)),
         // put(loadCertificates(id))
       ])

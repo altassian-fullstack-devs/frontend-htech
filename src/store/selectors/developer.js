@@ -30,6 +30,11 @@ export const getEducations = createSelector(
   state => get(state, 'educations.educations')
 )
 
+export const getEmployments = createSelector(
+  getState,
+  state => get(state, "employments.employments")
+)
+
 export const getCertificates = createSelector(
   getState,
   state => get(state, 'certificates.certificates')

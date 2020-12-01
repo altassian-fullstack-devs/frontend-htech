@@ -1,5 +1,5 @@
-const { LOAD_CERTIFICATES, CREATE_CERTIFICATE, UPDATE_CERTIFICATE } = require("store/actions/developer/certificates")
-const { createFields, createReducerHandlers, createReducer } = require("utils/store")
+import { LOAD_CERTIFICATES, CREATE_CERTIFICATE, UPDATE_CERTIFICATE } from "store/actions/developer/certificates"
+import { createFields, createReducerHandlers, createReducer } from "utils/store"
 
 const initialState = {
   ...createFields('certificates'),

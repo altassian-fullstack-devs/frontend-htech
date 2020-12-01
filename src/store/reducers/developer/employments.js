@@ -1,13 +1,13 @@
-import { LOAD_EDUCATIONS, CREATE_EDUCATION, UPDATE_EDUCATION } from "store/actions/developer/educations"
+import { LOAD_EMPLOYMENTS } from "store/actions/developer/employments"
 import { createFields, createReducerHandlers, createReducer } from "utils/store"
 
 const initialState = {
-  ...createFields('educations'),
+  ...createFields('employments'),
   defaultSize: 10
 }
 
 const handlers = {
-  ...createReducerHandlers('educations', LOAD_EDUCATIONS),
+  ...createReducerHandlers('employments', LOAD_EMPLOYMENTS),
 }
 
 export default createReducer(initialState, handlers)
