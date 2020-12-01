@@ -3,7 +3,8 @@ import pick from "lodash/pick"
 import { all, cancel, fork, put, select, takeEvery, throttle } from "redux-saga/effects"
 
 import { loadUsers } from "store/actions/accounts"
-import { loadHistories } from "store/actions/developer/educations"
+import { loadEducations } from "store/actions/developer/educations"
+import { loadHistories } from "store/actions/developer/histories"
 import { loadPortfolios } from "store/actions/developer/portfolios"
 import { CHANGE_PAGE, CHANGE_PAGE_SIZE, CHANGE_SORTED, UPDATE_FILTER_FORM } from "store/actions/ui"
 

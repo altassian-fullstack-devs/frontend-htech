@@ -4,55 +4,51 @@ import { createAsyncAction } from "utils/store";
 import { ENDPOINT } from 'constants/app'
 import apiCall from 'services/api'
 
-export const LOAD_HISTORIES = createAsyncAction('developer/histories/LOAD')
-export const CREATE_HISTORY = createAsyncAction('developer/histories/CREATE')
-export const UPDATE_HISTORY = createAsyncAction('developer/histories/UPDATE')
+export const LOAD_EDUCATIONS = createAsyncAction('developer/educations/LOAD')
+export const CREATE_EDUCATION = createAsyncAction('developer/educations/CREATE')
+export const UPDATE_EDUCATION = createAsyncAction('developer/educations/UPDATE')
 
-export const loadHistories = ({
-  number = 1,
-  size = 10,
-  sort,
-  filters,
-} = {}, ownerId = null) => (dispatch, getState) => {
-  let params = {
+export const loadEducations = (params, id = null) => (dispatch, getState) => {
+  const defaultParams = {
     page: {
-      number,
-      size,
+      number: 1,
+      size: 10,
     },
-    sort,
-    filter: filters
+    sort: {},
+    filters: {},
   }
-
-  ownerId && merge(params, { ownerId })
+  
+  const query = merge({}, defaultParams, params)
+  id && merge(query, { id })
 
   return apiCall({
     method: 'POST',
-    endpoint: ENDPOINT.LOAD_PORTFOLIOS,
-    types: LOAD_HISTORIES,
-    query: params
+    endpoint: ENDPOINT.LOAD_EDUCATIONS,
+    types: LOAD_EDUCATIONS,
+    query
   })(dispatch, getState)
 }
 
-export const updateHistory = (data, id, ownerId = null) => {
+export const updateEducation = (data, id) => {
   let query = { data, id }
-  ownerId && merge(query, { ownerId })
+  id && merge(query, { id })
 
   return apiCall({
     method: 'PUT',
-    endpoint: ENDPOINT.UPDATE_PORTFOLIO,
-    types: UPDATE_HISTORY,
+    endpoint: ENDPOINT.UPDATE_EDUCATION,
+    types: UPDATE_EDUCATION,
     query
   })
 }
 
-export const createHistory = (data, ownerId = null) => {
+export const createEducation = (data, id) => {
   let query = { data }
-  ownerId && merge(query, { ownerId })
+  id && merge(query, { id })
   
   return apiCall({
     method: 'POST',
-    endpoint: ENDPOINT.CREATE_PORTFOLIO,
-    type: CREATE_HISTORY,
+    endpoint: ENDPOINT.CREATE_EDUCATION,
+    type: CREATE_EDUCATION,
     query
   })
 }

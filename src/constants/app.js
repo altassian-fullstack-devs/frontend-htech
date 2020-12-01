@@ -22,6 +22,10 @@ export const ENDPOINT = {
   UPDATE_HISTORY: '/api/histories/update',
   CREATE_HISTORY: '/api/histories/create',
 
+  LOAD_EDUCATIONS: '/api/educations',
+  UPDATE_EDUCATION: '/api/educations/update',
+  CREATE_EDUCATION: '/api/educations/create',
+
   LOAD_PORTFOLIOS: '/api/portfolios',
   UPDATE_PORTFOLIO: '/api/portfolios/update',
   CREATE_PORTFOLIO: '/api/portfolios/create'

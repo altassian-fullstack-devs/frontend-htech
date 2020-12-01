@@ -2,19 +2,6 @@ import React from 'react'
 import { Col, Row, Button, Space, Typography } from 'antd'
 import { EditOutlined } from '@ant-design/icons'
 
-const items_education = [
-  {
-    name: 'Chelyabinsk State University',
-    date: '2016-2018',
-    degree: 'Bachelor of Engineering(BEng), Computer Graphics and Computer Science'
-  },
-  {
-    name: 'Nizhny Tagil boarding school No 2',
-    date: '2002-2012',
-    degree: 'Common High School Science'
-  },
-]
-
 const leftLayout = {
   md: { span: 6, offset: 2 },
   xs: { span: 24 }
@@ -32,7 +19,7 @@ const Education = ({
 }) => (
   <div class="education">
     <Space align='top'>
-      <Title level={4}>{education.name}</Title>
+      <Title level={4}>{education.school}</Title>
       <Button shape="circle" icon={<EditOutlined />} />
     </Space>
     <div className="date">{education.date}</div>
@@ -41,7 +28,7 @@ const Education = ({
 )
 
 export default ({
-
+  educations
 }) => (
   <div className='education'>
     <Row>
@@ -49,7 +36,7 @@ export default ({
         <Title level={3}>Education</Title>
       </Col>
       <Col {...rightLayout}>
-        {items_education.map((item) => (<Education education={item}/>))}
+        {educations.map((education) => (<Education education={education}/>))}
       </Col>
     </Row>
   </div>

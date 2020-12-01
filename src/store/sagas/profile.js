@@ -7,6 +7,7 @@ import { LOAD_ACCOUNT } from 'store/actions/accounts'
 import isArray from 'lodash/isArray'
 import head from 'lodash/head'
 import { USER_ROLES } from 'constants/roles'
+import { loadEducations } from 'store/actions/developer/educations'
 
 function* fetchProfile() {
   while (true) {
@@ -16,8 +17,8 @@ function* fetchProfile() {
       yield all([
         put(loadProfile(id)),
         put(loadHistories({}, id)),
+        put(loadEducations({}, id)),
         // put(loadPortfolios(id)),
-        // put(loadEducations(id)),
         // put(loadCertificates(id))
       ])
     }
