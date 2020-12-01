@@ -27,16 +27,19 @@ const data01 = [
 const TechItems = ({}) => {
 
   const [isLoaded, setIsLoaded ] = useState(false);  
-  useMemo(() => {
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 2000)}, [isLoaded])
+  // useMemo(() => {
+  //   setTimeout(() => {
+  //     setIsLoaded(true);
+  //   }, 2000)}, [isLoaded])
+  useEffect(() => {
+    setIsLoaded(true);
+  })  
 
 
   const data = [10, 20, 30];
   return (
     <FixedWidthLayout>
-      <Row className='techitems container'>
+      <Row className='techitems'>
         <Col sm = {24} md={24} lg={10}>
           <h2>Dedicated engineers, hand-picked</h2>
           <p>

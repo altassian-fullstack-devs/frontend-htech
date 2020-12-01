@@ -129,7 +129,7 @@ export default class Demo extends Component {
     const { activeIndex } = this.state;
     return (
       <Row style={{height:'100%'}} className='piechart'>
-        <Col sm={16} xs={24}>
+        <Col sm={16} xs={24} style={{paddingTop:'100px'}}>
             <PieChart width={400} height={400} onMouseEnter={this.handlePieChartEnter}>
               <Pie
                 data={data02}
@@ -165,7 +165,7 @@ export default class Demo extends Component {
               </Pie>
             </PieChart>
         </Col>
-        <Col sm={8} xs={24} style={{display:'flex', justifyContent:'center'}}>
+        <Col sm={8} xs={24} style={{display:'flex', justifyContent:'center', paddingTop:'100px'}}>
           <div className='' >
                 <div className='ul_padding' style={{height: '113.6px'}} ref={this.state.ref}></div>
                 <ul>

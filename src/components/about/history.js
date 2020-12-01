@@ -109,7 +109,7 @@ const YearOut = ({id, cid}) => (
           {imgData[id].map((item, index) => 
             (
               <div key={index} style={{padding:'0px 10px'}}>
-                <div style={{width:'100%', padding:'0px auto'}}>
+                <div style={{width:'100%', padding:'0px auto', display: 'flex', justifyContent: 'center'}}>
                   <img src={require(`assets/images/about/${imgData[id][index]}.png`).default} style={{width:'100px', height:'100px'}}></img>
                 </div>
                 <p>{descData[id][index]}</p>
@@ -117,25 +117,6 @@ const YearOut = ({id, cid}) => (
           ))}
         </div>
       </div>
-  // <Row className={`swiper-slide ${id == cid + 1 ? 'swiper-slide-next': ''} ${id == cid ? 'swiper-slide-active' : ''}`} data-year={years[id]} 
-  //         style={{width:width, opacity: id <= cid ? 1 : 0, transform:`translate3d(-${width * id}px, 0px, 0px)`, transition: 'all .3s ease 0s'}}>
-  //     <Col lg = {16}>
-  //     <ul>
-  //       {showData[id].map(
-  //         (item, index) => (<li key={index} >{item}</li>)
-  //       )}
-  //     </ul>
-  //   </Col>
-  //   <Col lg = {8} style={{display:'flex'}}>
-  //     {imgData[id].map((item, index) => 
-  //     (
-  //       <div key={index}>
-  //         <img src={`assets/images/about/${imgData[id][index]}.png`}></img>
-  //         <p>{descData[id][index]}</p>
-  //       </div>
-  //     ))}
-  //   </Col>
-  // </Row>
 )
 
 const History = ({}) => {
