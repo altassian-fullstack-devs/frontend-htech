@@ -1,6 +1,5 @@
 import React from 'react'
 import { List, Row } from 'antd'
-import { decorateSkills } from 'utils/string'
 
 export default ({ 
   item,
