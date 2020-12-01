@@ -1,18 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Button, Popover, Avatar, Menu, Layout } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
+import { createStructuredSelector } from 'reselect'
 
-import { PUBLIC_PATHS, ROOT_PATH } from 'constants/paths'
+import {  ROOT_PATH } from 'constants/paths'
 import { FixedWidthLayout } from 'containers/layout'
+import { getIsReady } from 'store/selectors/app'
 
-const content = (
-  <div>
-    <p><Link to={PUBLIC_PATHS.PROFILE}>Profile</Link></p>
-    <p><Link to={ROOT_PATH}>Sign out</Link></p>
-  </div>
-);
-
-const NavBar = ({ children, popOverContent }) => {
+const NavBar = ({ 
+  children, 
+  popOverContent,
+  isAppReady
+}) => {
   const { pathname } = useLocation()
 
   return (
@@ -27,13 +27,15 @@ const NavBar = ({ children, popOverContent }) => {
             {children}
           </Menu>        
 
-          {popOverContent &&
-            <Popover placement="bottomRight" content={popOverContent} trigger="click">
-              <Button className="nav-avatar-button" shape="circle">
-                <Avatar src="http://gogs.hope.com/avatars/6?s=287" />
-              </Button>
-            </Popover>
-          }
+          <div className="nav-right-container">
+            {popOverContent && isAppReady &&
+              <Popover placement="bottomRight" content={popOverContent} trigger="click">
+                <Button className="nav-avatar-button" shape="circle">
+                  <Avatar src="http://gogs.hope.com/avatars/6?s=287" />
+                </Button>
+              </Popover>
+            }
+          </div>
         </FixedWidthLayout>
       </Layout.Header>
       <div className="nav-header-empty"/>
@@ -41,4 +43,8 @@ const NavBar = ({ children, popOverContent }) => {
   )
 }
 
-export default NavBar
+export default connect(
+  createStructuredSelector({
+    isAppReady: getIsReady
+  })
+)(NavBar)

@@ -24,7 +24,7 @@ const Developer = ({ route }) => (
         <Link to={DEVELOPER_PATHS.REPORTS}>REPORTS</Link>
       </Menu.Item>
       <Menu.Item key={DEVELOPER_PATHS.MESSAGES}>
-        <Link to={DEVELOPER_PATHS.MESSAGES}>Messages</Link>
+        <Link to={DEVELOPER_PATHS.MESSAGES}>MESSAGES</Link>
       </Menu.Item>
     </NavBar>
 
