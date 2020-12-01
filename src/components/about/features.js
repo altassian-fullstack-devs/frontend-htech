@@ -2,6 +2,7 @@ import react from 'react'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FixedWidthLayout } from 'containers/layout';
 
 let data = [
   { 
@@ -68,7 +69,7 @@ var settings = {
 };
 
 const Feature = ({}) => (
-  <div className='data featured-works container'>
+  <FixedWidthLayout className='data featured-works'>
     <h2 class="line">
       <span>Featured</span>
       works
@@ -76,6 +77,6 @@ const Feature = ({}) => (
     <Slider {...settings} className='feature-slider'>
       {data.map((item, index) => (<FeatureItem key={index} {...item} ></FeatureItem>))}
     </Slider>
-  </div>
+  </FixedWidthLayout>
 )
 export default Feature

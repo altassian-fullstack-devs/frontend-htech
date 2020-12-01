@@ -1,5 +1,5 @@
 import react from 'react'
-
+import { FixedWidthLayout } from 'containers/layout';
 const SoftwareItem = ({ alt, src }) => (
   <span className="item">
     <img alt={alt} height="50" src={require(`assets/images/about/${src}.png`).default}/>
@@ -51,7 +51,7 @@ let items = [
 
 const Software = () => (
   <span className="black z-index-100 margin-minus-30">
-    <span className="container">
+    <FixedWidthLayout>
       <span className="data">
         <h3 className="thin">
           We’re building software solutions <br/>for 200+ clients right now
@@ -63,7 +63,7 @@ const Software = () => (
           {items.map((item, index) => (<SoftwareItem key={index} {...item} />))}
         </span>
       </span>
-    </span>
+    </FixedWidthLayout>
   </span>
 )
 export default Software
