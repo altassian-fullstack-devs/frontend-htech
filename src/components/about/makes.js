@@ -17,7 +17,7 @@ const MakesItem = ({img, desc}) => (
     // <h1>{desc}</h1>
   <div className='d-flex flex-1 makeitem'>
     <img alt="Invest" src={require(`assets/images/about/${img}`).default} className='flex-1' style={{maxWidth:'60px', filter:'invert(1)'}}/>
-    <div className='flex-2'>Invest in FF Ventures to support the early-stage tech companies</div>
+    <div className='flex-2'>{desc}</div>
   </div>
   // </div>
 )
