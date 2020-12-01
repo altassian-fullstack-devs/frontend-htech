@@ -35,7 +35,6 @@ const defaultOptions = {
   fileParams: null,
   types: null,
   paged: false,
-  withoutPush: false,
   withoutAuthorization: false
 }
 
@@ -53,7 +52,6 @@ export default options => async (dispatch, getState) => {
     fileParams,
     payload,
     types,
-    withoutPush,
     withoutAuthorization
   } = merge({}, defaultOptions, options)
   
@@ -132,7 +130,6 @@ export default options => async (dispatch, getState) => {
          
           const successData = {
             ok: true,
-            withoutPush,
             payload: { ...payload, data: body },
           }
 
