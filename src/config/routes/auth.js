@@ -10,12 +10,14 @@ const routes = viewer => [
   {
     path: AUTH_PATHS.SIGN_IN,
     exact: true,
-    component: redirectAuthorized(viewer)(SignIn),
+    // component: redirectAuthorized(viewer)(SignIn),
+    component: SignIn
   },
   {
     path: AUTH_PATHS.SIGN_UP,
     exact: true,
-    component: redirectAuthorized(viewer)(SignUp),
+    // component: redirectAuthorized(viewer)(SignUp),
+    component: SignUp
   },
   { component: NotFoundRedirector }
 ]
