@@ -8,11 +8,14 @@ import {  ROOT_PATH } from 'constants/paths'
 import { FixedWidthLayout } from 'containers/layout'
 import { getIsReady } from 'store/selectors/app'
 import { GLOBAL } from 'constants/app'
+import { getVisitorPhoto } from 'store/selectors/accounts'
+import { avatarURL } from 'utils/url'
 
 const NavBar = ({ 
   children, 
   popOverContent,
-  isAppReady
+  isAppReady,
+  userPhoto
 }) => {
   const { pathname } = useLocation()
 
@@ -32,7 +35,7 @@ const NavBar = ({
             {popOverContent && isAppReady &&
               <Popover placement="bottomRight" content={popOverContent} trigger="click">
                 <Button className="nav-avatar-button" shape="circle">
-                  <Avatar src="http://gogs.hope.com/avatars/6?s=287" />
+                  <Avatar src={avatarURL(userPhoto)} />
                 </Button>
               </Popover>
             }
@@ -46,6 +49,7 @@ const NavBar = ({
 
 export default connect(
   createStructuredSelector({
-    isAppReady: getIsReady
+    isAppReady: getIsReady,
+    userPhoto: getVisitorPhoto,
   })
 )(NavBar)
