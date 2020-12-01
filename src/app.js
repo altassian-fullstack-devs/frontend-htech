@@ -13,7 +13,7 @@ import { getVisitorRole } from 'store/selectors/accounts'
 
 import 'assets/styles/index.less'
 import { signInByToken } from 'store/actions/auth'
-import { getError, getIsLoading } from 'store/selectors/auth'
+import { getError, getIsLoaded, getIsLoading } from 'store/selectors/auth'
 import { Loading } from 'components/common'
 import { getHasToken } from 'store/selectors/persist'
 
@@ -22,7 +22,8 @@ const { store, history, persistor } = createStore({})
 let App = ({
   role,
   isReady,
-  isLoading,
+  isSigningIn,
+  hasToken,
   autoSignIn
 }) => {
   useEffect(() => {
@@ -32,7 +33,7 @@ let App = ({
   return (
     <div className="App">
       {
-        isLoading ?
+        (isSigningIn || (hasToken && !isReady)) ?
           <Loading />
         :
           <BrowserRouter>
@@ -46,7 +47,8 @@ let App = ({
 App = connect(
   createStructuredSelector({
     error: getError,
-    isLoading: getIsLoading,
+    isSigningIn: getIsLoading,
+    isSignedIn: getIsLoaded,
     isReady: getIsReady,
     role: getVisitorRole,
     hasToken: getHasToken

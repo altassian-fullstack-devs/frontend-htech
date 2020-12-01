@@ -28,6 +28,11 @@ export const getVisitorPhoto = createSelector(
   visitor => get(visitor, 'photo')
 )
 
+export const getIsLoadingVisitor = createSelector(
+  getState,
+  state => state.isLoadingMe
+)
+
 export const getSelectedUser = createSelector(
   getState,
   state => state.selected
